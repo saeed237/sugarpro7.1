@@ -1,0 +1,48 @@
+.loading {
+    display: inline;
+}
+
+.loading span {
+    background-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #efefef #efefef #eee #eee;
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    margin-right: 1px;
+    opacity: 0.2;
+    margin-top: 0.3em;
+    .scale(0.7);
+    -moz-animation: move 1s infinite linear;
+    -webkit-animation: move 1s infinite linear;
+    animation: move 1s infinite linear;
+}
+
+.loading .l1 {
+    -moz-animation-delay: .1s;
+    -webkit-animation-delay: .1s;
+}
+
+.loading .l2 {
+    -moz-animation-delay: .2s;
+    -webkit-animation-delay: .2s;
+}
+
+.loading .l3 {
+    -moz-animation-delay: .3s;
+    -webkit-animation-delay: .3s;
+}
+
+.loading.wide {
+  padding: 0 0 0 20px;
+}
+
+@-moz-keyframes move{
+    0%{-moz-transform: scale(1.2);opacity:1;}
+    100%{-moz-transform: scale(0.5);opacity:0.1;}
+}
+@-webkit-keyframes move{
+    0%{-webkit-transform: scale(1.2);opacity:1;}
+    100%{-webkit-transform: scale(0.5);opacity:0.1;}
+}

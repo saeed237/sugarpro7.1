@@ -1,0 +1,28 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#each value}}
+<div class="control-group email">
+    {{#if hasAnchor}}
+	    <a title="{{email_address}}{{#notEq flagLabel ''}}, {{flagLabel}}{{/notEq}}" data-placement="bottom" class="ellipsis_inline{{#if ../../useSugarEmailClient}} composeEmail{{/if}}" href="{{#if ../../useSugarEmailClient}}javascript:void(0);{{else}}mailto:{{email_address}}{{/if}}">{{email_address}}</a>
+    {{else}}
+	    {{#eq flagClass 'invalid'}}
+		    <del title="{{email_address}}, {{flagLabel}}" data-placement="bottom" class="ellipsis_inline">{{email_address}}</del>
+	    {{else}}
+	        <span title="{{email_address}}, {{flagLabel}}" data-placement="bottom" class="ellipsis_inline">{{email_address}}</span>
+	    {{/eq}}
+    {{/if}}
+</div>
+{{/each}}

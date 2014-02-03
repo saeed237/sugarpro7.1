@@ -1,0 +1,611 @@
+//email compose recipient select2
+.record div[data-type="recipients"].controls.btn-fit {
+  .btn {
+    top: 0;
+    right: 0;
+  }
+}
+.record div[data-name="to_addresses"].controls.btn-fit {
+  .select2-container {
+    .select2-choices {
+      border-radius: 3px;
+      &:before {
+        content: attr(data-content-before);
+        float: right;
+        font-size: 12px;
+        padding: 2px 1px 2px 14px;
+        width: auto;
+      }
+    }
+    .select2-search-field input {
+      padding: 0 6px;
+      position: absolute;
+      height: 22px;
+      min-height: 22px;
+    }
+  }
+}
+.record div[data-type="attachments"].controls {
+  input[type="file"] {
+    display: none;
+  }
+  .select2-search-field input {
+    padding: 0 6px;
+    min-height: 22px;
+  }
+}
+
+//main record edit
+.record {
+  clear: both;
+  padding: 10px 20px 10px 5px;
+  .form-horizontal {
+    .record-cell,
+    .normal {
+      min-height: 50px;
+      padding-left: 0;
+    }
+    .record-cell {
+      input[type="text"],
+      textarea,
+      .uneditable-input,
+      .select2-container {
+        margin-left: 0 !important;
+        z-index: 1;
+        min-height: 28px;
+      }
+      //for email compose
+      .compose-sender-options {
+        position: absolute;
+        top: 3px;
+        right: 39px;
+        z-index: 2;
+        background-color: #FFF;
+        padding: 2px;
+      }
+      .help-block {
+        min-height: 8px;
+      }
+    }
+    .record-edit-link-wrapper {
+      top: 2px;
+      left: -32px;
+    }
+    .mceLayout {
+      width: 100% !important;
+      .border-radius(4px);
+    }
+  }
+
+  .record-cell {
+    display: inline-block;
+    position: relative;
+    padding-left: 15px;
+    min-height: 43px;
+    margin-bottom: 7px;
+
+    .record-label {
+      font-size: @fontSizeSmall;
+      color: darken(@grayLight, 5%);
+      padding-bottom: 2px;
+    }
+
+    .normal > span {
+      display: block;
+    }
+
+    .ellipsis_inline {
+      display: block !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea,
+    .uneditable-input {
+      position: relative;
+      z-index: 1;
+      margin-top: -5px;
+      margin-left: -7px;
+      font-size: @fontSizeLarge;
+      font-weight: 500;
+      color: @gray;
+      width: 100%;
+    }
+    /* Must be same as above margin-top definition */
+    .input-append input[type="text"] + .add-on,
+    .input-append textarea + .add-on {
+      margin-top: -5px;
+    }
+
+    .edit > [type="password"]:first-of-type {
+      margin-bottom: 1px !important;
+      z-index: 2;
+    }
+
+    .edit > [type="password"]:not(:first-of-type) {
+      margin-top: -3px !important;
+    }
+
+    /* Must be same as above margin-top definition */
+    .input-append input[type="text"] + .add-on,
+    .input-append textarea + .add-on {
+      margin-top: -5px;
+    }
+
+    span.disabled {
+      input[type="text"],
+      textarea,
+      .uneditable-input {
+        color: @grayLight;
+      }
+    }
+
+    div[class*="span"] {
+      .select2-container {
+        margin-top: -5px;
+      }
+    }
+
+    .select2-container {
+      z-index: 1;
+      margin: -5px 0 0 -9px;
+      .select2-choice {
+        color: @gray;
+      }
+    }
+
+    input[type="radio"],
+    input[type="checkbox"],
+    input[type="image"] {
+      display: inline-block;
+      margin: 0 6px 4px 0;
+      vertical-align: baseline;
+    }
+
+    .input-append {
+      input[type="text"],
+      textarea,
+      .uneditable-input {
+        vertical-align: middle;
+      }
+    }
+
+    .help-block {
+      margin: 0 0 0 8px;
+      min-height: 18px;
+      display: none;
+    }
+
+    &[data-type="textarea"] {
+      .normal > span {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      textarea {
+        margin-top: -5px;
+      }
+    }
+    &[data-type="email"] {
+      .normal > span {
+        display: block !important;
+      }
+      .control-group.email > span,
+      .control-group.email > del {
+        color: @grayLight;
+      }
+      .edit .control-group.email {
+        padding-right: 132px;
+        position: relative;
+        margin-bottom: 2px;
+        input[type="text"] {
+          min-height: 18px;
+          margin-bottom: 6px;
+        }
+        .input-append.widget {
+          margin-bottom: 0;
+          input[type="text"],
+          textarea,
+          .uneditable-input {
+            .box-sizing(border-box);
+            height: 32px;
+            margin-top: 0;
+            width: 100%;
+            .border-radius(0);
+            border-width: 0 1px 1px 1px;
+            &:focus {
+              z-index: 2;
+            }
+          }
+        }
+        .btn-toolbar {
+          position: absolute;
+          /* Must be same as input[type="text"] margin-top definition */
+          top: -5px;
+          right: 0;
+          width: 118px;
+          padding: 0;
+          .btn-group {
+            float: left;
+          }
+        }
+      }
+      .help-block {
+        min-height: 0;
+      }
+      /*.control-group.email:first-child input[type="text"] {
+        .border-top-left-radius(3px);
+        .border-top-right-radius(3px);
+        border-width: 1px 1px 1px 1px;
+      }
+      .control-group.email:last-child input[type="text"] {
+        .border-bottom-left-radius(3px);
+        .border-bottom-right-radius(3px);
+      }*/
+    }
+
+    &[data-type="bool"] {
+      label {
+        margin-bottom: 0;
+      }
+    }
+
+    &[data-type="radioenum"] {
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      label, .add-on {
+        display: inline-block;
+      }
+      .add-on {
+        left: 10px;
+        font-size: 12px;
+      }
+    }
+
+    &[data-type="enum"],
+    &[data-type="relate"] {
+      .normal > span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        .select2-container {
+          position: absolute;
+        }
+      }
+      .error {
+        .input-append {
+          position: static;
+          font-size: inherit;
+        }
+        .add-on.error-tooltip {
+          position: absolute;
+          right: -5px;
+          top: 16px;
+        }
+      }
+    }
+
+    //fix for multi select ui-sortable
+    &[data-type="enum"] .normal > span
+    .select2-container.select2-container-multi.select2-choices-pills-close {
+      position: relative;
+      width: ~"-moz-calc(100% + 16px)" !important;
+      width: ~"-webkit-calc(100% + 16px)" !important;
+      width: ~"calc(100% + 16px)" !important;
+    }
+
+    &[data-type="parent"] {
+      .span8 .select2-container a {
+        margin-right: -14px;
+      }
+    }
+
+    &[data-type="teamset"] {
+      .control-group.teamset {
+        padding: 0;
+        label {
+          margin-bottom: 0;
+        }
+      }
+      .normal .control-group {
+        margin-bottom: 4px;
+        .btn {
+          top: -5px;
+        }
+      }
+    }
+
+
+
+
+    &[data-type="fieldset"] {
+      .error {
+        .input-append.date {
+          .error-tooltip.add-on {
+            left: -15px;
+          }
+          input[type="text"] {
+            width: 124px;
+          }
+        }
+      }
+    }
+
+    &[data-type="date"],
+    &[data-type="datetimecombo"] {
+      input[type="text"] {
+          width: 110px;
+      }
+      .add-on {
+        z-index: 2;
+        padding: 4px 0px 4px 4px;
+        margin: -5px 10px 0 -30px;
+        width: 12px;
+        height: 12px;
+        position: relative;
+        top: -4px;
+        left: 7px;
+        background: @white;
+        font-size: 12px;
+      }
+
+      &[data-type="date"] input[type="text"]{
+        width: 100%;
+      }
+
+      .input-append.date {
+        .add-on {
+            top: 4px;
+            left: 5px;
+        }
+        .error {
+            .add-on {
+              &:not(.error-tooltip) {
+                left: 1px;
+              }
+            }
+        }
+        .ui-timepicker-input,
+        .ui-timepicker-list {
+            margin-left: 10px;
+        }
+      }
+      .input-append span.error-tooltip.add-on {
+        left: -10px;
+        z-index: 3;
+      }
+
+
+
+
+    }
+
+    &[data-type="fieldset"] {
+      .ellipsis_inline {
+        margin-bottom: 0;
+        height: 18px;
+      }
+      input[type="text"] {
+        .border-radius(0);
+        border-width: 0 1px 1px 1px;
+        /*padding: 7px 6px 6px;*//*UIUX-869*/
+        &:focus {
+          z-index: 2;
+        }
+      }
+      .normal > span {
+        > span:first-child input[type="text"] {
+          .border-top-left-radius(3px);
+          .border-top-right-radius(3px);
+          border-width: 1px 1px 1px 1px;
+          /*padding: 6px;*/
+        }
+        > span:last-child input[type="text"] {
+          .border-bottom-left-radius(3px);
+          .border-bottom-right-radius(3px);
+        }
+      }
+      .help-block {
+        min-height: 0;
+      }
+
+      h1 {
+        .select2-container {
+          margin: 0 14px 0 -7px;
+        }
+        input[type="text"] {
+          border-width: 1px;
+          padding: 6px;
+          .border-radius(3px);
+          margin-right: 14px;
+          width: 210px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    &[data-name="fieldset_address"],
+    &[data-name="fieldset_shipping_address"],
+    &[data-name="fieldset_alt_address"],
+    &[data-name="fieldset_altaddress"] {
+      input[type="text"] {
+        margin-top: -1px;
+      }
+      .address.edit > .edit:nth-last-child(2) > input {
+        .border-bottom-left-radius(3px);
+        .border-bottom-right-radius(3px);
+      }
+      .edit label {
+        padding: 4px 0 0;
+        margin-bottom: 0;
+      }
+      .address .detail {
+        min-height: 10px;
+      }
+    }
+
+    &[data-type="favorite"] {
+      display: none;
+    }
+
+    &[data-type="compose-actionbar"] {
+      min-height: 0;
+      .normal {
+        min-height: 0;
+      }
+      padding-bottom: 8px;
+      .btn {
+        [class^="icon-"] {
+          margin-right: 6px;
+        }
+      }
+      .actions .dropdown-menu {
+        left: 0;
+        right: auto;
+      }
+      .btn.dropdown-toggle {
+        [class^="icon-"] {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .record-edit-link-wrapper {
+    top: 15px;
+    left: -18px;
+  }
+
+
+  .wide {
+    width: 100%;
+  }
+
+  .normal {
+    font-size: @fontSizeLarge;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+  }
+
+  .record-save-btns-bar {
+    margin-right: 8px;
+  }
+
+  .row-fluid.toggle {
+    margin-bottom: 16px;
+  }
+}
+
+// labels on left side
+.record {
+  .card2 {
+    .normal {
+      .detail {
+        padding: 8px 0 0;
+        display: inline-block;
+      }
+      .edit {
+        padding: 0;
+        .select2-container {
+          margin-top: 0;
+        }
+      }
+      .address.detail {
+        padding-top: 10px;
+        &>.detail {
+          padding-top: 0;
+        }
+      }
+    }
+    .record-cell .address.edit {
+      &> .edit {
+        padding-top: 0;
+        margin-bottom: 0;
+        &:first-child {
+          input[type="text"] {
+            margin-top: 3px;
+          }
+        }
+      }
+      input[type="text"] {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+
+//common to both .record and .headerpane
+.record-edit-link-wrapper {
+  position: absolute;
+  z-index: 0;
+  .record-edit-link {
+    display: none;
+    padding: 4px 7px 4px;
+    text-decoration: none;
+    cursor: pointer;
+    &.btn-invisible:hover {
+      border: 1px solid transparent;
+      background: none;
+    }
+  }
+  &:hover .record-edit-link{
+    display: block;
+  }
+}
+.record-cell:hover {
+  .record-edit-link {
+    display: inline-block;
+  }
+}
+.record-cell.edit:hover .record-edit-link {
+  display: none;
+}
+
+//show more-less control
+.show-hide-toggle {
+  padding: 0 0 20px;
+  .record-cell {
+    text-indent: 20px;
+  }
+}
+
+/* Special treatment for the address fields */
+.record-cell {
+  [class*='address_']:not(.edit) {
+    display: inline-block;
+  }
+  .address_street,
+  .address_country,
+  .address_misc_block /* miscelaneous class for more complex/international address formats */ {
+    width: 100%;
+    clear: both;
+  }
+  :not(.edit) {
+    &.address_city {
+      div:after {
+        content: ",";
+        margin-left: -4px;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .address_city {
+    .ellipsis_inline:empty:after {
+      content: "";
+    }
+  }
+  .address_city,
+  .address_state,
+  .address_zip {
+    &> div.ellipsis_inline {
+      display: inline !important;
+      overflow: visible;
+    }
+  }
+}

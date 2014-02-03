@@ -1,0 +1,20 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{title}}
+{{getFieldValue model 'name'}}
+{{str "MSG_JS_ALERT_MTG_REMINDER_START"}} {{dateStart}}
+{{#eq module "Calls"}}{{#if description}}{{str "MSG_JS_ALERT_MTG_REMINDER_DESC"}}{{description}}{{/if}}{{str "MSG_JS_ALERT_MTG_REMINDER_CALL_MSG"}}{{/eq}}
+{{#eq module "Meetings"}}{{#if location}}{{str "MSG_JS_ALERT_MTG_REMINDER_LOC"}}{{location}}{{/if}}{{str "MSG_JS_ALERT_MTG_REMINDER_MEETING_MSG"}}{{/eq}}

@@ -1,0 +1,3 @@
+(function($){$.fn.dataTableExt.afnSortData['dom-number']=function(oSettings,iColumn,jColumn)
+{var aData=[];var sortString;$('td:eq('+jColumn+') span[sfuuid]',oSettings.oApi._fnGetTrNodes(oSettings)).each(function(){sortString=$(this).find('.click.format').text();if(_.isEmpty(sortString)){sortString=this.textContent;}
+aData.push(SUGAR.App.currency.unformatAmount(sortString,SUGAR.App.user.getPreference('number_grouping_separator'),SUGAR.App.user.getPreference('decimal_separator'),false));});return aData;}})(jQuery);

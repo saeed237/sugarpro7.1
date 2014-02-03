@@ -1,0 +1,371 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Fetches the help documentation
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any input parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;html&gt;
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Returns the html of the help doc
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;SugarCRM Auto Generated API Help&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;../../cache/themes/clients/base/default/6a031485bf5239b9462e4aaba72a4646.css&quot;&gt;
+
+        &lt;style&gt;
+
+            body {
+                padding: 5px;
+            }
+
+            .container-fluid div{
+                background-color: @NavigationBar;
+            }
+
+            .line{
+                border-bottom: 1px solid black;
+            }
+
+            .score{
+                text-align: right;
+            }
+
+            .pre-scrollable {
+                width: 600px;
+                background-color: white;
+                color: red;
+            }
+
+            .table {
+
+                background-color: white;
+            }
+
+            .table td {
+                white-space: normal;
+                word-wrap: break-word;
+            }
+
+            h2{
+                padding-top: 30px;
+            }
+
+            .well-small {
+                background-color: white;
+            }
+
+            .alert {
+                padding: 20px;
+                text-align: center;
+            }
+
+        &lt;/style&gt;
+
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../../cache/include/javascript/sugar_grp1_jquery.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../../cache/include/javascript/sugar_grp1_bootstrap_core.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;h2&gt;SugarCRM API&lt;/h2&gt;
+
+        &lt;div class=&quot;container-fluid&quot;&gt;
+
+            &lt;div class=&quot;row-fluid&quot;&gt;
+
+                &lt;div class=&quot;span1&quot;&gt;&lt;h1&gt;Type&lt;/h1&gt;&lt;/div&gt;
+                &lt;div class=&quot;span4&quot;&gt;&lt;h1&gt;Endpoint&lt;/h1&gt;&lt;/div&gt;
+                &lt;div class=&quot;span2&quot;&gt;&lt;h1&gt;Method&lt;/h1&gt;&lt;/div&gt;
+                &lt;div class=&quot;span4&quot;&gt;&lt;h1&gt;Description&lt;/h1&gt;&lt;/div&gt;
+                &lt;div class=&quot;span1 score&quot;&gt;&lt;h1&gt;Score&lt;/h1&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+
+            &lt;div class=&quot;row-fluid line&quot;&gt;
+
+                &lt;div class=&quot;row-fluid&quot;&gt;
+
+                    &lt;div class=&quot;span1&quot;&gt;
+                            POST                    &lt;/div&gt;
+
+                    &lt;div class=&quot;span4&quot;&gt;
+
+                        &lt;button class=&quot;btn btn-link&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#endpoint_0_full&quot;&gt;
+                            /&lt;module&gt;                        &lt;/button&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;span2&quot;&gt;
+
+                        createRecord                    &lt;/div&gt;
+
+                    &lt;div class=&quot;span4&quot;&gt;
+                        This method creates a new record of the specified type                    &lt;/div&gt;
+
+                    &lt;div class=&quot;span1 score&quot;&gt;
+                        6.25                    &lt;/div&gt;
+
+                &lt;/div&gt;
+
+                &lt;div id=&quot;endpoint_0_full&quot; class=&quot;row-fluid collapse&quot;&gt;
+                    &lt;div class=&quot;span12 well&quot;&gt;
+
+                        &lt;!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product (&quot;Company&quot;) that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+--&gt;
+&lt;h2 xmlns=&quot;http://www.w3.org/1999/html&quot;&gt;Overview&lt;/h2&gt;
+&lt;span class=&quot;lead&quot;&gt;
+    Create a new record of a specified type.
+&lt;/span&gt;
+
+&lt;h2&gt;Query String Parameters&lt;/h2&gt;
+&lt;span class=&quot;lead&quot;&gt;
+    This endpoint does not accept any query string parameters.
+&lt;/span&gt;
+
+&lt;h2&gt;Input Parameters&lt;/h2&gt;
+&lt;table class=&quot;table table-hover&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+            &lt;th&gt;Required&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;record field&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;record field type&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                The name value list of fields to populate.
+            &lt;/td&gt;
+            &lt;td&gt;
+                True
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3&gt;Input Example&lt;/h3&gt;
+&lt;pre class=&quot;pre-scrollable&quot;&gt;
+{
+    &quot;name&quot;:&quot;Example Account&quot;,
+    &quot;account_type&quot;:&quot;Customer&quot;,
+    &quot;description&quot;:&quot;My Example Account&quot;
+}
+&lt;/pre&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+&lt;table class=&quot;table table-hover&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;record field&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;record field type&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                Returns the fields for the newly created record.
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3&gt;Output Example&lt;/h3&gt;
+&lt;pre class=&quot;pre-scrollable&quot;&gt;
+{
+   &quot;id&quot;:&quot;e91b1fa7-1bd8-3c71-be96-512e643f9ca4&quot;,
+   &quot;name&quot;:&quot;Example Account&quot;,
+   &quot;date_entered&quot;:&quot;2013-02-27T19:56:00+00:00&quot;,
+   &quot;date_modified&quot;:&quot;2013-02-27T19:56:00+00:00&quot;,
+   &quot;modified_user_id&quot;:&quot;1&quot;,
+   &quot;modified_by_name&quot;:&quot;Administrator&quot;,
+   &quot;created_by&quot;:&quot;1&quot;,
+   &quot;created_by_name&quot;:&quot;Administrator&quot;,
+   &quot;description&quot;:&quot;My Example Account&quot;,
+   &quot;img&quot;:&quot;&quot;,
+   &quot;deleted&quot;:false,
+   &quot;assigned_user_id&quot;:&quot;&quot;,
+   &quot;assigned_user_name&quot;:&quot;&quot;,
+   &quot;team_name&quot;:[
+      {
+         &quot;id&quot;:1,
+         &quot;name&quot;:&quot;Global&quot;,
+         &quot;name_2&quot;:&quot;&quot;,
+         &quot;primary&quot;:true
+      }
+   ],
+   &quot;linkedin&quot;:&quot;&quot;,
+   &quot;facebook&quot;:&quot;&quot;,
+   &quot;twitter&quot;:&quot;&quot;,
+   &quot;googleplus&quot;:&quot;&quot;,
+   &quot;account_type&quot;:&quot;Customer&quot;,
+   &quot;industry&quot;:&quot;&quot;,
+   &quot;annual_revenue&quot;:&quot;&quot;,
+   &quot;phone_fax&quot;:&quot;&quot;,
+   &quot;billing_address_street&quot;:&quot;&quot;,
+   &quot;billing_address_street_2&quot;:&quot;&quot;,
+   &quot;billing_address_street_3&quot;:&quot;&quot;,
+   &quot;billing_address_street_4&quot;:&quot;&quot;,
+   &quot;billing_address_city&quot;:&quot;&quot;,
+   &quot;billing_address_state&quot;:&quot;&quot;,
+   &quot;billing_address_postalcode&quot;:&quot;&quot;,
+   &quot;billing_address_country&quot;:&quot;&quot;,
+   &quot;rating&quot;:&quot;&quot;,
+   &quot;phone_office&quot;:&quot;&quot;,
+   &quot;phone_alternate&quot;:&quot;&quot;,
+   &quot;website&quot;:&quot;&quot;,
+   &quot;ownership&quot;:&quot;&quot;,
+   &quot;employees&quot;:&quot;&quot;,
+   &quot;ticker_symbol&quot;:&quot;&quot;,
+   &quot;shipping_address_street&quot;:&quot;&quot;,
+   &quot;shipping_address_street_2&quot;:&quot;&quot;,
+   &quot;shipping_address_street_3&quot;:&quot;&quot;,
+   &quot;shipping_address_street_4&quot;:&quot;&quot;,
+   &quot;shipping_address_city&quot;:&quot;&quot;,
+   &quot;shipping_address_state&quot;:&quot;&quot;,
+   &quot;shipping_address_postalcode&quot;:&quot;&quot;,
+   &quot;shipping_address_country&quot;:&quot;&quot;,
+   &quot;email1&quot;:&quot;&quot;,
+   &quot;parent_id&quot;:&quot;&quot;,
+   &quot;sic_code&quot;:&quot;&quot;,
+   &quot;parent_name&quot;:&quot;&quot;,
+   &quot;email_opt_out&quot;:&quot;&quot;,
+   &quot;invalid_email&quot;:&quot;&quot;,
+   &quot;email&quot;:[
+
+   ],
+   &quot;campaign_id&quot;:&quot;&quot;,
+   &quot;campaign_name&quot;:&quot;&quot;,
+   &quot;my_favorite&quot;:false,
+   &quot;_acl&quot;:{
+      &quot;fields&quot;:{
+
+      }
+   }
+}
+&lt;/pre&gt;
+
+&lt;h2&gt;Change Log&lt;/h2&gt;
+&lt;table class=&quot;table table-hover&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Version&lt;/th&gt;
+        &lt;th&gt;Change&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            v10
+        &lt;/td&gt;
+        &lt;td&gt;
+            Added &lt;code&gt;/&lt;module&gt;&lt;/code&gt; POST endpoint.
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+                        &lt;div class=&quot;pull-right muted&quot;&gt;
+                            &lt;i class=&quot;icon-file&quot;&gt;&lt;/i&gt;
+                            ./include/api/help/module_post_help.html                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;pull-right&quot;&gt;
+                        &lt;i class=&quot;icon-file&quot;&gt;&lt;/i&gt;
+                        ./clients/base/api/ModuleApi.php                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/help</code> GET endpoint.
+        </td>
+    </tr>
+    </tbody>
+</table>

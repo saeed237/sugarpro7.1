@@ -1,0 +1,53 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="block thumbnail">
+    <h4>Recommended Experts</h4>
+    <div class="recommended-experts-input-wrapper">
+        <input class="span9 job-title" type="text" data-provide="typeahead" placeholder="Type a job title">
+        <button class="btn btn-primary find-experts">Find Experts</button>
+    </div>
+    <div class="recommended-experts-list">
+        {{#if this.collection.length}}
+        {{#eq this.collection.length "1"}}
+        <em class="recommended-experts-result-text">1 expert found with the "{{this.jobTitle}}" job title:</em>
+        {{else}}
+        <em class="recommended-experts-result-text">{{this.collection.length}} experts found with the "{{this.jobTitle}}" job title:</em>
+        {{/eq}}
+        {{#each this.collection.models}}
+        <article class="{{this.attributes.guid}}">
+            <a class="recommended-experts-link" href="#Users/{{this.attributes.id}}">
+                <div class="recommended-experts-cell">
+                    <img src="{{this.attributes.picture_url}}" alt="{{this.attributes.full_name}}">
+                </div>
+                <div class="recommended-experts-cell">
+                    <h6>{{str "LBL_CONTACT"}} {{str "LBL_INFOINLINE"}}</h6>
+                    <span><i class="icon-user"></i> {{this.attributes.full_name}}</span>
+                    <span><i class="icon-envelope-alt"></i> {{this.attributes.email1}}</span>
+                </div>
+                <div class="recommended-experts-cell">
+                    <span><i class="icon-briefcase"></i> {{this.attributes.title}}</span>
+                    <span><i class="icon-phone"></i> {{this.attributes.phone_work}}</span>
+                </div>
+            </a>
+        </article>
+        {{/each}}
+        {{else}}
+            {{#if jobTitle}}
+                <em>No experts found with the "{{this.jobTitle}}" job title.</em>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

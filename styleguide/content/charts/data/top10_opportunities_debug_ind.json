@@ -1,0 +1,125 @@
+{
+    "next_offset": -1,
+    "records": [{
+            "id": "58f2d8f0-32c3-8113-4fa8-516f68c99cc2",
+            "name": "Coolview Net Ltd - 1000 units",
+            "date_modified": "2013-04-18T03:25:00+00:00",
+            "assigned_user_name": "Jim Brennan",
+            "account_id": "8320d254-60bc-aab2-e53e-516f673db6f2",
+            "currency_id": "-99",
+            "base_rate": "1",
+            "likely_case": "68427",
+            "date_closed": "2013-04-21",
+            "commit_stage": "exclude",
+            "sales_stage": "Perception Analysis",
+            "probability": "50",
+            "account_name": "Coolview Net Ltd",
+            "my_favorite": false,
+            "_acl": {
+                "fields": {}
+            },
+            "following": false,
+            "_module": "Products"
+        }, {
+            "id": "6557fa62-bc13-6d17-2b53-516f68cf60f8",
+            "name": "Waverly Trading House - 1000 units",
+            "date_modified": "2013-04-18T03:25:00+00:00",
+            "assigned_user_name": "Jim Brennan",
+            "account_id": "32f67037-aa48-4b7d-4170-516f67aad5b9",
+            "currency_id": "-99",
+            "base_rate": "1",
+            "likely_case": "52496",
+            "date_closed": "2013-06-25",
+            "commit_stage": "include",
+            "sales_stage": "Proposal/Price Quote",
+            "probability": "65",
+            "account_name": "Waverly Trading House",
+            "my_favorite": false,
+            "_acl": {
+                "fields": {}
+            },
+            "following": false,
+            "_module": "Products"
+        }, {
+            "id": "a2cabb95-c7a7-1a81-925f-516f68d63830",
+            "name": "Waverly Trading House - 1000 units",
+            "date_modified": "2013-04-18T03:25:00+00:00",
+            "assigned_user_name": "Jim Brennan",
+            "account_id": "32f67037-aa48-4b7d-4170-516f67aad5b9",
+            "currency_id": "be2df263-4a04-863a-9069-516f682cd658",
+            "base_rate": "0.9",
+            "likely_case": "52159",
+            "date_closed": "2013-06-23",
+            "commit_stage": "include",
+            "sales_stage": "Value Proposition",
+            "probability": "30",
+            "account_name": "Waverly Trading House",
+            "my_favorite": false,
+            "_acl": {
+                "fields": {}
+            },
+            "following": false,
+            "_module": "Products"
+        }, {
+            "id": "41e422b0-11cd-1860-7a50-516f68063275",
+            "name": "Powder Suppliers - 1000 units",
+            "date_modified": "2013-04-18T03:25:00+00:00",
+            "assigned_user_name": "Jim Brennan",
+            "account_id": "c7a3a730-feb2-77b5-d8b6-516f67ebff7c",
+            "currency_id": "-99",
+            "base_rate": "1",
+            "likely_case": "37920",
+            "date_closed": "2013-04-28",
+            "commit_stage": "include",
+            "sales_stage": "Proposal/Price Quote",
+            "probability": "65",
+            "account_name": "Powder Suppliers",
+            "my_favorite": false,
+            "_acl": {
+                "fields": {}
+            },
+            "following": false,
+            "_module": "Products"
+        }, {
+            "id": "3c786c12-5af5-9dfa-f7c5-516f68b904c0",
+            "name": "Coolview Net Ltd - 1000 units",
+            "date_modified": "2013-04-18T03:25:00+00:00",
+            "assigned_user_name": "Jim Brennan",
+            "account_id": "8320d254-60bc-aab2-e53e-516f673db6f2",
+            "currency_id": "-99",
+            "base_rate": "1",
+            "likely_case": "33363",
+            "date_closed": "2013-04-22",
+            "commit_stage": "include",
+            "sales_stage": "Value Proposition",
+            "probability": "30",
+            "account_name": "Coolview Net Ltd",
+            "my_favorite": false,
+            "_acl": {
+                "fields": {}
+            },
+            "following": false,
+            "_module": "Products"
+        }, {
+            "id": "93360292-9f4e-a872-211d-516f68184849",
+            "name": "Coolview Net Ltd - 1000 units",
+            "date_modified": "2013-04-18T03:25:00+00:00",
+            "assigned_user_name": "Jim Brennan",
+            "account_id": "8320d254-60bc-aab2-e53e-516f673db6f2",
+            "currency_id": "-99",
+            "base_rate": "1",
+            "likely_case": "25274",
+            "date_closed": "2013-04-25",
+            "commit_stage": "exclude",
+            "sales_stage": "Negotiation/Review",
+            "probability": "80",
+            "account_name": "Coolview Net Ltd",
+            "my_favorite": false,
+            "_acl": {
+                "fields": {}
+            },
+            "following": false,
+            "_module": "Products"
+        }
+    ]
+}

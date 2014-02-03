@@ -1,0 +1,40 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="block thumbnail widget">
+    <div class="influencers-widget">
+        <h4>Influencers</h4>
+        <div class="influencers-wrapper">
+            <ul class="influencers-list">
+                {{#if this.collections.length}}
+                    {{#each this.collections}}
+                        <li class="influencers-item">
+                            <a href="#Users/{{this.id}}" class="avatar avatar42 pull-left">
+                                <img src="{{this.picture_url}}" alt="{{this.full_name}}">
+                            </a>
+                            <a href="#Users/{{this.id}}">{{this.full_name}}</a>
+                            <br>
+                            <span class="influencers-stat">{{this.calls}} {{#eq this.calls "1"}}{{str "LBL_CALL"}}{{else}}{{str "LBL_CALLS"}}{{/eq}}</span>
+                            <span class="influencers-stat">0 {{str "LBL_EMAILS"}}</span>
+                            <span class="influencers-stat">{{this.meetings}} {{#eq this.meetings "1"}}{{str "LBL_MEETING"}}{{else}}{{str "LBL_MEETINGS"}}{{/eq}}</span>
+                        </li>
+                    {{/each}}
+                {{else}}
+                    <li class="influencers-item"><em>No influencers found.</em></li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</div>

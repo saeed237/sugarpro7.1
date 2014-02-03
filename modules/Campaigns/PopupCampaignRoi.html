@@ -1,0 +1,49 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+	<tr>
+		<td>
+
+			<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+<TABLE width="70%" border="1"
+          summary="This table gives some statistics about fruit
+                   flies: average height and weight, and percentage
+                   with red eyes (for both males and females).">
+<td>
+<TABLE WIDTH="30%">
+ <!--<CAPTION>ROI details for the Campaign</CAPTION> -->
+  <TR><TH ALIGN=LEFT>Planned Budget<TD><TH ALIGN=RIGHT>{PLANNED_BUDGET}{CURRENCY}<TD></BR>
+  <TR><TH ALIGN=LEFT>Actual Cost<TD><TH ALIGN=RIGHT>{ACTUAL_COST}{CURRENCY}<TD></BR>
+  <TR><TH ALIGN=LEFT>Expected Revenue<TD><TH ALIGN=RIGHT>{EXPECTED_REVENUE}{CURRENCY}<TD>
+  <TR><TH ALIGN=LEFT>Opportunities Closed<TD><TH ALIGN=RIGHT>{OPP_COUNT}<TD>
+  <TR><TH ALIGN=LEFT>Cost per Impression<TD><TH ALIGN=RIGHT>{COST_OF_IMPRESSION}<TD>
+  <TR><TH ALIGN=LEFT>Cost per Click Through<TD><TH ALIGN=RIGHT>{COST_PER_CLICK_THROUGH}<TD>
+</TABLE>
+</td>
+<td>
+<TABLE width="20%">
+  {MY_CHART_ROI}
+</TABLE>
+</td>
+
+</TABLE>
+</form>
+		</td>
+	</tr>
+</table>
+<!-- END: main -->

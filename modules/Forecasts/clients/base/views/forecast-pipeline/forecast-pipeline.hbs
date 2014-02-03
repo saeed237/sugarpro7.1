@@ -1,0 +1,44 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#if forecastSetup}}
+<div class="dashlet-options">
+    <div class="row-fluid">
+      <div class="span8">{{#each dashletConfig.timeperiod}}
+                {{field ../this model=../this.settings template="edit"}}
+            {{/each}}</div>
+      <div class="span4">
+        <div class="btn-group pull-right dashlet-group" data-toggle="buttons-radio">
+          <button class="btn active" rel="tooltip" data-placement="bottom" data-type="self" title="{{{str "LBL_DASHLET_MY_PIPELINE" this.model.module this.context}}}"><i class="icon-user"></i></button>
+          <button class="btn" rel="tooltip" data-placement="bottom" data-type="team" title="{{{str "LBL_DASHLET_MY_TEAMS_PIPELINE" this.model.module this.context}}}"><i class="icon-group"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="opportunity-pipeline-wrapper">
+    <div class="nv-chart nv-funnelChart">
+        <svg id="{{cid}}"></svg>
+    </div>
+    <div class="block-footer hide">{{str "LBL_NO_DATA_AVAILABLE"}}</div>
+</div>
+{{else}}
+<div class="opportunity-pipeline-wrapper">
+    {{#if forecastAdmin}}
+        {{{str "LBL_DASHLET_FORECAST_NOT_SETUP_ADMIN" this.model.module this.context}}}
+    {{else}}
+        {{{str "LBL_DASHLET_FORECAST_NOT_SETUP" this.model.module this.context}}}
+    {{/if}}
+</div>
+{{/if}}

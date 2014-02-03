@@ -1,0 +1,144 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Lists all populated fields of type "file" or of type "image" for a record.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            field
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The fields containing file properties.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-type
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files content type.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.content-length
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The files content length.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.name
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The files ID.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.width
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The width of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.height
+        </td>
+        <td>
+            Integer
+        </td>
+        <td>
+            The height of the image.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            field.uri
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The URI of the file.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "picture":{
+      "content-type":"image\/png",
+      "content-length":72512,
+      "name":"1a7b8f5c-b11c-0094-c8d8-512e9daaa983",
+      "width":933,
+      "height":519,
+      "uri":"http:\/\/sugarcrm\/rest\/v10\/Contacts\/fa300a0e-0ad1-b322-9601-512d0983c19a\/file\/picture"
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/file</code> GET endpoint.
+        </td>
+    </tr>
+</table>

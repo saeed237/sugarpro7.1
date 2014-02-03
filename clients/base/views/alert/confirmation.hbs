@@ -1,0 +1,21 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="alert {{alertClass}} alert-block">
+    {{#if title}}<strong>{{title}}</strong>{{/if}}
+    {{#each messages}}{{{this}}}{{/each}}
+    <a class="btn-link cancel" data-action="cancel">{{str 'LBL_CANCEL_BUTTON_LABEL'}}</a> {{#if cancelContLabel}}{{str cancelContLabel}}{{else}}{{str 'LBL_CANCEL_BUTTON_LABEL_CONT'}}{{/if}}
+    <a class="btn-link confirm" data-action="confirm">{{str 'LBL_CONFIRM_BUTTON_LABEL'}}</a> {{#if confirmContLabel}}{{str confirmContLabel}}{{else}}{{str 'LBL_CONFIRM_BUTTON_LABEL_CONT'}}{{/if}}
+</div>

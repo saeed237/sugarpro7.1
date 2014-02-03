@@ -1,0 +1,48 @@
+.preview-pane {
+ .preview-headerbar {
+    width: 34%;
+    position: fixed;
+    top: 48px;
+    height: 60px;
+    border-bottom: 1px solid #CCC;
+    background: url(@textureSecondary);
+    z-index: 1;
+    .box-shadow(~"inset 4px 0 16px -4px rgba(0, 0, 0, .2)");
+    h1 {
+      float: left;
+      margin-top: 11px;
+      margin-left: 20px;
+      font-size: 18px;
+    }
+    .btn-toolbar {
+      margin: 16px 10px 9px;
+    }
+  }
+}
+
+.preview-data {
+  padding: 70px 1.5% 0;
+  margin: 0 7px;
+  .row-fluid {
+    .span5 {
+      text-align: right;
+      padding: 6px;
+      font-size: 11px;
+      color: lighten(@gray,15%);
+    }
+    .span7 {
+      font-weight: bold;
+      padding: 6px;
+    }
+    label.original {
+      margin-bottom: 0;
+      display: inline-block;
+      background-color: #CDCCCB;
+      padding: 2px 4px;
+      .border-radius(4px);
+    }
+  }
+  .email {
+    padding: 0;
+  }
+}

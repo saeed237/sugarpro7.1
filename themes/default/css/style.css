@@ -1,0 +1,38 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+ 
+#ajaxStatusDiv 
+{
+    background: none repeat scroll 0% 0% rgb(255, 255, 255); 
+    color: rgb(198, 12, 48); 
+    position: fixed;
+    opacity: 0.8;
+    -moz-opacity:0.8;
+    filter: alpha(opacity=80);
+    top: 7px;
+}
+
+
+.search_form .view .yui-ac-highlight {
+    text-shadow: none;
+}
+
+/* hack for webkit browsers ( namely Chrome and Safari ) */
+@media screen and (-webkit-min-device-pixel-ratio:0) 
+{
+    #ajaxStatusDiv 
+    {
+        position: absolute;
+    }
+}

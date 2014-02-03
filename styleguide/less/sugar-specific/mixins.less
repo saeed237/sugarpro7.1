@@ -1,0 +1,167 @@
+/*sugar mods*/
+
+.dropdownMinWidth(@columnSpan: 3) {
+  float: none; // undo default grid column styles
+  min-width: ((@gridColumnWidth) * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1)) + 1;
+  margin-left: 0; // undo default grid column styles
+}
+.rtl(rtl, @directionality: inherit) {
+   direction: @directionality;
+}
+.rtlFloat(rtl,@float: inherit) {
+    float: @float;
+}
+.rtlRight(rtl,@right: inherit){
+     right: @right;
+}
+
+.rtlLeft(rtl,@left: inherit){
+     left: @left;
+}
+.rtlMargin(rtl,@margin: inherit) {
+    margin: @margin;
+}
+.rtlPadding(rtl,@padding: inherit) {
+    padding: @padding;
+}
+
+.rtlBorderWidth(rtl,@border: 0) {
+    border-width: @border;
+}
+
+.rtlBorderRadiusTopLeft(rtl,@topLeft){
+    -webkit-border-top-left-radius: @topLeft;
+    -moz-border-radius-topleft: @topLeft;
+    border-top-left-radius: @topLeft;
+}
+
+.rtlBorderRadiusTopRight(rtl,@topRight){
+    -webkit-border-top-right-radius: @topRight;
+    -moz-border-radius-topright: @topRight;
+    border-top-right-radius: @topRight;
+}
+
+.rtlBorderRadiusBottomLeft(rtl,@bottomLeft){
+    -webkit-border-bottom-left-radius: @bottomLeft;
+    -moz-border-radius-bottomleft: @bottomLeft;
+    border-bottom-left-radius: @bottomLeft;
+}
+
+.rtlBorderRadiusBottomRight(rtl,@bottomRight){
+    -webkit-border-bottom-right-radius: @bottomRight;
+    -moz-border-radius-bottomright: @bottomRight;
+    border-bottom-right-radius: @bottomRight;
+}
+
+.rtlContent(rtl,@content) {
+    content: @content;
+}
+
+.rtlTextAlign(rtl,@textAlign) {
+    text-align: @textAlign;
+}
+.rtlCaretTop(rtl,@afterLeftCaretPos, @beforeLeftCaretPos,@afterRightCaretPos, @beforeRightCaretPos){
+    .caret-top(@afterLeftCaretPos, @beforeLeftCaretPos,@afterRightCaretPos, @beforeRightCaretPos);
+}
+.caret-top(@afterLeftCaretPos: 10px, @beforeLeftCaretPos: 9px,@afterRightCaretPos: auto, @beforeRightCaretPos: auto) {
+  &:after {
+    content: '';
+    display: inline-block;
+    border-left:   6px solid transparent;
+    border-right:  6px solid transparent;
+    border-bottom: 6px solid @white;
+    position: absolute;
+    top: -6px;
+    left: @afterLeftCaretPos;
+    right: @afterRightCaretPos;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    border-left:   7px solid transparent;
+    border-right:  7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-bottom-color: rgba(0,0,0,.2);
+    position: absolute;
+    top: -7px;
+    left: @beforeLeftCaretPos;
+    right: @beforeRightCaretPos;
+  }
+  &.bottom-up {
+    &:after {
+      border-top: 6px solid @white;
+      border-bottom: none;
+      top: auto;
+      left: @afterLeftCaretPos;
+      right: @afterRightCaretPos;
+    }
+    &:before {
+      border-top: 7px solid @white;
+      border-bottom: none;
+      top: auto;
+      left: @beforeLeftCaretPos;
+      right: @beforeRightCaretPos;
+    }
+  }
+}
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Border Radi
+.border-radii(@tr-radius,@br-radius,@bl-radius,@tl-radius) {
+  -webkit-border-top-right-radius: @tr-radius;
+    -moz-border-radius-topright: @tr-radius;
+      border-top-right-radius: @tr-radius;
+  -webkit-border-bottom-right-radius: @br-radius;
+    -moz-border-radius-bottomright: @br-radius;
+      border-bottom-right-radius: @br-radius;
+  -webkit-border-bottom-left-radius: @bl-radius;
+    -moz-border-radius-bottomleft: @bl-radius;
+      border-bottom-left-radius: @bl-radius;
+  -webkit-border-top-left-radius: @tl-radius;
+    -moz-border-radius-topleft: @tl-radius;
+      border-top-left-radius: @tl-radius;
+}
+
+.outline(@val) {
+  outline: @val;
+}
+
+/* Mixins for .scroll-width classes on flex lists */
+.right-shadow {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: -2px;
+  bottom: -1px;
+  width: 5px;
+  #gradient > .horizontal(rgba(0,0,0,0.1), rgba(255,255,255,0));
+  background-color: transparent;
+}
+.left-shadow {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: -2px;
+  bottom: -1px;
+  width: 5px;
+  #gradient > .horizontal(rgba(255,255,255,0), rgba(0,0,0,0.1));
+  background-color: transparent;
+}
+
+/* Headerpane shadows */
+.headerpane-shadow {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  width: ~"-moz-calc(100% + 1px)";
+  width: ~"-webkit-calc(100% + 1px)";
+  width: ~"calc(100% + 1px)";
+  height: 5px;
+  left: 0;
+  top: auto;
+  #gradient > .vertical(rgba(0,0,0,0.1), rgba(255,255,255,0));
+  background-color: transparent; /* gradient function form twitter bootstrap adds background color, we needn't that fallback for shadow */
+}

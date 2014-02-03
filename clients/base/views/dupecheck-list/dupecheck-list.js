@@ -1,0 +1,14 @@
+/*
+     * By installing or using this file, you are confirming on behalf of the entity
+     * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+     * the SugarCRM Inc. Master Subscription Agreement ("MSA"), which is viewable at:
+     * http://www.sugarcrm.com/master-subscription-agreement
+     *
+     * If Company is not bound by the MSA, then by installing or using this file
+     * you are agreeing unconditionally that Company will be bound by the MSA and
+     * certifying that you have authority to bind Company accordingly.
+     *
+     * Copyright  2004-2013 SugarCRM Inc.  All rights reserved.
+     */
+({extendsFrom:'FlexListView',plugins:['ListColumnEllipsis','ListDisableSort','ListRemoveLinks'],collectionSync:null,displayFirstNColumns:4,additionalTableClasses:null,initialize:function(options){var dupeListMeta=app.metadata.getView(options.module,'dupecheck-list')||{};options.meta=_.extend({},dupeListMeta,options.meta||{});this._super('initialize',[options]);this.context.on('dupecheck:fetch:fire',this.fetchDuplicates,this);},bindDataChange:function(){this.collection.on('reset',function(){this.context.trigger('dupecheck:collection:reset');},this);this._super('bindDataChange');},_renderHtml:function(){var classesToAdd='duplicates highlight';app.view.invokeParent(this,{type:'view',name:'flex-list',method:'_renderHtml'});if(this.additionalTableClasses){classesToAdd=classesToAdd+' '+this.additionalTableClasses;}
+this.$('table.table-striped').addClass(classesToAdd);},fetchDuplicates:function(model,options){this.collection.dupeCheckModel=model;this.collection.fetch(options);}})

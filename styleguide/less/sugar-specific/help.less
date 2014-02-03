@@ -1,0 +1,32 @@
+.contextHelp {
+    float: left;
+    background-color: @infoBackground;
+    color: @gray;
+    .border-radius(6px);
+    .box-shadow(0 0 5px rgba(0,0,0,0.3));
+    margin: 20px 5%;
+    width: 90%;
+
+
+    h1 {
+        float: left;
+        margin-left: 15px;
+    }
+    .content {
+        float: left;
+        clear: both;
+        padding: 0 15px 15px;
+    }
+
+    .btn-toolbar {
+        margin-top: 0;
+    }
+}
+
+.view-context-help {
+    display: inline-block;
+    .contextHelp {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+}

@@ -1,0 +1,79 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#useTable}}
+<div class="page-header">
+    <p class="lead">{{{section.description}}}</p>
+</div>
+{{/useTable}}
+{{#unless useTable}}
+    {{{description}}}
+{{/unless}}
+
+<div class="record">
+    {{#useTable}}
+    <table class="accordion table table-bordered table-striped table-condensed" id="accordion_fields">
+        <thead>
+            <tr>
+                <th>Sugar Field</th><th>Field Name</th><th>Complexity</th><th>Example</th><th>Documentation</th>
+            </tr>
+        </thead>
+    {{/useTable}}
+    {{#each tempfields}}
+        {{#if ../useTable}}
+        <tbody class="accordion-group">
+            <tr class="accordion-heading">
+                <td>{{this.type}}</td>
+                <td>{{this.name}}</td>
+                <td>plugin</td>
+                <td>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_fields" data-target="#collapse_field_{{this.type}}">Example</a>
+                </td>
+                <td><a href="#Styleguide/field/{{this.type}}">Documentation</a></td>
+            </tr>
+            <tr>
+                <td class="accordion-body collapse" colspan="5">
+                    <div class="accordion-inner" id="collapse_field_{{this.type}}" style="height:0px;">
+        {{/if}}
+                        <div class="row-fluid">
+                            <h3>Detail</h3>
+                            {{field ../this model=../this.model template="detail"}}
+                        </div>
+                        <div class="row-fluid">
+                            <h3>Edit</h3>
+                            {{field ../this model=../this.model template="edit"}}
+                            {{#each this.errorMeta}}
+                                {{field ../../this model=../../this.model template="error"}}
+                            {{/each}}
+                        </div>
+                        <div class="row-fluid">
+                            <h3>Disabled</h3>
+                            {{field ../this model=../this.model template="disabled"}}
+                        </div>
+                        <div class="row-fluid">
+                            <h3>List</h3>
+                            {{field ../this model=../this.model template="list"}}
+                        </div>
+        {{#if ../useTable}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        {{/if}}
+    {{/each}}
+    {{#useTable}}
+    </table>
+    {{/useTable}}
+</div>

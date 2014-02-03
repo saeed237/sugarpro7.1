@@ -1,0 +1,172 @@
+.block {
+    margin-bottom: 20px;
+  position: relative;
+    display: block;
+}
+.span2 .block {
+    padding-right: 10px;
+}
+.block:first-child {border-top: none;}
+
+.block ul.list{
+  margin: 0 0 20px;
+  padding: 0;
+}
+.block .list li, .listed li  {
+  list-style: none;
+  margin: 0 0 15px;
+  position: relative;
+}
+.listed {margin: 0; padding: 0;}
+.listed li {border-bottom: 1px solid @grayLighter; margin: 0; padding: 5px;}
+
+.block .list li.active a {
+  background: @grayLighter;
+  color: @textColor;
+  display: block;
+  border: none;
+  padding: 4px;
+  margin: 0 0 0 -4px;
+}
+.block.tabs-left {
+  border: none;
+}
+.block.tabs-left .nav-tabs {
+  float: none;
+  margin: 9px 0;
+  border: none;
+}
+.block.thumbnail .nav-tabs {margin: 0; border: none;}
+
+.block.thumbnail .nav-tabs li, .block.tabs-left .nav-tabs li{
+  border-bottom: 1px solid darken(@grayLighter, 5%);
+  margin-bottom: 10px;
+}
+
+.block.tabs-left .nav-tabs li li .avatar {
+  margin: 3px 0 0;
+}
+
+.block.tabs-left .nav-tabs li li{
+  margin: 0 0 10px 45px;
+  padding: 10px 0 0;
+  border-top: 1px solid @grayLighter;
+  border-bottom: none;
+}
+
+.block.tabs-left .nav-tabs li li p {
+  margin: 0 0 10px 38px;
+}
+
+.block.tabs-left .nav-tabs > li > a:hover, .block.tabs-left .nav-tabs > li > a {
+  background: none !important;
+  border: none !important;
+}
+
+.block.tabs-left .nav-tabs .on {
+
+}
+
+.bordered .tabs-left .nav-tabs > li > a, .bordered .tabs-left .nav-tabs .on > a, .bordered .tabs-left .nav-tabs .on {
+  padding: 4px;
+  margin: 4px -10px 4px 0;
+}
+
+.block.tabs-left .nav-tabs li .actions {
+  display: block;
+  top: -2px;
+  right: 12px;
+}
+.block.tabs-left .nav-tabs li .actions a i {
+  padding: 4px;
+}
+
+.block.tabs-left .nav-tabs li.on .actions .icon-eye-open {
+  color: @gray;
+  .opacity(100);
+  #gradient > .horizontal(darken(@grayLighter, 4%), darken(@grayLighter, 4%));
+  text-shadow: 0 1px @white;
+  .border-radius(4px);
+  padding-right: 100px;
+  margin-right: -96px;
+}
+
+.block .nav-tabs li {
+  list-style: none;
+  position: relative;
+}
+.block h4 {
+  padding: 0 0 10px;
+  font-weight: 600;
+  border-bottom: 1px solid darken(@grayLighter,10%);
+  margin-bottom: 10px;
+}
+
+.span2 .block .actions {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.block .actions, article .actions, .subnav .actions {
+  position: absolute;
+  top: -5px;
+  right: 0;
+}
+
+.thumbnail .table {
+  margin-bottom: 0;
+}
+
+.block-footer {
+  padding: 10px;
+  margin-bottom: 0;
+  text-align: center;
+  #gradient > .vertical(@grayLighter, @white);
+  border-top: 1px solid darken(@grayLighter, 15%);
+  .border-radius(0 0 6px 6px);
+  .box-shadow(inset 0 1px 2px rgba(0,0,0,.05));
+  .clearfix();
+  .btn {
+    margin: 0 auto !important;
+  }
+  a {
+    margin: 0 auto !important;
+    display: block;
+    cursor: pointer;
+    color: @textColor;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.span12 .block-footer {
+  .btn {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.block ul.list ul {
+  margin: 10px 0 10px 20px;
+}
+.block ul.list ul li {
+  margin: 0 0 5px;
+}
+.block ul.list [class^="icon-"] {
+  margin-right: 5px;
+}
+
+.control-group .btn-toolbar {
+  margin: 0 0 0 5px !important;
+  display: inline;
+}
+
+.block .tab-content {
+  margin-top: -18px;
+  padding: 10px;
+  background: @white;
+  border: 1px solid @grayLight;
+  border-top: none;
+  @shadow: 0 1px 3px rgba(0,0,0,.1);
+  .box-shadow(@shadow);
+}

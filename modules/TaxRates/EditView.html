@@ -1,0 +1,44 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ * Description:  
+ ********************************************************************************/
+-->
+
+<!-- BEGIN: main -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="edit view">
+<tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td width="85%"><slot><input name='name' tabindex='1' size='55' maxlength='50' type="text" value="{NAME}"></slot></td>
+</tr><tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_VALUE} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td width="85%"><slot><input name='value' tabindex='1' size='10' maxlength='8' type="text" value="{VALUE}"></slot></td>
+</tr><tr>
+<td scope="row"><slot>{MOD.LBL_STATUS} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td><slot><select name='status' tabindex='1'>{STATUS_OPTIONS}</select> {MOD.NTC_STATUS}</slot></td>
+</tr><tr>
+<td scope="row"><slot>{MOD.LBL_LIST_ORDER} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+<td><slot><input name='list_order' tabindex='1' size='5' maxlength='4' type="text" value="{LIST_ORDER}"> {MOD.NTC_LIST_ORDER}</slot></td>
+</tr></table>
+</td>
+</tr>
+</table>
+</form>
+{JAVASCRIPT}
+<!-- END: main -->

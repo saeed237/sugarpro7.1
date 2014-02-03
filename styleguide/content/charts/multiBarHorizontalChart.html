@@ -1,0 +1,74 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Short/Long Bar Chart</title>
+  <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
+  <script src="../js/less-1.3.3.min.js" type="text/javascript"></script>
+</head>
+<body class="full-screen">
+  <div class="nv-demo">
+    <div id="chart1" class="nv-chart nv-chart-multibar">
+      <svg></svg>
+    </div>
+  </div>
+
+<script src="../../../include/javascript/nvd3/lib/d3.min.js"></script>
+<script src="../../../include/javascript/nvd3/nv.d3.min.js"></script>
+<script src="data/horizbar_data.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/multiBarHorizontal.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/multiBarHorizontalChart.js"></script>
+
+<script>
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarHorizontalChart()
+          .x(function(d) { return d.label })
+          .y(function(d) { return d.value })
+          .margin({top: 30, right: 20, bottom: 30, left: 75})
+          .showValues(true)
+          .showTitle(true)
+          .tooltips(true)
+          .showControls(true)
+          .stacked(false)
+          //.colorData( 'graduated', {c1: '#e8e2ca', c2: '#3e6c0a', l: horizbar_data.data.length} )
+          //.colorData( 'class' )
+          //.colorData('default')
+          .tooltipContent( function(key, x, y, e, graph) {
+            return '<p>Outcome: <b>' + key + '</b></p>' +
+                   '<p>Lead Source: <b>' +  x + '</b></p>' +
+                   '<p>Amount: <b>$' +  parseInt(y) + 'K</b></p>'
+          })
+        ;
+
+    chart.yAxis
+        .tickFormat(d3.format(',.2f'));
+
+    d3.select('#chart1 svg')
+        .datum(horizbar_data_color)
+      .transition().duration(500)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+</script>
+</body>
+</html>

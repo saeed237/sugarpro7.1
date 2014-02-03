@@ -1,0 +1,70 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+<form id="wizform" name="wizform" method="POST" action="index.php">
+	<input type="hidden" id="module" name="module" value="Campaigns">
+	<input type="hidden" id="action" name="action" = "WizardHome">
+	<input type="hidden" id="process_form" name="process_form" value='false' >		
+	<input type="hidden" id="return_module" name="return_module" value="{$RETURN_MODULE}">
+	<input type="hidden" id="return_id" name="return_id" value="{$RETURN_ID}">
+	<input type="hidden" id="return_action" name="return_action" value="{$RETURN_ACTION}">
+	<input type="hidden" id="record" name="record" value="{$ID}">	
+	<input type="hidden" id="direct_step" name="direct_step" value="1">		
+	<input type="hidden" id="campaign_id" name="campaign_id" value="">			
+	<input type="hidden" id="wiz_mass" name="wiz_mass" value="">			
+	<input type="hidden" id="mode" name="mode" value="">					
+
+
+
+<table class='other view' cellspacing="1">
+<tr>
+<td rowspan='2' width='10%' scope='row' style='vertical-align: top;'>
+<div id='nav' >
+{$NAV_ITEMS}
+
+</div>
+
+</td>
+
+<td class='edit view' rowspan='2' width='100%'>
+{$CAMPAIGN_DIAGNOSTIC_LINK}<p>
+<table  width="100%" border="0" cellspacing="1" cellpadding="0" >
+	<tr><td>
+		<div id='campaign_summary'>{$CAMPAIGN_TBL}</div><p>
+	</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>
+		<p><div id='campaign_trackers'>{$TRACKERS_TBL}</div>
+	</td></tr>
+	<tr><td>&nbsp;</td></tr>			
+	<tr><td>
+		<p><div id='campaign_targets'>{$TARGETS_TBL}</div>
+	</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>
+		<p><div id='campaign_marketing'>{$MARKETING_TBL}</div>
+	</td></tr>
+</table>		
+
+		
+</td></tr></table>
+<script>
+{$MSG_SCRIPT}
+</script>
+</form>
+		

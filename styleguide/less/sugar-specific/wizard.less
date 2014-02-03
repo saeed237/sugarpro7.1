@@ -1,0 +1,33 @@
+.wizard.modal  {
+  margin-left: 0; // this allows jquery to center modal on screen resize
+  .modal-body {
+    overflow-y: hidden;
+    .screen {
+      display: none;
+    }
+    .modal-content {
+      max-height: 327px;
+    }
+    .modal-footer {
+      .btn + .btn {
+        margin-right: 10px;
+      }
+      .btn.back {
+        display: none;
+      }
+      .btn.next {
+        display:none;
+      }
+      .btn.finish {
+        display:none;
+      }
+    }
+  }
+  ul.nav.nav-tabs {
+    margin-bottom: 0;
+    margin-top: 5px;
+    > li:first-child  {
+      margin-left: 10px;
+    }
+  }
+}

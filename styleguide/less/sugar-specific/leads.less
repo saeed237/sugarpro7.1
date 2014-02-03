@@ -1,0 +1,165 @@
+//Converted Results View
+.converted-results {
+  .associated{
+    font-weight: bold;
+  }
+}
+
+// ACCORDION
+// ---------
+.accordion {
+  // Header
+  .accordion-heading {
+    background-color: @grayLighter;
+    border-bottom: 0;
+    position: relative;
+    padding: 10px 8px 10px 16px;
+    min-height: 48px;
+    float: left;
+    width: 100%;
+    .box-sizing(border-box);
+    .title {
+      line-height: 26px;
+    }
+    &.active {
+      background-color:@white;
+      .subview-toggle-indicator .icon-caret-down::before {
+        content: "\f0d8";
+      }
+    }
+    &.enabled {
+      cursor: pointer;
+      .module-number {
+        font-weight: bold;
+      }
+      .title {
+        font-weight: bold;
+      }
+      &:hover {
+        background-color: lighten(@grayLighter,2%);
+      }
+    }
+    &:not(.enabled){
+      color: @grayLight;
+    }
+    .subview-toggle {
+      line-height: 26px;
+    }
+    .subview-toggle-indicator {
+      float: right;
+      margin-left: 12px;
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+  .accordion-body {
+    clear: both;
+    &.collapse.in {
+      overflow: visible;
+    }
+  }
+  // Inner needs the styles because you can't animate properly with any styles on the element
+  .accordion-inner {
+    padding: 0;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    .box-shadow(~"inset 0 4px 8px -4px rgba(0, 0, 0, 0.5)");
+    background: #F2F2F2;
+  }
+  .accordion-group {
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #DCDCDC;
+    border-top: 1px solid @white;
+    // for record edit view in duplist
+    .headerpane {
+      background: none;
+      border: none;
+      margin-top: 8px;
+      position: relative;
+      top: 0;
+      h1 {
+        margin-top: 26px;
+      }
+      span[data-type="fieldset-with-labels"] {
+        margin-top: 4px;
+      }
+      .btn-toolbar.pull-right.dropdown {
+        display: none;
+      }
+      .label-module {
+        top: -7px;
+      }
+    }
+    .flex-list-view .morecol .dropdown {
+      width: 28px;
+    }
+  }
+  .record {
+    margin-top: 4px;
+  }
+}
+
+#convert-accordion {
+  .want_filter {
+    display: none;
+  }
+  tr:last-child td {
+    border-bottom: none !important;
+  }
+}
+
+// Want Filter for Duplist
+div.want_filter {
+  line-height: 20px;
+  border-top: 1px solid @white;
+  &.highlight {
+    padding: 11px;
+    text-align: center;
+    border-bottom: 1px solid darken(#F8F8F8,10%);
+    background-color: #F8F8F8;
+  }
+}
+
+.step-circle {
+  border-radius: 14px;
+  border: 1px solid #CCC;
+  height: 26px;
+  width: 26px;
+  position: relative;
+  display: inline-block;
+  #gradient > .vertical(darken(@grayLighter, 6%), lighten(@grayLighter, 1%));
+  filter: none;
+  text-align: center;
+  margin-right: 12px;
+  > span {
+    display: inline-block;
+    #gradient > .vertical(lighten(@grayLighter, 1%), darken(@grayLighter, 12%));
+    filter: none;
+    background-color: @grayLighter;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    margin-top: 3px;
+    font-weight: bold;
+  }
+  .icon-ok-sign {
+    display: none;
+    color: #359B2C;
+    font-size: 22px;
+    line-height: 22px;
+    margin-top: 3px;
+    width: 22px;
+    height: 22px;
+  }
+  &.complete {
+    > span {
+      display: none;
+    }
+    .icon-ok-sign {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ * Description:  Contains a variety of utility functions used to display UI 
+ * components such as form headers and footers.  Intended to be modified on a per 
+ * theme basis.
+ ********************************************************************************/
+ 
+.chartContainer {
+	float: left;
+	margin:auto;
+	width: 100%
+	}
+	
+.chartContainer .scrollBars {
+	overflow: auto;
+	max-height: 600px;	
+	position: relative;
+}
+
+.chartCanvas {
+    position:relative;
+    margin:auto;
+    overflow:hidden;
+    background-image: url(../../../../index.php?entryPoint=getImage&imageName=chartBg.png);
+	background-repeat:repeat-x;
+}
+
+.query-color {
+width: 16px;
+height: 16px;
+display: inline-block;
+margin-right: 10px;
+border: 1px solid #999;
+}
+
+.legend {
+padding: 10px 0px;
+float: left;
+}
+.legend .row {
+    text-align: left;
+}
+.legend .row .legendGroup {
+    display: inline-block;
+    padding:  0 10px;
+}
+
+.legend .row .legendGroup .label {
+    display: inline-block;
+    position: relative;
+    top: -4px;
+}
+
+.legend table td.label {
+padding: 0px 20px 5px 0px;
+text-align: left;
+    background-color: transparent;
+}
+/*TOOLTIPS*/
+.tip {
+    color: #111;
+    width: auto;
+    background-color: white;
+    border:1px solid #ccc;
+    -moz-box-shadow:#555 2px 2px 8px;
+    -webkit-box-shadow:#555 2px 2px 8px;
+    -o-box-shadow:#555 2px 2px 8px;
+    box-shadow:#555 2px 2px 8px;
+    opacity:0.9;
+    filter:alpha(opacity=90);
+    font-size:11px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:7px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+
+}
+.rotatedLabel {
+-webkit-transform: rotate(-90deg); 
+-moz-transform: rotate(-90deg);	
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.rotatedLabelReverse {
+-webkit-transform: rotate(-0deg); 
+-moz-transform: rotate(90deg);	
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}

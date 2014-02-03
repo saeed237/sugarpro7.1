@@ -1,0 +1,48 @@
+/*sugar mods*/
+.progress .bar {
+  .border-radius(4px);
+  height: 8px;
+}
+
+//this was changed from hidden to hide in commit b1eb832e636cdc1de6fe01852b15a89f227328f6
+.progress {
+  overflow: hidden;
+  margin: 5px 0 0;
+  height: 8px;
+}
+
+//this has been set to #149bdf in bootstrap 2.0.4 ??remove??
+.progress-striped .bar {
+  #gradient > .striped(#62c462);
+}
+
+.progress-files .bar {
+  #gradient > .vertical(@orange, darken(@orange, 10%));
+}
+.progress-leads .bar {
+  #gradient > .vertical(@green, darken(@green, 10%));
+}
+.progress-notes .bar {
+  #gradient > .vertical(@yellow, darken(@yellow, 10%));
+}
+.progress-contacts .bar {
+  #gradient > .vertical(@blue, darken(@blue, 10%));
+}
+.progress-documents .bar {
+  #gradient > .vertical(@purple, darken(@purple, 10%));
+}
+.progress-min .bar {
+  #gradient > .vertical(@red, darken(@red, 10%));
+}
+.progress-mid .bar {
+  #gradient > .vertical(@orange, darken(@orange, 10%));
+}
+.progress-near .bar {
+  #gradient > .vertical(@yellow, darken(@yellow, 10%));
+}
+.progress-closed .bar {
+  #gradient > .vertical(@green, darken(@green, 10%));
+}
+.progress-halt .bar {
+  #gradient > .vertical(@gray, darken(@gray, 10%));
+}

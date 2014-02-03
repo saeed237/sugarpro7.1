@@ -1,0 +1,144 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Updates a target list with selected records.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint is used mainly against the Users Contacts and Leads modules.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            module
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The module of the ids being associated.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            recordIds
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The list of record ids to associate.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            prospectListId
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The prospect list id.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+{
+   "prospectListId":"8f8e57d1-6ac2-889b-778e-513009728f5b",
+   "module":"Contacts",
+   "recordIds":[
+      "ef1b40aa-5815-4f8d-e909-512d09617ac8"
+   ]
+}
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            &lt;associated record id&gt;
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            A list of record ids and the association result.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "ef1b40aa-5815-4f8d-e909-512d09617ac8":true
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/addToList</code> POST endpoint.
+        </td>
+    </tr>
+</table>

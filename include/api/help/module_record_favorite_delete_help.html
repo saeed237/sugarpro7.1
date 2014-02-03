@@ -1,0 +1,168 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Removes a record of a specified type as a favorite for the current user.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any input parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            &lt;record field type&gt;
+        </td>
+        <td>
+            Returns the fields for the selected record.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "id":"bdd59d85-687b-1739-b00a-512d09f6db9e",
+   "name":"Insight Marketing Inc",
+   "date_entered":"2013-02-26T19:12:00+00:00",
+   "date_modified":"2013-02-26T19:12:00+00:00",
+   "modified_user_id":"1",
+   "modified_by_name":"Administrator",
+   "created_by":"1",
+   "created_by_name":"Administrator",
+   "description":"",
+   "img":"",
+   "last_activity_date":"2013-02-26T19:12:00+00:00",
+   "deleted":false,
+   "assigned_user_id":"seed_max_id",
+   "assigned_user_name":"Max Jensen",
+   "team_name":[
+      {
+         "id":"East",
+         "name":"East",
+         "name_2":"",
+         "primary":false
+      },
+      {
+         "id":1,
+         "name":"Global",
+         "name_2":"",
+         "primary":false
+      },
+      {
+         "id":"West",
+         "name":"West",
+         "name_2":"",
+         "primary":true
+      }
+   ],
+   "linkedin":"",
+   "facebook":"",
+   "twitter":"",
+   "googleplus":"",
+   "account_type":"Customer",
+   "industry":"Electronics",
+   "annual_revenue":"",
+   "phone_fax":"",
+   "billing_address_street":"345 Sugar Blvd.",
+   "billing_address_street_2":"",
+   "billing_address_street_3":"",
+   "billing_address_street_4":"",
+   "billing_address_city":"San Mateo",
+   "billing_address_state":"CA",
+   "billing_address_postalcode":"56019",
+   "billing_address_country":"USA",
+   "rating":"",
+   "phone_office":"(927) 136-9572",
+   "phone_alternate":"",
+   "website":"www.sectionvegan.de",
+   "ownership":"",
+   "employees":"",
+   "ticker_symbol":"",
+   "shipping_address_street":"345 Sugar Blvd.",
+   "shipping_address_street_2":"",
+   "shipping_address_street_3":"",
+   "shipping_address_street_4":"",
+   "shipping_address_city":"San Mateo",
+   "shipping_address_state":"CA",
+   "shipping_address_postalcode":"56019",
+   "shipping_address_country":"USA",
+   "email1":"kid.support.vegan@example.info",
+   "parent_id":"",
+   "sic_code":"",
+   "parent_name":"",
+   "email_opt_out":false,
+   "invalid_email":false,
+   "email":[
+      {
+         "email_address":"kid.support.vegan@example.info",
+         "opt_out":"0",
+         "invalid_email":"0",
+         "primary_address":"1"
+      },
+      {
+         "email_address":"phone.kid@example.cn",
+         "opt_out":"0",
+         "invalid_email":"0",
+         "primary_address":"0"
+      }
+   ],
+   "campaign_id":"",
+   "campaign_name":"",
+   "my_favorite":false,
+   "_acl":{
+      "fields":{
+
+      }
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/favorite</code> DELETE endpoint.
+        </td>
+    </tr>
+</table>

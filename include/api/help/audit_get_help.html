@@ -1,0 +1,138 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Returns data changes for a specific record.
+</span>
+
+<h2>Query String Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            record
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The record id.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            module
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The name of the module.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Input Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any input parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;image file&gt;
+        </td>
+        <td>
+            String;
+        </td>
+        <td>
+            Returns the image content with the content headers.
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "next_offset":-1,
+   "records":[
+      {
+         "id":"b569e480-237a-5921-4382-512ff555fee7",
+         "parent_id":"ef1b40aa-5815-4f8d-e909-512d09617ac8",
+         "date_created":"03\/01\/2013 12:26am",
+         "created_by":"admin",
+         "field_name":"Team ID:",
+         "data_type":"team_list",
+         "before_value_string":"East",
+         "after_value_string":"Will"
+      },
+      {
+         "id":"bc0bee72-8398-a0a6-d731-512ff5bfebc7",
+         "parent_id":"ef1b40aa-5815-4f8d-e909-512d09617ac8",
+         "date_created":"03\/01\/2013 12:26am",
+         "created_by":"admin",
+         "field_name":"Teams",
+         "data_type":"id",
+         "before_value_string":"East, Global, West",
+         "after_value_string":"Jim, Will"
+      }
+   ]
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Audit</code> GET endpoint.
+        </td>
+    </tr>
+    </tbody>
+</table>

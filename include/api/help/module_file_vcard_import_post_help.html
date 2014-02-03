@@ -1,0 +1,138 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Imports a person record from a vcard.
+</span>
+
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            format
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The data format. Currently accepts 'sugar-html-json'.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            module
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The name of the module to import the vcard to.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            file
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The vcard contents.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+{
+   "format":"sugar-html-json",
+   "module":"Contacts"
+   "file":"@\/path\/to\/ExampleContact.vcf"
+}
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            file
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The id of the imported vcard.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "file":"2c9e5c09-6824-0d14-f5cb-5130321ac3cf"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/file/vcard_import</code> POST endpoint.
+        </td>
+    </tr>
+</table>

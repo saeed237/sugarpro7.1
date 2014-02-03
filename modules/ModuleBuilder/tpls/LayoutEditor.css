@@ -1,0 +1,69 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+#layoutEditor h4, #layoutEditor h3, #layoutEditor h2, #layoutEditor h1, .panel_name  {
+	font-size:11px;
+	padding-left: 0px;
+	margin: 3px;
+}
+
+.panel_name {
+	font-weight: bold;
+	color: #000000;
+	float:left; 
+	margin:5px;
+}
+#toolbox { float:left; width: 175px; padding:5px; margin:0;    border: 1px dotted black;}
+#panels { 
+	float:right; 
+	padding:5px 10px 5px 5px;
+	margin-left:20px;
+	border: 1px dotted black;
+}
+.le_panel { 
+    background: #eee;
+}
+.le_row { 
+    background: #ddd; 
+}
+
+#layoutEditor .le_panel { 
+	margin: 2px 2px 10px 2px;
+	padding: 5px 15px 15px 15px;
+}
+#layoutEditor .le_row { 
+	margin: 2px 3px; 
+	height: 24px; clear: both; 
+	padding: 5px 15px;
+}
+
+body > .le_panel .le_edit, #toolbox .le_panel .le_edit {  
+	display:none; 
+}
+#toolbox .le_panel, #toolbox .le_row, .le_field { width:150px; float: left; border: 1px solid grey; background: #eee; padding: 2px; margin: 2px 3px; overflow:hidden; }
+
+#delete { width: 52px; padding-top:5px; padding-bottom:10px;}
+
+#panels .le_row .le_field, #availablefields .le_field,  #layoutPreview .le_row .le_field {display:block;}
+.le_row .le_field {display:none;}
+
+
+.field_tabindex,.field_label,.field_name, .panel_id, .field_fieldset_fields {display:none;}
+#availablefields .le_field {clear:both;}
+#availablefields {margin-top:20px;}
+
+#layoutEditorButtons div {float:left;}
+.le_edit{
+	cursor:pointer;
+	float:right;
+}

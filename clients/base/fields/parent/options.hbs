@@ -1,0 +1,22 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#each selectOptions}}
+<option value="{{getFieldValue this "id"}}" {{#eq @index 0}}selected="selected"{{/eq}}>{{getFieldValue this "name"}}</option>
+{{/each}}
+{{#eq selectOptions.length 0}}
+<option data-empty="true">{{str "MSG_LIST_VIEW_NO_RESULTS_BASIC"}}</option>
+{{/eq}}
+<option data-searchmore="true" value="{{str "LBL_SEARCH_FOR_MORE"}}" class="more">{{str "LBL_SEARCH_FOR_MORE"}}</option>

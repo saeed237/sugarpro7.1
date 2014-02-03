@@ -1,0 +1,87 @@
+/* Drawer Layout */
+#drawers > .drawer {
+    top: 47px;
+}
+.drawer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    /* backdrop cover */
+    .drawer-backdrop {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: (@zindexFixedNavbar - 2);
+        background-color: @black;
+        border-top: 4px solid lighten(@gray,20%);
+        opacity: .5;
+    }
+
+    /* expand/collapse tab */
+    .drawer-tab .btn {
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        height: 15px;
+        width: 20px;
+        margin-left: -10px;
+        z-index: (@zindexFixedNavbar - 1);
+        .border-radius(0 0 4px 4px);
+    }
+
+    /* set drawer transitions */
+    &.transition {
+        .transition( all .3s );
+    }
+}
+/* disables scrolling */
+#content.noscroll {
+    overflow: hidden;
+}
+body.noscroll {
+    overflow: hidden;
+}
+
+//UIUX-808: remove buttons from headerpane when in drawer
+//UIUX-888: remove fixed position of header bar in drawer
+.drawer.inactive {
+    .main-pane {
+        position: relative;
+        top: 5px;
+    }
+    .side-pane.active {
+        display: block;
+    }
+    .dashboard {
+        top: 5px;
+    }
+    .headerpane,
+    .preview-headerbar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        .btn-toolbar {
+            visibility: hidden;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .drawer.active {
+        overflow: auto;
+    }
+    .drawer.inactive {
+        .drawerTrig {
+            display: none;
+        }
+        .headerpane {
+            width: 100%;
+        }
+        .main-pane {
+            margin-top: 0;
+        }
+    }
+}

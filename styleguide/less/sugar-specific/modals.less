@@ -1,0 +1,154 @@
+.modal {
+  border: 1px solid @grayLight;
+  border: 1px solid rgba(0,0,0,.1);
+  *border: 1px solid @grayLight; /* IE6-7 */
+  .box-shadow(@shadowWidget);
+  .border-radius(@baseBorderRadius);
+}
+
+//Generate fixed spanX modal widths
+.spanModalX (@index) when (@index > 0) {
+  (~".modal.span@{index},.row-fluid .modal.span@{index}") { .spanModal(@index); }
+  .spanModalX(@index - 1);
+}
+.spanModalX (0) {}
+.spanModal (@columns) {
+  width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1)) ;
+  margin-left: -( (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1)) )/2;
+}
+.spanModalX (@gridColumns);
+
+// Back to white header preserving 3px rounding
+.modal-header {
+  .border-radius(3px 3px 0 0);
+}
+.modal-header-firstlogin {
+  .firstlogin-title {
+    margin-left: 0;
+    position: relative;
+    top: -4px;
+    span {
+      position: relative;
+      top: -5px;
+    }
+  }
+  .progress-section {
+    margin-left: 20px;
+  }
+}
+
+// Hack: Since we've used .record .record-cell, we can't just use record-cell by itself and had
+// to add .record to modal to pick up record styling. But that adds padding which causes overflow.
+// This reduces original span6 from 48.936170208% to 48% to circumnavigate scrollbars
+.modal-body.record .row-fluid .span6 {
+  width: 48%;
+}
+
+.modal-wide {
+  width: 700px;
+  margin-left: -350px;
+}
+
+.modal-body {
+  padding: 0 0 58px 0;
+  max-height: 400px;
+  // no navigation
+  .modal-content {
+    padding: 15px;
+    position: relative;
+    overflow: auto;
+    max-height: 370px;
+  }
+  // with tabbed navigation
+  // 56+316+30 = 402
+  &.with-nav {
+    padding-top: 56px;
+    overflow-y: hidden;
+    .modal-content {
+      max-height: 350px;
+    }
+  }
+  // with breadcrumb navigation
+  // 40+330+30 = 400
+  &.with-tab-nav {
+    padding-top: 40px;
+    overflow-y: hidden;
+    .modal-content {
+      height: 330px;
+    }
+  }
+  textarea {
+    text-align: left;
+  }
+}
+
+
+// created for admin settings
+.modal-wizard-start {
+  position: relative;
+  padding-top: 0;
+}
+
+.modal-navigation {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: @grayLighter;
+  .nav-tabs {
+    margin: 8px 0 0;
+    padding-left: 10px;
+  }
+  .breadcrumb.two {
+    padding: 2px 0 3px;
+    li {
+      padding: 0 1em;
+      width: 34%;
+      margin: 0;
+      .box-sizing(border-box);
+      &:first-child {
+        padding-left: 0;
+        width: 33%;
+      }
+      &:last-child {
+        padding-right: 0;
+        width: 33%;
+      }
+      a {
+        padding: 16px;
+        width: 100%;
+        .box-sizing(border-box);
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  position: absolute;
+  bottom: 0;
+  padding: 14px 15px 15px;
+  left: 0;
+  right: 0;
+  background-color: @grayLighter;
+  border-top: 1px solid @grayLight;
+  .box-sizing(border-box);
+  .border-radius(0 0 3px 3px);
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.5;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.progress-modal {
+  .progress-label {
+    line-height: 40px;
+  }
+  .progress {
+    margin-bottom: 22px;
+  }
+}

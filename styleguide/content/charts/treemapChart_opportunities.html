@@ -1,0 +1,226 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Treemap Chart - Opportunities</title>
+  <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
+  <script src="../js/less-1.3.3.min.js" type="text/javascript"></script>
+  <style>
+    body {
+      overflow-y:scroll;
+      padding: 20px;
+    }
+    text {
+      font: 12px sans-serif;
+    }
+    body.full-screen div.nv-chart {
+      height: 500px;
+      width: 700px;
+    }
+  </style>
+</head>
+<body class="full-screen">
+  <div class="nv-demo">
+    <div id="treemap" class="nv-treemap nv-chart">
+      <svg></svg>
+    </div>
+  </div>
+
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/underscore-min.js"></script>
+<script src="../js/backbone-min.js"></script>
+<script src="../../../include/javascript/nvd3/lib/d3.min.js"></script>
+<script src="../../../include/javascript/nvd3/nv.d3.min.js"></script>
+<script src="data/treemap_data.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/treemap.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/treemapChart.js"></script>
+
+<script>
+  var Chart = Backbone.Model.extend({});
+  var Charts = Backbone.Collection.extend({ model: Chart });
+  charts = new Charts();
+
+  // The chart view controls the single svg element on the screen
+  var ChartsView = Backbone.View.extend({
+
+    initialize: function() {
+      // bind to model change events and use enter() to modify the appropriate circle
+      var self = this;
+
+      self.collection.bind( 'reset', function(model) {
+
+          root = self.parseData( model.models.map( function(d,i){return d.attributes} )[0].records );
+
+          d3.select(self.el)
+            .datum( root )
+            .transition().duration(500).call(self.chart);
+      });
+    },
+
+    render: function() {
+        var self = this;
+
+        this.$el.show();
+
+        this.chart = nv.models.treemapChart()
+              .leafClick( function(d) {
+                  // var model = app.data.createBean(self.module);
+                  // model.set("id", d.id);
+                  // model.fetch();
+                  // app.navigate(self.context, model);
+                  alert('leaf clicked');
+              })
+              .showTitle(false)
+              .tooltips(true)
+              .tooltipContent(function(point) {
+                  var rep = (point.assigned_user_name) ? point.assigned_user_name : (point.className) ? point.parent.name : point.name,
+                      stage = (point.sales_stage) ? point.sales_stage : (point.className) ? point.name : null,
+                      account = (point.account_name) ? point.account_name : null;
+                  var tt = '<p>Amount: <b>$' + d3.format(',.2s')(point.value) + '</b></p>' +
+                    '<p>Sales Rep: <b>' + rep + '</b></p>';
+                  if (stage) tt += '<p>Stage: <b>' +  stage + '</b></p>';
+                  if (account) tt += '<p>Account: <b>' +  account + '</b></p>';
+                  return tt;
+              })
+              .getSize(function(d) { return d.value; })
+              //.showControls(false)
+              //.colorData( 'graduated', {c1: '#e8e2ca', c2: '#3e6c0a'} )
+              .colorData( 'class' )
+              //.colorData( 'default', {gradient:true, orientation: 'horizontal'} )
+              //.colorData('default')
+          ;
+
+        nv.utils.windowResize(this.chart.update);
+
+        return this;
+    },
+
+    parseData: function(data) {
+      var self = this;
+
+      var root = {
+            name: 'Opportunities',
+            children: [],
+            x: 0,
+            y: 0,
+            dx: parseInt(self.$el.width(), 10),
+            dy: parseInt(self.$el.height(), 10),
+            depth: 0,
+            colorIndex: '0root_Opportunities'
+          }
+        , colorIndices = ['0root_Opportunities'];
+
+      var today = new Date();
+          today.setUTCHours(0,0,0,0);
+
+      var day_ms = 1000*60*60*24
+        , d1 = new Date(today.getTime() + 31*day_ms);
+
+      var data = data.filter(function(model) {
+          // Filter for 30 days from now.
+          var d2 = new Date(model.date_closed || '1970-01-01');
+          return (d2-d1)/day_ms <= 30;
+      }).map(function(d){
+          // Include properties to be included in leaves
+          return {
+            assigned_user_name: d.assigned_user_name,
+            sales_stage: d.sales_stage,
+            name: d.name,
+            amount_usdollar: d.amount_usdollar,
+            color: d.color
+          };
+      });
+
+      data = _.groupBy(data, function(m) {
+          return m.assigned_user_name;
+      });
+
+      _.each(data, function(value, key, list) {
+          list[key] = _.groupBy(value, function(m) {
+              return m.sales_stage;
+          });
+      });
+
+      _.each(data, function(value1, key1) {
+          var child = [];
+          _.each(value1, function(value2, key2) {
+              if (colorIndices.indexOf('2oppgroup_' + key2) === -1) {
+                colorIndices.push('2oppgroup_' + key2);
+              }
+              _.each(value2, function(record) {
+                  record.className = 'stage_'+record.sales_stage.toLowerCase().replace(' ', '');
+                  record.value = parseInt(record.amount_usdollar, 10);
+                  record.colorIndex = '2oppgroup_' + key2;
+              });
+              child.push({
+                  name: key2,
+                  className: 'stage_'+key2.toLowerCase().replace(' ', ''),
+                  children: value2,
+                  colorIndex: '2oppgroup_' + key2
+              });
+          });
+          if (colorIndices.indexOf('1rep_' + key1) === -1) {
+            colorIndices.push('1rep_' + key1);
+          }
+          root.children.push({
+              name: key1,
+              children: child,
+              colorIndex: '1rep_' + key1
+          });
+      });
+
+      function accumulate(d) {
+          if(d.children) {
+              return d.value = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0);
+          }
+          return d.value;
+      }
+
+      accumulate(root);
+
+      colorIndices.sort(d3.ascending());
+
+      //build color indexes
+      function setColorIndex(d) {
+        var i, l;
+          d.colorIndex = colorIndices.indexOf(d.colorIndex);
+        if ( d.children )
+        {
+          l = d.children.length;
+          for (i = 0; i < l; i += 1) {
+            setColorIndex(d.children[i]);
+          }
+        }
+      }
+
+      setColorIndex(root);
+
+      return root;
+    }
+
+  });
+
+  var chartsView = new ChartsView({ el: $('#treemap svg'), collection: charts });
+  chartsView.render();
+  charts.reset(treemap_data_default);
+
+</script>
+</body>
+</html>

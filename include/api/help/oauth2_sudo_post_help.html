@@ -1,0 +1,160 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Get an access token as another user.
+The current user must be an admin in order to access this endpoint. This method is
+useful for integrations in order to be able to access the system with the same permission
+restrictions as a specified user. The calling user does not lose their existing
+token, this one is granted in addition.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                platform
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Which platform on the session, defaults to "base"
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+        <tr>
+            <td>
+                client_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+               The client id for the session, defaults to "sugar"
+            </td>
+            <td>
+                False
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+{
+   "client_id":"sugar",
+   "platform":"base"
+}
+</pre>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                access_token
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The access token needed to authenticate for other methods.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                expires_in
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The length of time until the access_token expires.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                token_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Should always be bearer.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                scope
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                There is no scope implementation in the current release of Sugar.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "access_token":"c19fff9b-b767-233e-ebb4-512e369d3e39",
+   "expires_in":3600,
+   "token_type":"bearer",
+   "scope":null
+}
+</pre>
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/oauth2/token/sudo/:user</code> POST endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,82 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+
+<!-- BEGIN: main -->
+<form name="updates" method="POST" action="index.php" >
+	<input type="hidden" name="module" value="Administration">
+	<input type="hidden" name="action" value="ConvertDiscClient">
+	<input type="hidden" name="useraction">
+	<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+	<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+    <input type=hidden name="submitted" value="{SUBMITTED}">
+    <input type=hidden name="run" value="{RUN}">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td><input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.useraction.value='Save';" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+		<td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	</tr>
+	</table>
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+	<tr><td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr><th align="left" scope="row" colspan="2"><h4>{MOD.LBL_UPGRADE_CONVERT_DISC_CLIENT_TITLE}</h4></th>
+			</tr>
+			<tr>
+			<td colspan=2 align="left">{MOD.LBL_UPGRADE_CONVERT_DISC_DESCRIPTION}</td>
+			</tr>
+			<tr><td colspan=2 align="left">{MOD.LBL_SUGAR_SERVER_URL_DESC}</td></tr>
+			<tr><td colspan=2 align="left">{MOD.LBL_LOGIN_SUGAR_SERVER_DESC}</td></tr>
+			<tr><td colspan=2 align="left">{MOD.LBL_PASSWORD_SUGAR_SERVER_DESC}</td></tr>
+            <!-- BEGIN: complete -->
+			<tr>
+				<td colspan=2 ><slot><p>{COMPLETED_MESSAGE}</p></slot></td>
+			</tr>
+            <!-- END: complete -->
+            <!-- BEGIN: existing -->
+             <tr>
+                <td>{MOD.LBL_ALREADY_RUNNING}</td>
+            </tr>
+            <!-- END: existing -->
+            <!-- BEGIN: convert -->
+            <tr>
+                <td>{MOD.LBL_SUGAR_SERVER_URL}</td>
+                <td><input type=text name="server_url" size="50" value="{SERVER_URL}">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>{MOD.LBL_LOGIN_SUGAR_SERVER}</td>
+                <td><input type=text name="user_name" value="{USER_NAME}">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>{MOD.LBL_ADMIN_SUGAR_SERVER}</td>
+                <td><input type=text name="admin_name" value="{ADMIN_NAME}">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>{MOD.LBL_PASSWORD_SUGAR_SERVER}</td>
+                <td><input type=password name="password">&nbsp;</td>
+            </tr>
+            <!-- END: convert -->
+            <tr>
+                <td>{MOD.SUBMIT_MESSAGE}</td>
+            </tr>
+		</table>
+	</td></tr>
+	</table>
+</form>
+<!-- END: main -->

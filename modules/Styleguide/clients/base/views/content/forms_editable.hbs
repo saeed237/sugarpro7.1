@@ -1,0 +1,138 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<script src="include/javascript/jquery/jquery.jeditable.js"></script>
+
+<!-- Editable
+================================================== -->
+<section id="editable">
+  <div class="page-header">
+    <h1>Editable <small>Inline edit inputs</small></h1>
+  </div>
+  <div class="row">
+
+    <div class="span6">
+      <h2>Inline editable field</h2>
+
+      <div class="row-fluid control-group">
+        <div class="span2">
+          Label
+        </div>
+        <div class="span10 urleditable-wrap inline-editable-wrap">
+          <span sfuuid="1">
+            <a class="btn-mini btn inline-editable urleditable text-editable-trigger pull-left">
+              <i style="position:relative;left:auto;padding:0 !important;top:2px;" class="icon-pencil icon-sm"></i>
+            </a>
+            <span class="urleditable-field editable-field">Some content</span>
+          </span>
+          <p class="help-block">
+          </p>
+        </div>
+      </div>
+
+      <div class="row-fluid control-group">
+        <div class="span2">
+          Label
+        </div>
+        <div class="span10 urleditable-wrap inline-editable-wrap ">
+          <span sfuuid="1">
+            <a class="btn-mini btn inline-editable urleditable text-editable-trigger pull-left">
+              <i style="position:relative;left:auto;padding:0 !important;top:2px;" class="icon-pencil icon-sm"></i>
+            </a>
+            <span class="urleditable-field editable-field">Lots of content lots of content lots of contentlots of content lots of content</span>
+          </span>
+          <p class="help-block">
+          </p>
+        </div>
+      </div>
+
+      <div class="row-fluid control-group error">
+        <div class="span2">
+          Label
+        </div>
+        <div class="span10 urleditable-wrap inline-editable-wrap">
+          <span sfuuid="1">
+            <a class="btn-mini btn inline-editable urleditable text-editable-trigger pull-left">
+              <i style="position:relative;left:auto;padding:0 !important;top:2px;" class="icon-pencil icon-sm"></i>
+            </a>
+            <span class="editable-field">Lots of content lots of content lots of contentlots of content lots of content</span>
+          </span>
+          <p class="help-block">
+            Error. This field is required.
+          </p>
+        </div>
+      </div>
+    </div><!--/span-->
+
+    <div class="span6">
+      <h2>URL field</h2>
+
+      <div class="row-fluid control-group">
+        <div class="span2">
+          Label
+        </div>
+        <div class="span10 urleditable-wrap inline-editable-wrap ">
+          <span sfuuid="1">
+            <a class="btn-mini btn inline-editable urleditable editable-trigger url-editable-trigger pull-left">
+              <i style="position:relative;left:auto;padding:0 !important;top:2px;" class="icon-pencil icon-sm"></i>
+            </a>
+            <span class="urleditable-field editable-field"><a href=""><span>http://google.com</span></a></span>
+          </span>
+          <p class="help-block">
+          </p>
+        </div>
+      </div>
+
+      <div class="row-fluid control-group">
+        <div class="span2">
+          Label
+        </div>
+        <div class="span10 urleditable-wrap inline-editable-wrap ">
+          <span sfuuid="1">
+            <a class="btn-mini btn inline-editable urleditable editable-trigger url-editable-trigger pull-left">
+              <i style="position:relative;left:auto;padding:0 !important;top:2px;" class="icon-pencil icon-sm"></i>
+            </a>
+            <span class="urleditable-field editable-field"><a href=""><span>https://sugarcrm.atlassian.net/secure/IssueNavigator.jspa&64;dasdsd</span></a></span>
+          </span>
+          <p class="help-block">
+          </p>
+        </div>
+      </div>
+
+      <div class="row-fluid control-group error">
+        <div class="span2">
+          Label
+        </div>
+        <div class="span10 urleditable-wrap inline-editable-wrap ">
+          <span sfuuid="1">
+            <a class="btn-mini btn inline-editable urleditable editable-trigger url-editable-trigger pull-left">
+              <i style="position:relative;left:auto;padding:0 !important;top:2px;" class="icon-pencil icon-sm"></i>
+            </a>
+            <span class="urleditable-field editable-field"><a href=""><span>https://sugarcrm.atlassian.net/secure/IssueNavigator.jspa&64;dasdsd</span></a></span>
+          </span>
+          <p class="help-block">
+            Error. This field is required.
+          </p>
+        </div>
+      </div>
+
+      <!-- <p>Take the same <code>&lt;pre&gt;</code> element and add two optional classes for enhanced rendering.</p>
+      <pre class="prettyprint linenums" style="margin-bottom: 9px;">
+      &lt;p&gt;Sample text here...&lt;/p&gt;
+      </pre> -->
+    </div><!--/span-->
+
+  </div><!--/row-->
+</section>

@@ -1,0 +1,121 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+ 
+body {
+    -webkit-text-size-adjust:120%;
+}
+
+.search_sec, .subpanel_sec {
+    font-size:small;
+}
+.sectitle, .sec {
+    font-size:medium;
+}
+
+.middot {
+    display: none;
+}
+
+.subpanel_sec {
+    padding-left:  0;
+}
+
+small {
+    -webkit-text-size-adjust:150%;
+}
+
+ul {
+    margin-left:0px;
+    padding-left:0px;
+    border: 0;
+    width: 100%;
+}
+
+ul li {
+    padding: 0;
+    margin-left:0px;
+    padding-left:5px;
+    width: 100%;
+    background: url(../../images/iphone-listArrow.png) no-repeat scroll right center;
+    border-bottom: 1px solid #E0E0E0;
+}
+ul li a {
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+    margin: -8px 0 -8px -10px;
+    padding: 6px 32px 6px 10px;
+    text-decoration: none;
+    color: inherit;
+}
+.sec {
+    border: 0;
+    margin: 0;
+    padding:0;
+}
+
+.sectitle, .search_sec, .subpanel_sec {
+    margin-top: 0;
+    
+}
+
+.sectitle {
+    background: url(../../images/iphone-toolbar.png) #6d84a2 repeat-x;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+.subpanel_sec {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+ul.sec li {
+    padding: 5px 0;
+}
+
+table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+}
+
+table tr td {
+    padding: 2px;
+    font-size: 12px;
+}
+
+table tr td a{
+    font-size: 12px;
+}
+
+.welcome {
+    margin-bottom: -10px;
+}
+
+hr {
+    display: none;
+}
+
+#footerlinks {
+    margin-top: 10px;
+}
+    

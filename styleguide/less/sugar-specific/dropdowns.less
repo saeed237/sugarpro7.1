@@ -1,0 +1,194 @@
+.dropdown-menu {
+  top: 34px;
+  padding: 0;
+  .border-radius(4px);
+  .rtlLeft(@direction,auto);
+  .rtlRight(@direction,-4px);
+  &.left {
+    left: auto;
+    right: 0;
+    .rtlLeft(@direction,0px);
+    .rtlRight(@direction,auto);
+  }
+  &.scroll,
+  &.scroll-child > div {
+    max-height: 333px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  h4.title {
+    margin-top: -5px;
+    padding: 5px 10px;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.8);
+    font-size: @baseFontSize;
+    color: @white !important;
+    #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+    .border-radius(3px 3px 0 0);
+  }
+  ul {
+    margin: 0;
+    list-style: none;
+    li {
+      margin: 0;
+      padding: 0;
+      border: 0 none;
+      &.primary {
+        border-top: 1px solid @grayLight;
+      }
+      label {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  li:first-child a {
+    border-top: none;
+    .border-radius(4px 4px 0 0);
+  }
+  li:last-child a {
+    border-bottom: none;
+    .border-radius(0 0 4px 4px);
+  }
+  //boostrap override
+  li > a {
+    padding: 8px 10px;
+  }
+  //replicate bootstrap styles from li > a
+  a,
+  button {
+    display: block;
+    padding: 8px 10px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: @gray;
+    white-space: nowrap;
+    margin: 0;
+    border-top: 1px solid @grayLighter;
+    label {
+      padding-left: 0;
+    }
+  }
+  // Gray out text and ensure the hover state remains gray
+  a.disabled,
+  a.disabled:hover {
+    color: @grayLight;
+  }
+  // Nuke hover effects
+  a.disabled:hover {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none; // Remove CSS gradient
+    cursor: default;
+    color: @grayLight;
+    & [class*='icon'] {
+      color: @grayLight !important;
+    }
+  }
+
+  // Hover state
+  // -----------
+  li > a:hover,
+  li > button:hover,
+  li > span > button:hover,
+  li > span > a:hover,
+  .active > a,
+  .active > span > a,
+  .active > a:hover,
+  .active > span > a:hover {
+    color: @dropdownLinkColorHover;
+    text-decoration: none;
+    //this causes sharp corners on dropdown-menu
+    //fixed by setting border radius on li > a
+    background: @dropdownLinkBackgroundHover;
+    //background-color: transparent;
+  }
+
+  label.radio {
+    color: lighten(@gray, 20%);
+    padding-left: 0;
+  }
+  label.radio.checked {
+    color: @gray;
+    font-weight: bold;
+  }
+  label.radio i {
+    color: transparent;
+  }
+  label.radio.checked i {
+    color: @gray;
+  }
+  li.divider {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid lighten(@grayLight,10%);
+    height: 0;
+  }
+
+  &.custom {
+    a {
+      display: inline !important;
+      color: @linkColor;
+      border-top: 0;
+    }
+    li {
+      line-height: 32px;
+      padding: 0 10px;
+    }
+    li:hover,
+    .active {
+      color: @dropdownLinkColorHover;
+      background: @dropdownLinkBackgroundHover;
+    }
+  }
+
+    &.bottom-up {
+        top: auto;
+        bottom: 34px;
+    }
+}
+
+.dropdown-toggle {
+  .mystuff {
+    margin-left: -10px;
+  }
+  .icon-caret-down {
+    //margin-left: 6px;
+  }
+}
+/*
+.icon-caret-down {
+  .opacity(30);
+}*/
+
+.dropdown-inset {
+  max-height: 118px;
+  background-color: @grayLighter;
+  background-image: none;
+  outline: 0;
+  .box-shadow(~"inset 0px 3px 1px rgba(0,0,0,.2)");
+  position: relative;
+  margin: 0;
+  padding-right: 0 !important;
+  a {
+    border-bottom: 1px solid darken(@grayLighter, 10%);
+    color: @gray;
+  }
+  li:last-child a {
+    border-bottom: 1px solid darken(@grayLight, 10%);
+    .border-radius(0);
+  }
+  li > a {
+    padding: 9px 20px;
+    color: @gray;
+  }
+
+}
+/* Add a caret to action dropdowns */
+.actions {
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    z-index:1001;
+  }
+}

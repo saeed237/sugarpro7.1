@@ -1,0 +1,37 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+    <div class="row-fluid">
+        <div class="span7">
+            <div class="block filtered tabbable tabs-left">
+                <ul class="nav nav-tabs results">
+                    {{#each collection.models}}
+                    <li class="search">
+                        <span class="label label-{{module}}">{{str "LBL_MODULE_NAME_SINGULAR" module}}</span>
+                        <p><a href="#{{buildRoute module=module id=id}}">{{attributes.name}}</a></p>
+                        <div class="actions">
+                           <a href="javascript:void(0);" rel="tooltip" data-container="body" data-title="{{str "LBL_PREVIEW"}}"><i class="icon-eye-open"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{#notEq collection.next_offset "-1"}}
+                    {{#each meta.buttons}}
+                        {{field ../this model=../model}}
+                    {{/each}}
+                {{/notEq}}
+            </div>
+        </div>
+    </div>

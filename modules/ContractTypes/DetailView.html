@@ -1,0 +1,44 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ * Description:  
+ ********************************************************************************/
+-->
+
+<!-- BEGIN: main -->
+<form action="index.php" method="post" name="DetailView" id="form">
+	<input type="hidden" name="module" value="ContractTypes">
+	<input type="hidden" name="record" value="{ID}">
+	<input type="hidden" name="action">
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0">
+<tr>
+    <td>
+<table width="100%" align='left' border="0" cellspacing="0" cellpadding="0" class="detail view">
+<tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_NAME}</slot></td>
+<td width="85%"><slot>{NAME}&nbsp;</slot></td>
+</tr><tr>
+<td width="15%" scope="row"><slot>{MOD.LBL_LIST_ORDER}</slot></td>
+<td width="85%"><slot>{LIST_ORDER}&nbsp;</slot></td>
+</tr></table>
+</form>
+</td>
+</tr>
+</table>
+</form>
+{JAVASCRIPT}
+<!-- END: main -->

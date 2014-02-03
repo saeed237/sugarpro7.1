@@ -1,0 +1,56 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{> wizard-page.header }}
+<div class="modal-body">
+
+{{#eq wizardName "admin"}}
+    <ul class="thumbnails row-fluid">
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Administration&action=Locale&view=default"><i class="icon-globe"></i>{{str "LBL_WIZ_SYSTEM_LOCALE_SETTINGS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=EmailMan&action=config"><i class="icon-envelope"></i>{{str "LBL_WIZ_EMAIL_SETTINGS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Configurator&action=EditView"><i class="icon-cogs"></i>{{str "LBL_WIZ_APPLICATION_SETTINGS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Users&action=index"><i class="icon-plus-sign-alt"></i>{{str "LBL_WIZ_CREATE_USERS" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=Import&action=step1&import_module=Administration"><i class="icon-upload"></i>{{str "LBL_WIZ_IMPORT_DATA" module}}</a>
+        </li>
+        <li class="span2">
+            <a class="thumbnail" href="#bwc/index.php?module=ModuleBuilder&action=index&type=studio"><i class="icon-wrench"></i>{{str "LBL_WIZ_CONFIGURE_APPLICATION" module}}</a>
+        </li>
+    </ul>
+{{/eq}}
+    <ul class="thumbnails row-fluid">
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://support.sugarcrm.com/03_Training"><i class="icon-info-sign"></i>{{str "LBL_WIZ_SUGAR_TRAINING" module}}</a>
+        </li>
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://support.sugarcrm.com/02_Documentation"><i class="icon-book"></i>{{str "LBL_WIZ_DOCUMENTATION" module}}</a>
+        </li>
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://support.sugarcrm.com/04_Find_Answers/02KB"><i class="icon-briefcase"></i>{{str "LBL_WIZ_KNOWLEDGE_BASE" module}}</a>
+        </li>
+        <li class="span3">
+            <a class="thumbnail" target="_blank" href="http://forums.sugarcrm.com/"><i class="icon-comments-alt"></i>{{str "LBL_WIZ_FORUMS" module}}</a>
+        </li>
+    </ul>
+</div>
+{{> wizard-page.footer }}

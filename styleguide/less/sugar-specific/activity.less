@@ -1,0 +1,187 @@
+//for activity stream
+.activitystream-list {
+  width: 100%;
+  margin: 0;
+  list-style: none;
+}
+.activitystream-posts-comments-container {
+  border-bottom: 1px solid @grayLighter;
+  padding: 12px 68px 8px 80px;
+  position: relative;
+  font-size: @fontSizeLarge - 2;
+  min-height: 46px;
+  .avatar,
+  .avatar img,
+  .label-module {
+    width: 42px;
+    height: 42px;
+    border: none;
+  }
+  .avatar,
+  .label-module {
+    position: absolute;
+    left: 20px;
+    top: 12px;
+  }
+  .label-module {
+    .box-sizing(border-box);
+  }
+  .tagged span.label {
+    font-size: @baseFontSize-1;
+  }
+  p {
+    margin: 0;
+  }
+  .details a {
+    font-size: @fontSizeSmall;
+  }
+  .embed {
+    min-height: 18px;
+    max-width: 480px;
+    iframe,
+    img {
+      margin-top: 11px;
+    }
+  }
+  .comments {
+    margin: 12px -68px -8px -80px;
+    .avatar,
+    .avatar img {
+      height: 24px;
+      width: 24px;
+    }
+    .avatar {
+      left: 38px;
+    }
+    &> .comment:first-child {
+      .box-shadow(~"inset 0 4px 8px -4px rgba(0, 0, 0, 0.5)");
+    }
+    .comment {
+      background: @grayLighter;
+      list-style: none;
+      border-top: 1px solid @white;
+      border-bottom: 1px solid darken(@grayLighter, 5%);
+      padding: 8px 10px 8px 80px;
+      font-size: @baseFontSize;
+      position: relative;
+    }
+    .more-comments {
+      padding: 6px 8px 6px 40px;
+    }
+  }
+  .reply-area {
+    .reply-input {
+      position: relative;
+      margin-right: 60px;
+    }
+    .reply-btn {
+      position: absolute;
+      top: 2px;
+      right: -60px;
+    }
+    .reply {
+      background-color: @white;
+      border: 1px solid darken(@grayLighter, 5%);
+      min-height: 18px;
+      padding: 6px 8px;
+      .placeholder {
+        color: @grayLight;
+      }
+    }
+  }
+  .actions {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: normal;
+  }
+}
+
+
+//for activity stream in preview
+.preview-pane {
+  .activitystream-layout {
+    padding: 28px 5% 0;
+    margin: 8px;
+  }
+  .activitystream-list {
+    background-color: #fff;
+    border: 1px solid darken(@grayLighter, 15%);
+  }
+  .activitystream-posts-comments-container {
+    padding: 8px 14px 8px 50px;
+    font-size: @baseFontSize;
+    min-height: 36px;
+    .avatar,
+    .avatar img,
+    .label-module {
+      height: 28px;
+      width: 28px;
+    }
+    .avatar,
+    .label-module {
+      left: 12px;
+      top: 12px;
+    }
+    .label-module {
+      font-size: 11px;
+      .box-sizing(border-box);
+    }
+    .embed {
+      iframe,
+      img {
+        margin-top: 5px;
+      }
+    }
+    .comments {
+      margin: 8px -14px -8px -50px;
+      .comment {
+        padding: 8px 8px 4px 50px;
+      }
+      .avatar,
+      .avatar img {
+        height: 24px;
+        width: 24px;
+      }
+      .avatar {
+        left: 16px;
+      }
+      .more-comments {
+        padding: 4px 8px 4px 18px;
+      }
+    }
+    > .comment:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.activitystream-pending-attachment {
+  position: relative;
+  width: 140px;
+  border: 4px solid @grayLighter;
+  background: @grayLighter;
+  float: left;
+  height: 141px;
+  font-size: @fontSizeSmall;
+  overflow: hidden;
+  margin: 5px 5px 5px 0;
+  color: #767676;
+  .close {
+    font-size: 16px;
+    line-height: 14px;
+    padding: 0 2px;
+    margin-left: 5px;
+  }
+  img {
+    margin-top: 4px;
+  }
+}
+
+// UIUX-513: Add support for placeholders in content editable div tags.
+div[data-placeholder]:not(:focus):not([data-hide-placeholder]):before {
+  content: attr(data-placeholder);
+  margin-left: 2px;
+  color: @grayLight;
+}

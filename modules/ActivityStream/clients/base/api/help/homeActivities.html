@@ -1,0 +1,62 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<div class="longHelpTitle">Activities on the home page</div>
+<div class="summary">
+<h2>Summary:</h2>
+  This endpoint lists activities across the entire sytstem. It uses a subscription model, and can be queried like a normal bean collection, but without search, ordering or filtering.
+</div>
+<div class="params">
+<h2>Query Parameters:</h2>
+<table>
+  <tr><th>Param</td><th>Description</td><th>Optional</td></tr>
+  <tr><td>max_num</td><td>A maximum number of records to return</td><td>Optional</td></tr>
+  <tr><td>offset</td><td>How many records to skip over before records are returned</td><td>Optional</td></tr>
+</table>
+</div>
+<div class="input">
+<h2>Input Example:</h2>
+This endpoint does not accept any input
+</div>
+<div class="output">
+  <h2>Output Example:</h2>
+<code class="codesample">
+{
+    "next_offset": 20, <span class="note">This will be set to -1 when there are no more records after this "page".</span>
+    "records": [{
+        "id": "22fb8b16-de1d-f1dc-b15b-51240efde177",
+        "date_entered": "2013-02-19T23:47:11+00:00",
+        "date_modified": "2013-02-19T23:47:11+00:00",
+        "created_by": "1",
+        "deleted": "0",
+        "parent_id": "f5bb0331-2c0f-5c7c-b4db-5123caac0056",
+        "parent_type": "Contacts",
+        "activity_type": "post", <span class="note">This will be the type of activity performed.</span>
+        "data": {
+            "value": "This is a test post on a contact I'm subscribed to."
+        },
+        "comment_count": 0, <span class="note">This will be set to the total number of comments on the post.</span>
+        "last_comment": { <span class="note">This will be the last comment on the post, which can be used to create a comment model on the frontend.</span>
+            "deleted": 0,
+            "data": []
+        },
+        "fields": [],
+        "first_name": null,
+        "last_name": "Administrator",
+        "created_by_name": " Administrator" <span class="note">This will be the locale-formatted full name of the user.</span>
+    }, ... ]
+}
+</code>
+</div>

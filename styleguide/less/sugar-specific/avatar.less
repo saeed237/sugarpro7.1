@@ -1,0 +1,73 @@
+
+//avatar
+.avatar img {
+  .border-radius(3px);
+}
+.avatar.thumbnail {
+  padding: 3px;
+}
+
+li li .avatar,
+.avatar img  {
+  height: 24px;
+  width: 24px;
+}
+.avatar.avatar32, .avatar32 img {
+  height: 32px;
+  width: 32px;
+}
+.avatar.avatar42, .avatar42 img {
+  height: 42px;
+  width: 42px;
+  margin-right: 14px;
+}
+.avatar.avatar68, .avatar68 img {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  z-index: 1;
+  height: 92px;
+  width: 92px;
+}
+.pull-left .avatar,
+.pull-left .label-module {
+  margin-right: 10px;
+}
+
+.avatar.preview {
+  border:1px solid transparent;
+  display:inline-block;
+  width:48px;
+  height:48px;
+  position:relative;
+  z-index:1;
+  cursor:pointer;
+  margin-bottom:0;
+  & > span {
+    width:46px;
+    height:46px;
+    display:inline-block;
+    line-height:35px;
+    text-indent:9px;
+    & > strong {
+      color:@white;
+    }
+  }
+  & > span > .icon-plus {
+    border: 3px dashed #CCC;
+    .border-radius(5px);
+    color: #CCC;
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    position:relative;
+    left:-9px;
+    text-indent:8px;
+  }
+  & > img {
+    border: 1px solid #ccc;
+    .border-radius(5px);
+    width:46px;
+    height:46px;
+  }
+}

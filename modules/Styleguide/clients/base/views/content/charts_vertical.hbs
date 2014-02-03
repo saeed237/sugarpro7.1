@@ -1,0 +1,152 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<section id="vertical-bar">
+  <div class="page-header">
+    <h2>Vertical Bar <small>used for comparing multiple series with a few values</small></h2>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Standard Vertical Bar Chart</h3>
+      <p>Long description. [<a href="styleguide/content/charts/multiBarChart.html" target="_blank">Full Screen</a> | <a href="styleguide/content/charts/multiBarChart_colors.html" target="_blank">Color Options</a> ]</p></p>
+      <div>
+<div id="vert1" class="nv-chart">
+<svg></svg>
+</div>
+      </div>
+    </div>
+    <div class="span6">
+      <h3>Pareto Chart</h3>
+      <p>This is a new NVD3 chart type created for SugarCRM. An example of usage in the Sugar7 prototype is on <a href="../styleguide/sugar7/forecast_nvd3.html" target="_blank">forecasting page</a>. [<a href="styleguide/content/charts/paretoChart.html" target="_blank">Full Screen</a>]</p>
+      <div>
+<div id="vert2" class="nv-chart view-forecastsChart">
+<svg></svg>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="styleguide/content/charts/data/pareto_data.js"></script>
+<script src="styleguide/content/charts/data/multibar_data.js"></script>
+
+<script>
+  //Vertical Bar Chart with Line
+  nv.addGraph({
+    generate: function() {
+        //var chart = nv.models.multiBarChart();
+        //override default barClick function
+        var chart = nv.models.paretoChart()
+              .margin({top: 10, right: 10, bottom: 30, left: 40})
+              .showControls(false)
+              .showTitle(false)
+              .stacked(false)
+              // .barClick( function(data,e,selection) {
+              //     //if only one bar series is disabled
+              //     d3.select('#vert2 svg')
+              //       .datum(forecast_data_Q1)
+              //       .transition().duration(500).call(chart);
+              //   })
+              ;
+        //end override
+
+        d3.select('#vert2 svg')
+          .datum(this.translateDataToD3(forecast_data_Q1))
+          .transition().duration(500).call(chart);
+
+        return chart;
+    },
+    translateDataToD3 : function( json, params )
+    {
+        return {
+            'properties':{
+                'title': json.properties[0].title
+              , 'quota': parseInt(json.values[0].goalmarkervalue[0],10)
+              // bar group data (x-axis)
+              , 'groupData': json.values.map( function(d,i){
+                    return {
+                      'group': i
+                    , 'l': json.values[i].label
+                    , 't': json.values[i].values.reduce( function(p, c, i, a){
+                        return parseInt(p,10) + parseInt(c,10);
+                      })
+                    }
+                })
+            }
+            // series data
+          , 'data': json.label.map( function(d,i){
+                return {
+                    'key': d
+                  , 'type': 'bar'
+                  , 'series': i
+                  , 'values': json.values.map( function(e,j){
+                        return { 'series': i, 'x': j+1, 'y': parseInt(e.values[i],10),  y0: 0 };
+                    })
+                  , 'valuesOrig': json.values.map( function(e,j){
+                        return { 'series': i, 'x': j+1, 'y': parseInt(e.values[i],10),  y0: 0 };
+                    })
+                }
+            }).concat(
+                json.properties[0].goal_marker_label.filter( function(d,i){
+                    return d !== 'Quota';
+                  }).map( function(d,i){
+                    return {
+                        'key': d
+                      , 'type': 'line'
+                      , 'series': i
+                      , 'values': json.values.map( function(e,j){
+                          return { 'series': i, 'x': j+1, 'y': parseInt(e.goalmarkervalue[i+1],10) };
+                        })
+                      , 'valuesOrig': json.values.map( function(e,j){
+                          return { 'series': i, 'x': j+1, 'y': parseInt(e.goalmarkervalue[i+1],10) };
+                        })
+                    }
+                })
+            )
+        };
+    },
+    callback: function(graph) {
+      $('#log').text('Chart is loaded');
+    }
+  });
+
+  // Vertical Bar Chart without Line
+  nv.addGraph(function() {
+
+    var chart = nv.models.multiBarChart()
+          .showTitle(false)
+          .tooltips(true)
+          .showControls(false)
+          //.colorData( 'graduated', {c1: '#e8e2ca', c2: '#336699', l: forecast_data_Q1.data.length} )
+          //.colorData( 'class' )
+          .colorData( 'default' )
+          .tooltipContent( function(key, x, y, e, graph) {
+              return '<p>Stage: <b>' + key + '</b></p>' +
+                     '<p>Amount: <b>$' +  parseInt(y) + 'K</b></p>' +
+                     '<p>Percent: <b>' +  x + '%</b></p>'
+              })
+          //.forceY([0,400]).forceX([0,6]);
+        ;
+
+    d3.select('#vert1 svg')
+        .datum(multibar_data_default)
+      .transition().duration(500)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+</script>

@@ -1,0 +1,129 @@
+.dashboard {
+  .thumbnail.widget:not(.collapsed) {
+    max-height: 500px;
+
+    //500(max)-33(menubar)-1(bottom-border)
+    .widget-content,
+    .block {
+      max-height: 466px;
+    }
+    .dashlet-options+.block {
+      height: 417px;
+    }
+    //466(max)-16(margins)
+    .nv-chart {
+      height: 450px;
+      margin: 8px;
+    }
+    .dashlet-options+.block .nv-chart,
+    .dashlet-options+.nv-chart,
+    .opportunity-pipeline-wrapper .nv-chart,
+    .forecasts-chart-wrapper .nv-chart {
+      height: 409px;
+    }
+    .opportunity-metrics-wrapper .nv-chart {
+      height: 309px;
+    }
+    .nv-chart-cases {
+      height: 399px;
+    }
+  }
+}
+.sidebar-content {
+  .thumbnail.widget:not(.collapsed) {
+    max-height: 400px;
+    //400(max)-33(menubar)-1(bottom-border)
+    .widget-content,
+    .block {
+      max-height: 366px;
+    }
+    .dashlet-options+.block {
+      height: 317px;
+    }
+    //366(max)-16(margins)
+    .nv-chart {
+      height: 350px;
+      margin: 8px;
+    }
+    //350(h)-41(options)
+    .dashlet-options+.block .nv-chart,
+    .dashlet-options+.nv-chart,
+    .opportunity-pipeline-wrapper .nv-chart,
+    .forecasts-chart-wrapper .nv-chart {
+      height: 309px;
+    }
+    .opportunity-metrics-wrapper .nv-chart {
+      height: 250px;
+    }
+    .nv-chart-cases {
+      height: 250px;
+    }
+  }
+}
+
+//interactions
+//opportunity-metrics
+//casessummary
+span.count {
+  font-size: 16px;
+  display: block;
+  &.label {
+    font-size: 14px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    padding: 3px;
+  }
+}
+
+.rotatedLabel {
+  .rotate(-90deg);
+}
+.rotatedLabelReverse {
+  .rotate(90deg);
+}
+
+// org chart zoom control
+.btn-slider {
+  display: inline-block;
+  padding: 5px;
+  .noUiSlider {
+    width: 50px;
+    height: 4px;
+    display: inline-block;
+    margin: 0;
+    top: -1px;
+  }
+  .noUiSliderEnds {
+    width: 50px;
+    margin: 0 30px 0 0;
+    .zoom-control {
+      position: absolute;
+      top: 1px;
+      font-size: 18px;
+      &.disabled {
+        color: lighten(@grayLight,10%) !important;
+      }
+    }
+    i[data-control="zoom-out"] {
+      left: -26px;
+    }
+    i[data-control="zoom-in"] {
+      right: -26px;
+    }
+    &:before,
+    &:after {
+      top: 6px;
+      height: 4px;
+    }
+    &:before {
+      border-radius: 2px 0 0 2px;
+      left: -6px;
+    }
+    &:after {
+      border-radius: 0 2px 2px 0;
+      right: -6px;
+    }
+  }
+}

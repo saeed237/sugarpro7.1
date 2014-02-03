@@ -1,0 +1,121 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<!-- Labels
+================================================== -->
+<section id="labels">
+  <div class="page-header">
+    <h1>Inline labels <small>Label and annotate text</small></h1>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Labels</th>
+        <th>Markup</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="label">Default</span></td>
+        <td><code>&lt;span class="label"&gt;Default&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-important">Important</span></td>
+        <td><code>&lt;span class="label label-important"&gt;Important&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-warning">Warning</span></td>
+        <td><code>&lt;span class="label label-warning"&gt;warning&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-pending">Pending</span></td>
+        <td><code>&lt;span class="label label-pending"&gt;warning&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-success">Success</span></td>
+        <td><code>&lt;span class="label label-success"&gt;Success&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-info">Info</span></td>
+        <td><code>&lt;span class="label label-info"&gt;Info&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><span class="label label-inverse">Inverse</span></td>
+        <td><code>&lt;span class="label label-inverse"&gt;Inverse&lt;/span&gt;</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Module Element Badges</h3>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Labels</th>
+        <th>module Singular</th>
+        <th>Class Name</th>
+      </tr>
+    </thead>
+    <tbody>
+  {{#each pageData.module_list}}
+      <tr>
+        <td><b>{{this}}</b></td>
+        <td>
+          <span class="label label-module label-{{this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module-sm label-{{this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+          <span class="label label-module-mini label-{{this}}" rel="tooltip" data-title="{{moduleIconToolTip this}}">{{moduleIconLabel this}}</span>
+        </td>
+        <td>{{moduleIconToolTip this}}</td>
+        <td><code>.label-{{this}}</code></td>
+      </tr>
+  {{/each}}
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Markup</h3>
+
+<pre class="prettyprint linenums">
+&lt;span class="label label-module label-&#123;&#123;this.module}}" rel="tooltip" data-title="&#123;&#123;moduleIconToolTip this.module}}"&gt;&#123;&#123;moduleIconLabel this.module}}&lt;/span&gt;
+</pre>
+
+  <h3>CSS</h3>
+  <div class="row">
+    <div class="span2">
+      <code>.label-module</code>
+    </div>
+    <div class="span2">
+      <span class="label label-module label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2">
+      <code>.label-module-sm</code>
+    </div>
+    <div class="span2">
+      <span class="label label-module-sm label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2">
+      <code>.label-module-mini</code>
+    </div>
+    <div class="span2">
+      <span class="label label-module-mini label-Modules" rel="tooltip" data-title="Modules">Mo</span>
+    </div>
+  </div>
+</section>

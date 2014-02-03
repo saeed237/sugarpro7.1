@@ -1,0 +1,29 @@
+div.error-page {
+    background: @black url('@{baseUrl}/img/triangles.png') 0 0 repeat;
+    position:fixed;
+    height:100%;
+    width:100%;
+}
+
+div.dark_cube {
+    background: transparent url('@{baseUrl}/img/dark_cube.png') center 16px no-repeat;
+    padding-top:234px;
+    h1,
+    p,
+    a {
+    	color:@white;
+    	font-weight: 200 !important;
+    }
+    h1 {
+    	font-size:24px !important;
+    }
+    p {
+    	font-size:@fontSizeLarge;
+    }
+    a {
+		text-decoration:underline;
+    }
+    hr.invisible {
+    	margin:8px 0;
+    }
+}

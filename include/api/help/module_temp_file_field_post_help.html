@@ -1,0 +1,157 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Saves an image to a temporary folder.
+</span>
+
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            format
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The data format. Currently accepts 'sugar-html-json'.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            delete_if_fails
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Indicates whether the API is to mark related record deleted if the file upload fails.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            oauth_token
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The oauth_token value.
+        </td>
+        <td>
+            False - Required if only if delete_if_fails is true.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &lt;image field&gt;
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The field and file to populate.
+            <br>
+            Example: <code>{"<image field>":"@\/path\/to\/ExampleImage.png"}</code>
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+{
+   "format":"sugar-html-json",
+   "delete_if_fails":true,
+   "oauth_token":"8d240d9d-04ea-571b-35ea-513037ed5857",
+   "&lt;image field&gt;":"@\/path\/to\/\/ExampleImage.png"
+}
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            guid
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The temp ID of the image.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "picture":{
+      "guid":"50a8760d-966f-9d7e-f45c-513037fac8fc"
+   }
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/temp/file/:field</code> POST endpoint.
+        </td>
+    </tr>
+</table>

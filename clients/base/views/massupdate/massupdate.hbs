@@ -1,0 +1,66 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<form class="form-search {{#unless visible}}hide{{/unless}}">
+<div class="mu extend">
+    <article class="filter-header">
+        <div class="row-fluid">
+            <div class="controls span6">
+                <strong>{{str "LBL_MASS_UPDATE"}}</strong>
+            </div>
+            <div class="pull-right">
+                {{#each meta.buttons}}
+                {{field ../this}}
+                {{/each}}
+            </div>
+        </div>
+    </article>
+    {{#each fieldValues}}
+    <article class="filter-body clearfix">
+        <div class="row-fluid">
+            <div class="controls filter-field span3">
+                <select class="select2 mu_attribute inherit-width" data-index="{{@index}}">
+                    {{#if name}}
+                    <option value="{{name}}" selected>{{str label ../../this.model.module}}</option>
+                    {{else}}
+                    <option value="{{../../defaultOption.name}}" selected>{{str ../../defaultOption.label ../../this.model.module}}</option>
+                    {{/if}}
+                    {{#each ../fieldOptions}}
+                    <option value="{{name}}" {{#eq name ../name}}selected{{/eq}}>{{str label ../../this.model.module}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="controls filter-value span7">
+                <span name="fieldPlaceHolder" index="{{@index}}">
+                </span>
+            </div>
+            <div class="controls filter-actions span2">
+                <a href="javascript:void(0);" class="btn btn-invisible add pull-right {{#eq ../fieldOptions.length 0}}disabled{{/eq}}"><i class="icon-plus"></i></a>
+                {{#notEq ../fieldValues.length 1}}
+                <a href="javascript:void(0);" class="remove pull-right" data-index="{{@index}}"><i class="btn btn-invisible icon-minus"></i></a>
+                {{/notEq}}
+            </div>
+        </div>
+    </article>
+    {{/each}}
+    <div id="fieldPlaceHolders" class="hide">
+        {{#each meta.panels}}
+        {{#each fields}}
+        {{field ../../this template="edit"}}
+        {{/each}}
+        {{/each}}
+    </div>
+</div>
+</form>

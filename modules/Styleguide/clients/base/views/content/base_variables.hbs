@@ -1,0 +1,319 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+
+<!-- VARIABLES
+================================================== -->
+<section id="variables">
+  <div class="page-header">
+    <h1>Variables <small>LESS variables, HTML values, and usage guidelines</small></h1>
+  </div>
+
+  <h3>Base</h3>
+  <div class="row-fluid">
+    <div class="span4">
+      <h4>Grid system</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"><code>@gridColumns</code></td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td><code>@gridColumnWidth</code></td>
+            <td>60px</td>
+          </tr>
+          <tr>
+            <td><code>@gridGutterWidth</code></td>
+            <td>20px</td>
+          </tr>
+          <tr>
+            <td><code>@fluidGridColumnWidth</code></td>
+            <td>6.382978723%</td>
+          </tr>
+          <tr>
+            <td><code>@fluidGridGutterWidth</code></td>
+            <td>2.127659574%</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Typography</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"><code>@baseFontSize</code></td>
+            <td>13px</td>
+          </tr>
+          <tr>
+            <td><code>@baseFontFamily</code></td>
+            <td><code>Open Sans, sans-serif</code></td>
+          </tr>
+          <tr>
+            <td><code>@baseLineHeight</code></td>
+            <td>18px</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="span4">
+      <h4>Hyperlinks and Text</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"></td>
+            <td>#595A5C</td>
+            <td>Default text color</td>
+            <td class="swatch-col"><span class="swatch gray"></span></td>
+          </tr>
+          <tr>
+            <td class="span2"><code>@linkColor</code></td>
+            <td>#177EE5</td>
+            <td>Default link text color</td>
+            <td class="swatch-col"><span class="swatch blue"></span></td>
+          </tr>
+          <tr>
+            <td><code>@linkColorHover</code></td>
+            <td>#1571CE</td>
+            <td>Default link text hover color</td>
+            <td><span class="swatch blueDark"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Grayscale colors</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"><code>@black</code></td>
+            <td>#000</td>
+            <td class="swatch-col"><span class="swatch black"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayDarker</code></td>
+            <td>#222</td>
+            <td><span class="swatch grayDarker"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayDark</code></td>
+            <td>#343433</td>
+            <td><span class="swatch grayDark"></span></td>
+          </tr>
+          <tr>
+            <td><code>@gray</code></td>
+            <td>#595A5C</td>
+            <td><span class="swatch gray"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayLight</code></td>
+            <td>#CDCCCB</td>
+            <td><span class="swatch grayLight"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayLighter</code></td>
+            <td>#F5F5F5</td>
+            <td><span class="swatch grayLighter"></span></td>
+          </tr>
+          <tr>
+            <td><code>@white</code></td>
+            <td>#fff</td>
+            <td><span class="swatch swatch-bordered white"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="span4">
+      <h4>Accent colors</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"><code>@blueLight</code></td>
+            <td>#71B1F1</td>
+            <td class="swatch-col"><span class="swatch blueLight"></span></td>
+          </tr>
+          <tr>
+            <td class="span2"><code>@blue</code></td>
+            <td>#177EE5</td>
+            <td class="swatch-col"><span class="swatch blue"></span></td>
+          </tr>
+          <tr>
+            <td class="span2"><code>@blueDark</code></td>
+            <td>#1571CE</td>
+            <td class="swatch-col"><span class="swatch blueDark"></span></td>
+          </tr>
+          <tr>
+            <td><code>@green</code></td>
+            <td>#3FB300</td>
+            <td><span class="swatch green"></span></td>
+          </tr>
+          <tr>
+            <td><code>@red</code></td>
+            <td>#E61718</td>
+            <td><span class="swatch red"></span></td>
+          </tr>
+          <tr>
+            <td><code>@yellow</code></td>
+            <td>#EAE82F</td>
+            <td><span class="swatch yellow"></span></td>
+          </tr>
+          <tr>
+            <td><code>@orange</code></td>
+            <td>#F34F0C</td>
+            <td><span class="swatch orange"></span></td>
+          </tr>
+          <tr>
+            <td><code>@pink</code></td>
+            <td>#CC147C</td>
+            <td><span class="swatch pink"></span></td>
+          </tr>
+          <tr>
+            <td><code>@purple</code></td>
+            <td>#7D12B2</td>
+            <td><span class="swatch purple"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> <!-- /row -->
+
+  <h3>Components</h3>
+  <div class="row-fluid">
+    <div class="span4">
+      <h4>Buttons</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@primaryButtonBackground</code></td>
+            <td><code>@linkColor</code></td>
+            <td class="swatch-col"><span class="swatch btn btn-primary"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn-success</code></td>
+            <td><code></code></td>
+            <td class="swatch-col"><span class="swatch btn btn-success"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn-danger</code></td>
+            <td><code></code></td>
+            <td class="swatch-col"><span class="swatch btn btn-danger"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn-warning</code></td>
+            <td><code></code></td>
+            <td class="swatch-col"><span class="swatch btn btn-warning"></span></td>
+          </tr>
+          <tr>
+            <td class="span3"><code>.btn</code></td>
+            <td><code></code></td>
+            <td class="swatch-col"><span class="swatch btn"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Forms</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@placeholderText</code></td>
+            <td><code>@grayLight</code></td>
+            <td class="swatch-col"><span class="swatch placeholderText"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="span4">
+      <h4>Form states and alerts</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@warningText</code></td>
+            <td>#6E5E0C</td>
+            <td class="swatch-col"><span class="swatch warningText"></span></td>
+          </tr>
+          <tr>
+            <td><code>@warningBackground</code></td>
+            <td>#FCF8E3</td>
+            <td><span class="swatch warningBackground"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorText</code></td>
+            <td>#4D1E1E</td>
+            <td><span class="swatch errorText"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorBackground</code></td>
+            <td>#f2dede</td>
+            <td><span class="swatch errorBackground"></span></td>
+          </tr>
+          <tr>
+            <td><code>@successText</code></td>
+            <td>#28471C</td>
+            <td><span class="swatch successText"></span></td>
+          </tr>
+          <tr>
+            <td><code>@successBackground</code></td>
+            <td>#dff0d8</td>
+            <td><span class="swatch successBackground"></span></td>
+          </tr>
+          <tr>
+            <td><code>@infoText</code></td>
+            <td>#134158</td>
+            <td><span class="swatch infoText"></span></td>
+          </tr>
+          <tr>
+            <td><code>@infoBackground</code></td>
+            <td>#d9edf7</td>
+            <td><span class="swatch infoBackground"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="span4">
+      <h4>Navbar</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@navbarHeight</code></td>
+            <td>44px</td>
+            <td class="swatch-col"></td>
+          </tr>
+          <tr>
+            <td><code>@navbarBackground</code></td>
+            <td><code>@grayDarker</code></td>
+            <td><span class="swatch grayDarker"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarBackgroundHighlight</code></td>
+            <td><code>@grayDark</code></td>
+            <td><span class="swatch grayDark"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarText</code></td>
+            <td><code>@grayLight</code></td>
+            <td><span class="swatch grayLight"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarLinkColor</code></td>
+            <td><code>@grayLight</code></td>
+            <td><span class="swatch grayLight"></span></td>
+          </tr>
+          <tr>
+            <td><code>@navbarLinkColorHover</code></td>
+            <td><code>@white</code></td>
+            <td><span class="swatch swatch-bordered white"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /row -->
+
+</section>

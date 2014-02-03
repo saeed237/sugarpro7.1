@@ -1,0 +1,88 @@
+{
+  "properties": {
+    "title": "Test Buble Data",
+    "value": 4
+  },
+  "data": [
+      {
+        "key": "Education",
+        "values": [
+          {
+            "x": "2013-01-15",
+            "y": 10862,
+            "size": 10,
+            "shape": "circle"
+          },
+          {
+            "x": "2013-03-5",
+            "y": 12346,
+            "size": 10,
+            "shape": "circle"
+          },
+          {
+            "x": "2013-03-20",
+            "y": 10330,
+            "size": 10,
+            "shape": "circle"
+          }
+        ]
+      },
+      {
+        "key": "Government",
+        "values": [
+          {
+            "x": "2013-02-10",
+            "y": 80245,
+            "size": 40,
+            "shape": "circle"
+          },
+          {
+            "x": "2013-03-20",
+            "y": 80500,
+            "size": 40,
+            "shape": "circle"
+          }
+        ]
+      },
+      {
+        "key": "Automotive",
+        "values": [
+          {
+            "x": "2013-01-25",
+            "y": 54367,
+            "size": 30,
+            "shape": "circle"
+          }
+        ]
+      },
+      {
+        "key": "Small Business",
+        "values": [
+          {
+            "x": "2013-01-15",
+            "y": 15123,
+            "size": 20,
+            "shape": "circle"
+          },
+          {
+            "x": "2013-02-05",
+            "y": 17567,
+            "size": 20,
+            "shape": "circle"
+          },
+          {
+            "x": "2013-02-20",
+            "y": 14009,
+            "size": 20,
+            "shape": "circle"
+          },
+          {
+            "x": "2013-03-05",
+            "y": 17742,
+            "size": 20,
+            "shape": "circle"
+          }
+        ]
+      }
+    ]
+}

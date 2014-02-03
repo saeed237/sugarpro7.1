@@ -1,0 +1,83 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<!-- Form inputs
+================================================== -->
+<style>
+table.accordion td.accordion-heading .accordion-toggle,
+table.accordion td.accordion-body {
+    padding: 0;
+}
+table.accordion .accordion-inner {
+    border: none;
+}
+table.accordion .accordion-body {
+    border-top: none;
+}
+</style>
+
+<section id="form-inputs">
+    <div class="page-header">
+        <h1>Sugar7 Fields <small>Basic fields that support detail, record, and edit modes with error addons.</small></h1>
+    </div>
+    <div class="record">
+        <table class="accordion table table-bordered table-striped table-condensed" id="accordion_fields">
+            <thead>
+                <tr>
+                    <th>Field Name</th><th>Type</th><th>Sugar Field</th><th>Examples</th><th>Documentation</th>
+                </tr>
+            </thead>
+        {{#each tempfields}}
+            <tbody class="accordion-group">
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>plugin</td>
+                    <td>{{this.type}}</td>
+                    <td class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_fields" data-target="#collapse_field_{{this.type}}">Example</a>
+                    </td>
+                    <td><a href="#Styleguide/docs/forms.datetime">Documentation</a></td>
+                </tr>
+                <tr>
+                    <td class="accordion-body collapse" colspan="5">
+                        <div class="accordion-inner" id="collapse_field_{{this.type}}" style="height:0px;">
+                            <div class="row-fluid">
+                                <h3>Detail</h3>
+                                {{field ../this model=../this.model template="detail"}}
+                            </div>
+                            <div class="row-fluid">
+                                <h3>Edit</h3>
+                                {{field ../this model=../this.model template="edit"}}
+                            </div>
+                            <div class="row-fluid">
+                                <h3>Disabled</h3>
+                                {{field ../this model=../this.model template="disabled"}}
+                            </div>
+                            <div class="row-fluid">
+                                <h3>List</h3>
+                                {{field ../this model=../this.model template="list"}}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        {{/each}}
+        </table>
+    </div>
+
+    <div class="description">
+    {{{description}}}
+    </div>
+</section>

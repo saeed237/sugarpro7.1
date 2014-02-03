@@ -1,0 +1,72 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ * Description:  
+ ********************************************************************************/
+-->
+<!-- BEGIN: main -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<form action="index.php" method="post" name="DetailView" id="form">
+
+			<input type="hidden" name="module" value="WorkFlow">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="isDuplicate" value=false>
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module">
+			<input type="hidden" name="return_action">
+			<input type="hidden" name="return_id">			
+		<tr>
+		<td><input title="{APP.LBL_EDIT_BUTTON_TITLE}" accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='WorkFlow'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'" type="submit" name="Edit" value="  {APP.LBL_EDIT_BUTTON_LABEL}  ">  <input title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='WorkFlow'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" type="submit" name="Delete" value=" {APP.LBL_DELETE_BUTTON_LABEL} "></td>
+		<td align='right'>{ADMIN_EDIT}</td>
+		</tr></table>
+	</form>
+
+
+	<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0">
+<tr>
+
+	<td width="25%"><slot>{MOD.LBL_NAME}</slot></td>
+	<td width="25%"><slot>{NAME}&nbsp;</slot></td>
+	<td width="25%"><slot>{MOD.LBL_TYPE}</slot></td>
+	<td width="25%"><slot>{TYPE}&nbsp;</slot></td>
+	</tr><tr>
+	<td ><slot>{MOD.LBL_STATUS}</slot></td>
+	<td><slot><input name='status' class="checkbox" type="checkbox"{STATUS} disabled></slot></td>
+	<td ><slot>{MOD.LBL_LIST_BASE_MODULE}</slot></td>
+	<td><slot>{BASE_MODULE}&nbsp;</slot></td>
+	</tr><tr>
+	<td ><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td  valign="top" ><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td colspan='3'><slot>{DESCRIPTION}&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td ><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	<td ><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>
+</table>
+
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<slot>{SUBTRIGGERS}</slot>
+<!-- END: subpanel -->

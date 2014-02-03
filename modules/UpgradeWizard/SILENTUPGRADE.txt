@@ -1,0 +1,68 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+What is CLI Upgrader?
+---------------------
+
+The CLI Upgrader is a stand-alone PHP script that can be run from the command prompt
+for upgrading a Sugar instance. 
+
+Why is CLI Upgrader useful for Upgrades?
+------------------------------------------------------
+
+Sugar upgrades can potentially require resources that are sometimes beyond the Web
+execution environment settings. Using the CLI Upgrader enables you to avoid some of
+the limitations that the Web application environment may have that prevent the Web
+upgrader from completing the upgrade. The upload size limit (by PHP and sometimes
+even by Web server), the CGI (or equivalent) timeout limit, and the MySQL (or
+equivalent) session timeout limit are some of the challenges people run into when
+upgrading. The CLI Upgrader either avoids the limitations or better controls the
+settings in its stand-alone execution environment.
+
+How do you run CLI Upgrader?
+---------------------------------
+
+To execute the CLI Upgrader script, you need to supply the parameters, as described
+in the Arguments section below.
+
+Usage: php -f CliUpgrader.php upgradeZipFile logFile pathToSugarInstance admin-user
+
+Example:
+    [path-to-PHP/]php -f CliUpgrader.php [path-to-upgrade-package/]SugarEnt-Upgrade-6.7.x-to-7.0.0.zip [path-to-log-file/]silentupgrade.log  path-to-sugar-instance/ admin
+
+Arguments:
+    upgradeZipFile                       : Upgrade package file.
+    logFile                              : Silent Upgarde log file.
+    pathToSugarInstance                  : Sugar instance being upgraded.
+    admin-user                           : admin user performing the upgrade
+
+Upgrading the Sugar Database Schema: 
+------------------------------------- 
+
+The CLI Upgrader will automatically replace the current database schema with the
+new version schema.
+
+Compatibility matrix for the CLI Upgrader:
+----------------------------------------------
+  PHP  versions     			:  5.3, 5.4
+  Databases              		:  MySQL, MSSQL, Oracle, DB2
+  Operating systems    			:  Windows, Linux, Mac, IBM i
+  Upgrade from Sugar Instances  :  6.5.x, and 6.7.x
+
+You can also view the compatibility matrix online at:
+http://support.sugarcrm.com/05_Resources/03_Supported_Platforms
+
+Note: The CliUpgrader.php script creates new files for the user who is running it.
+For example, for the root user it create files as user/group root. Because Apache may
+not be able to read these files, you must ensure that the Web server user has the
+permissions to read and write the scripts.

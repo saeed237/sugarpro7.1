@@ -1,0 +1,54 @@
+.popover {
+ background-color: @grayDark;
+/*   width: 292px;*/
+  padding: 2px;
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  .icon-remove {
+    color: @white !important;
+  }
+  &.right .arrow {
+    margin-top: -8px;
+    border-width: 8px 0 8px 5px;
+    border-right: 8px solid @black;
+    &::after{
+      margin-left:2px;
+    }
+  }
+  &.left .arrow {
+    margin-top: -8px;
+    border-width: 8px 5px 8px 0;
+    border-left: 8px solid @black;
+    &::after{
+      margin-right:2px;
+    }
+  }
+}
+
+.popover-inner {
+  overflow: hidden;
+  background: @white; // has to be full background declaration for IE fallback
+  .border-radius(2px);
+}
+.popover-title {
+  background-color: @grayDark;
+  border-bottom:1px solid @black;
+  .border-radius(2px 2px 0 0);
+  font-size: 13px;
+  color: #fff;
+}
+.popover-content {
+  padding: 16px;
+  .border-radius(0 0 2px 2px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px;
+  .no-padding {
+    padding: 0;
+    background-color: @white;
+
+  }
+}

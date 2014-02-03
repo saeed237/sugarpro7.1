@@ -1,0 +1,112 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+
+/*
+Change log 
+243356 - F6F6F6 //very light gray (Sugar Grey)
+a3a3a3 - d8d8d6
+2647a0 - EEEEE8
+EDF5FF - EEEEE8 
+fff - 000
+*/
+
+div.workarea { 
+	padding: 5px;
+	float: left;
+	display:block;
+    width: 200px; 
+    height: 100px; 
+}
+
+.yui-skin-sam .yui-navset .yui-content table,
+.yui-skin-sam .yui-navset .yui-content td
+{
+    background: #F6F6F6 !important;
+    padding: 2px;
+    border: none;
+}
+
+div.enabled_workarea, div.disabled_workarea {
+	background: #FFFFFF;
+}
+
+
+div.datasource_content {
+	padding: 0px;
+}
+
+
+div.add_table {
+    background: #F6F6F6;	
+}
+
+
+ul.draglist { 
+    position: relative;
+    float: left;
+    width: 200px; 
+    height: 100px;
+    border: 1px solid #808080;
+    margin: 1px;
+    padding: 1px;
+    overflow: auto;
+    cursor: pointer;
+    list-style-type: none;
+    vertical-align: top; 
+    display:block;
+	background: #FFFFFF;
+}
+
+
+li.noBullet2 {
+    position: relative;
+    margin: 0px;
+    cursor: pointer;
+    padding:0px;
+	background: #FFFFFF;    
+    /* border:1px solid #7EA6B2; */ 
+}
+
+
+ul.subpanelTablist
+{
+border-bottom: 1px solid;
+border-bottom-color: #ABC3D7;
+}
+
+
+div.enabled_module_workarea, div.disabled_module_workarea {
+	padding: 5px;
+	float: left;
+	display:block;
+    width: 200px; 
+    height: 200px; 
+}
+
+
+ul.module_draglist {
+    position: relative;
+    float: left;
+    width: 200px; 
+    height: 200px;
+    border: 1px solid #808080;
+    margin: 1px;
+    padding: 1px;
+    overflow: auto;
+    cursor: pointer;
+    list-style-type: none;
+    vertical-align: top; 
+    display:block;
+	background: #FFFFFF;
+}

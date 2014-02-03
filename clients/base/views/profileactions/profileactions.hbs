@@ -1,0 +1,42 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<ul class="nav megamenu" id="userList">
+    <li class="dropdown" id="userActions">
+        <div class="btn-group">
+            <a data-toggle="dropdown" href="javascript:void(0)" role="button" class="btn btn-invisible btn-link dropdown-toggle" rel="tooltip" data-placement="bottom" title="{{userName}}">
+                {{#if pictureUrl}}
+                    <img src="{{pictureUrl}}" alt="{{userName}}" class="avatar">
+                {{else}}
+                    <i class="icon-user icon-3X"></i>
+                {{/if}}
+                <i class="icon-caret-down"></i>
+            </a>
+            <div class="dropdown-menu scroll pull-right">
+                <ul role="menu">
+                    <li class="profileactions-profile"><a href="#{{buildRoute module='Users' action='detail' id=userId}}">
+                        {{#if pictureUrl}}<img src="{{pictureUrl}}" alt="{{userName}}" class="avatar">{{else}}<i class="icon-user"></i>{{/if}}{{str "LBL_PROFILE"}}</a>
+                    </li>
+                    <li class="profileactions-employees"><a href="#{{buildRoute module='Employees'}}"><i class="icon-group"></i>{{str "LBL_EMPLOYEES"}}</a></li>
+                    {{#if showAdmin}}
+                        <li class="administration"><a href="#{{buildRoute module='Administration'}}"><i class="icon-cogs"></i>{{str "LBL_ADMIN"}}</a></li>
+                    {{/if}}
+                    <li class="profileactions-about"><a href="#{{buildRoute action='about'}}"><i class="icon-info-sign"></i>{{str "LNK_ABOUT"}}</a></li>
+                    <li class="profileactions-logout"><a href="#logout/?clear=1"><i class="icon-signout"></i>{{str "LBL_LOGOUT"}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>

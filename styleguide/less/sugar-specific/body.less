@@ -1,0 +1,47 @@
+/* Body and structure
+-------------------------------------------------- */
+body {
+  padding: 0;
+}
+
+body.scroll {
+  overflow: auto;
+}
+
+.link {
+  margin-top: 6px;
+  display: inline-block;
+}
+
+a {
+  cursor: pointer;
+}
+
+/* Space out sub-sections more
+-------------------------------------------------- */
+section {
+  padding-top: 42px;
+}
+
+.tcenter {
+	text-align: center;
+}
+.tleft {
+	text-align: left;
+    .rtlTextAlign(@direction,right !important);
+}
+.tright {
+	text-align: right;
+    .rtlTextAlign(@direction,left !important);
+}
+
+.reset-width {
+  width: auto !important;
+  min-width: auto !important;
+}
+
+.navbar,
+#content,
+#footer footer {
+  min-width: 320px !important;
+}

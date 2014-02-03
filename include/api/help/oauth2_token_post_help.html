@@ -1,0 +1,237 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the token portion of the OAuth 2.0 specification.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                grant_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Type of request. Available grant types are "password" and "refresh_token".
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                client_id
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The client_id of "sugar" will automatically create an OAuth Key in the system and can be used for "password" authentication. The client_id of "support_portal" will create an OAuth Key if the portal system is enabled and will allow for portal authentication. Other client_id's can be created by the administrator in the OAuthKeys section in the Administration section and can be used in the future for additional grant types, if the client secret is filled in, it will be checked to validate use of the client id.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                client_secret;
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The clients secret key.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        <tr>
+            <td>
+                username
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The username of the user authenticating to the system.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+            <td>
+                password
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The plaintext password the user authenticating to the system.
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+        </tr>
+            <td>
+                platform
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                ??
+            </td>
+            <td>
+                True
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Input for Password Grant Types Example</h3>
+<pre class="pre-scrollable">
+{
+   "grant_type":"password",
+   "client_id":"sugar",
+   "client_secret":"",
+   "username":"admin",
+   "password":"password",
+   "platform":"base"
+}
+</pre>
+
+<h3>Input for Refresh Token Grant Types Example</h3>
+<pre class="pre-scrollable">
+{
+    "grant_type":"refresh_token",
+    "refresh_token":"c1be5132-655b-1ca3-fb44-512e36709871",
+    "client_id":"sugar",
+    "client_secret":"",
+}
+</pre>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                access_token
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The access token needed to authenticate for other methods.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                expires_in
+            </td>
+            <td>
+                Integer
+            </td>
+            <td>
+                The length of time until the access_token expires.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                token_type
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                ????.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                scope
+            </td>
+            <td>
+                ????
+            </td>
+            <td>
+                ????.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                refresh_token
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The token needed to extend the access_token expiration timeout.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "access_token":"c19fff9b-b767-233e-ebb4-512e369d3e39",
+   "expires_in":3600,
+   "token_type":"bearer",
+   "scope":null,
+   "refresh_token":"c1be5132-655b-1ca3-fb44-512e36709871"
+}
+</pre>
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/oauth2/token</code> POST endpoint.
+        </td>
+    </tr>
+</table>

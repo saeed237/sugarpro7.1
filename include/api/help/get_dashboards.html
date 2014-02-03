@@ -1,0 +1,67 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<div class="longHelpTitle">
+    Gets current user's dashbaords.
+</div>
+<div class="summary">
+<h2>Summary:</h2>
+  This endpoint returns a list of dashboards.
+</div>
+<div class="params">
+<h2>Query Parameters:</h2>
+<table>
+    <tr><th>Param</td><th>Description</td><th>Optional</td></tr>
+    <tr><td>offset</td><td>offset</td><td></td>true</tr>
+    <tr><td>limit</td><td>limit</td><td></td>true</tr>
+    <tr><td>order_by</td><td>order by</td><td></td>true</tr>    
+</table>
+</div>
+<div class="input">
+<h2>Input Example:</h2>
+    <code class="codesample">
+        GET Dashboards/:
+        "offset":0,
+        "limit":3,
+        "order_by":"date_entered desc"
+    </code>
+</div>
+<div class="output">
+  <h2>Output Example:</h2>
+    <code class="codesample">
+        {
+            "next_offset" : 3
+            "records" :
+            [
+                {
+                    id: "1848af4f-bdde-810d-c121-511e7da454c6"
+                    name: "Dashboard1"
+                    url: "http://localhost/ult/sugarcrm/rest/v10/Dashboards/1848af4f-bdde-810d-c121-511e7da454c6"
+                },
+                {
+                    id: "2c17875e-57f1-a2dd-f9cb-511d7192c65e"
+                    name: "Dashboard2"
+                    url: "http://localhost/ult/sugarcrm/rest/v10/Dashboards/2c17875e-57f1-a2dd-f9cb-511d7192c65e"
+                },
+                {
+                    id: "bb0e2c83-660a-1fd7-fb69-511e7d6b05bd"
+                    name: "Dashboard3"
+                    url: "http://localhost/ult/sugarcrm/rest/v10/Dashboards/bb0e2c83-660a-1fd7-fb69-511e7d6b05bd"
+                }
+            ]
+        }
+    </code>
+</code>
+</div>

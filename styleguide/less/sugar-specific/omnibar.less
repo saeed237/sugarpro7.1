@@ -1,0 +1,24 @@
+.omnibar {
+  padding: 10px 10px 10px 20px;
+  border-bottom: 1px solid darken(@grayLighter, 5%);
+  .inputwrapper {
+    position: relative;
+    margin-left: 60px;
+  }
+  .sayit  {
+    padding: 6px 8px;
+    border: dashed 1px @grayLight;
+    min-height: 20px;
+    color: @gray;
+    &:focus {
+      border-style: solid;
+    }
+  }
+  .inputactions {
+    background: @grayLighter;
+    height: 30px;
+    padding: 8px;
+    .border-radius(0 0 3px 3px);
+  }
+  .clearfix();
+}

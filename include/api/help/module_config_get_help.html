@@ -1,0 +1,143 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves the config settings for a given module.
+</span>
+
+<h2>Summary</h2>
+<span class="lead">
+    This endpoint is normally used for the forecasting module.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any input parameters.
+</span>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            &lt;config field&gt;
+        </td>
+        <td>
+            &lt;config field type&gt;
+        </td>
+        <td>
+            The list of config fields will be returned.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "is_setup":1,
+   "is_upgrade":0,
+   "has_commits":1,
+   "timeperiod_type":"chronological",
+   "timeperiod_interval":"Annual",
+   "timeperiod_leaf_interval":"Quarter",
+   "timeperiod_start_date":"2013-01-01",
+   "timeperiod_shown_forward":2,
+   "timeperiod_shown_backward":2,
+   "forecast_ranges":"show_binary",
+   "buckets_dom":"commit_stage_binary_dom",
+   "show_binary_ranges":{
+      "include":{
+         "min":70,
+         "max":100
+      },
+      "exclude":{
+         "min":0,
+         "max":69
+      }
+   },
+   "show_buckets_ranges":{
+      "include":{
+         "min":85,
+         "max":100
+      },
+      "upside":{
+         "min":70,
+         "max":84
+      },
+      "exclude":{
+         "min":0,
+         "max":69
+      }
+   },
+   "show_custom_buckets_ranges":{
+      "include":{
+         "min":85,
+         "max":100
+      },
+      "upside":{
+         "min":70,
+         "max":84
+      },
+      "exclude":{
+         "min":0,
+         "max":69
+      }
+   },
+   "sales_stage_won":[
+      "Closed Won"
+   ],
+   "sales_stage_lost":[
+      "Closed Lost"
+   ],
+   "show_worksheet_likely":1,
+   "show_worksheet_best":1,
+   "show_worksheet_worst":0,
+   "show_projected_likely":1,
+   "show_projected_best":1,
+   "show_projected_worst":0,
+   "show_forecasts_commit_warnings":1
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/config</code> GET endpoint.
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,153 @@
+@media print {
+    /* Your styles here */
+    body {
+      padding: 0;
+      font-family: "Arial";
+    }
+    #arrow,
+    #header,
+    header,
+    .navbar,
+    .btn,
+    .toggle,
+    .dropdown-menu,
+    .btn-group,
+    .btn-toolbar .btn-group,
+    .btn-toolbar,
+    .search-filter,
+    .btn-group.open .dropdown-menu,
+    .side-pane.active,
+    .alert-top {
+      display: none !important;
+    }
+    .headerpane,
+    .preview-headerbar {
+      position: relative !important;
+      top: auto !important;
+    }
+    #content,
+    .main-pane,
+    .side.sidebar-content,
+    .headerpane,
+    .sidebar-content .dashboard .preview-headerbar {
+      position: relative !important;
+      top: auto !important;
+      width: 100%;
+      bottom: auto !important;
+      overflow: visible;
+    }
+    .main-pane.span8,
+    .span8 .headerpane {
+      width: 100%;
+      border-right: none;
+    }
+    .sidebar-content .dashboard .preview-headerbar {
+      margin-bottom: 12px;
+    }
+    .main-pane.span8,
+    .main-pane.span12,
+    .main-pane.dashboard {
+      padding-top: 0 !important;
+    }
+    .side.sidebar-content {
+      page-break-before: always;
+    }
+    .label.label-module {
+      border: 2px solid @gray;
+    }
+    .label.label-module-sm {
+      border: 1px solid @gray;
+    }
+    .row-fluid.panel_hidden.hide {
+      display: block;
+    }
+    .show-hide-toggle {
+      display: none;
+    }
+    .record {
+      border-bottom: 2px solid #DCDCDC;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .flex-list-view.left-actions table.dataTable > thead > tr > th:first-child,
+    .flex-list-view.left-actions table.dataTable > tbody > tr > td:first-child,
+    .flex-list-view.right-actions table.dataTable > thead > tr > th:last-child,
+    .flex-list-view.right-actions table.dataTable > tbody > tr > td:last-child {
+      display: none !important;
+    }
+    .flex-list-view.left-actions table.dataTable > thead > tr > th:nth-child(2),
+    .flex-list-view.left-actions table.dataTable > tbody > tr > td:nth-child(2),
+    .flex-list-view.right-actions table.dataTable > thead > tr > th:nth-last-child(2),
+    .flex-list-view.right-actions table.dataTable > tbody > tr > td:nth-last-child(2) {
+      padding: 4px 8px !important;
+    }
+
+    #content > .row-fluid > .dashboard { /* specific selector to avoid applying it to .side-pane dashboard */
+      .dashlets.row-fluid > li {
+        width: 100%;
+        .widget-container {
+          width: 100%;
+        }
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+    .sidebar-content .dashboard .preview-headerbar h1 div.dropdown> a {
+      display: block !important;
+      .icon-caret-down {
+        display: none;
+      }
+    }
+
+    .dashboard .row-fluid .well.well-invisible {
+      display: none !important;
+      padding-top: 0;
+    }
+    .dashboard .row-fluid.sortable .well.well-invisible {
+      display: block !important;
+      .widget-container {
+        padding: 20px 0 0;
+        .widget {
+          border: 1px solid @grayLight;
+          position: relative;
+          width: 656px;
+          left: 50%;
+          margin-left: -328px;
+        }
+      }
+      .nv-chart {
+        position: relative;
+        width: 640px;
+        max-height: 370px;
+        svg {
+          width: 100%;
+          position: relative;
+          //max-height: 350px;
+        }
+      }
+    }
+    .dashboard .thumbnail.widget:not(.collapsed) .widget-content,
+    .dashboard .thumbnail.widget:not(.collapsed) .block,
+    .dashboard .thumbnail.widget:not(.collapsed) {
+      max-height: none !important;
+    }
+    footer {
+      position: relative;
+      visibility: hidden;
+    }
+    .dataTables_wrapper {
+      overflow-x: visible;
+    }
+    .chartCanvas,
+    .sorting {
+      background: none;
+      filter: none;
+    }
+    :root {
+      -webkit-print-color-adjust: exact;
+    }
+}

@@ -1,0 +1,50 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Retrieves an attached file for a specific field on a record.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Result</h2>
+<span class="lead">
+    The response from this request is an HTTP response with a forced download. This can be used in rendering images through the API or in offering immediate file downloads.
+</span>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+Cache-Control: no-cache, must-revalidate Connection: keep-alive Content-Encoding: gzip Content-Type: application/octet-stream Date: Mon, 30 Jan 2012 17:00:46 GMT Expires: Mon, 30 Jan 2012 17:00:45 GMT Last-Modified: Thu, 10 Nov 2011 19:01:31 GMT Transfer-Encoding: chunked Vary: Accept-Encoding...
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/:record/file/:field</code> GET endpoint.
+        </td>
+    </tr>
+</table>

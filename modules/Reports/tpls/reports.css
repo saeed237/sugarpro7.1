@@ -1,0 +1,79 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+.crumbLink {
+	color: #444;
+}
+a.crumbLink {
+	text-decoration: none;
+}
+.wizardButton {
+border:0px;
+
+}
+.relTable{
+border:0px solid #FFFFFF;
+padding: 4px 8px 4px 8px;
+}
+.wizardButton TD{
+padding: 0px 0px 0px 0px;
+}
+.wizardButton TD:hover    {
+cursor:pointer
+}
+.wizardButtonDown TD   {
+border:1px solid #000000;
+background-color:#C0C0C0;
+cursor:pointer
+}
+a.studiolink {text-decoration:none; text-align:center}
+div.bodywrapper{padding: 4px 4px 4px 4px}
+
+.oddListRowS1{
+	background-color:WhiteSmoke;
+}
+.x-panel-body th {
+	background-color:#C0C0C0;
+	border:1px solid #808080;
+	font-weight:bold;	
+}
+
+.spantitle {
+	font-size: 14px;
+	font-weight:normal;
+    color:#666666;
+} 
+
+.yui-dt-scrollable .yui-dt-bd {
+	width:190px;
+	border:none;
+}
+
+.yui-dt-scrollable .yui-dt-hd {
+	width:190px;
+	border:none;
+}
+
+.autocompletewrapper {
+	padding:4px;
+}
+.yui-dt table {
+	width:183px;
+}
+
+.ygtvlabel {
+white-space: nowrap;
+};
+.bold {
+    font-weight:bold;eee
+}

@@ -1,0 +1,946 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+}
+svg text {
+  font: normal 11px Helvetica, Arial, sans-serif;
+  fill: #58595B;
+}
+svg .title {
+  font: bold 13px Helvetica, Arial, sans-serif;
+}
+.nvd3 .nv-background {
+  fill: none;
+}
+.nvd3.nv-noData {
+  font-size: 16px;
+  font-weight: bold;
+}
+.nv-title {
+  font-size: 13px;
+}
+.nv-labels text {
+  font-weight: bold;
+  fill: #666;
+}
+.nv-chart {
+  height: 400px;
+  min-width: 300px;
+  min-height: 100px;
+}
+.nv-chart svg {
+  max-height: none;
+}
+.nv-label-value {
+  font-size: 13px;
+}
+.nvtooltip {
+  pointer-events: none;
+}
+.nvtooltip-pending-removal {
+  position: absolute;
+  pointer-events: none;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .saved-reports-chart .nv-chart {
+  max-height: 348px;
+}
+.nv-demo {
+  padding: 20px;
+}
+body.full-screen .nv-chart {
+  min-width: 100px;
+  min-height: 100px;
+  border: 1px solid black;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  height: auto;
+}
+.nv-brush .extent {
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+.nv-brush .resize path {
+  fill: #eee;
+  stroke: #666;
+}
+.nvd3 .nv-brush .extent {
+  fill-opacity: 0 !important;
+}
+.nvd3 .nv-brushBackground rect {
+  stroke: #000;
+  stroke-width: .4;
+  fill: #fff;
+  fill-opacity: .7;
+}
+.nvd3 .nv-legend .nv-series {
+  cursor: pointer;
+  font-size: 11px;
+}
+.nvd3 .nv-legend .disabled circle {
+  fill-opacity: 0;
+}
+.nvd3 .nv-axis path {
+  fill: none;
+  stroke: #bbb;
+  stroke-width: 2px;
+  stroke-opacity: .75;
+  shape-rendering: crispEdges;
+}
+.nvd3 .nv-axis path.domain {
+  stroke-opacity: .75;
+}
+.nvd3 .nv-axis line {
+  fill: none;
+  stroke: #bbb;
+  stroke-width: 2px;
+  stroke-opacity: .25;
+  shape-rendering: crispEdges;
+}
+.nvd3 .nv-axis line.zero {
+  stroke-opacity: .75;
+}
+.nvd3 .nv-axis .nv-axisMaxMin text {
+  font-weight: bold;
+}
+.nvd3 .nv-x.nv-axis text {
+  transform: rotate(90);
+  font-size: 11px;
+}
+.nvd3 .nv-bars .negative rect {
+  zfill: brown;
+  cursor: pointer;
+}
+.nvd3 .nv-bars rect {
+  zfill: steelblue;
+  cursor: pointer;
+  fill-opacity: .75;
+  -webkit-transition: fill-opacity 250ms linear;
+  -moz-transition: fill-opacity 250ms linear;
+  -o-transition: fill-opacity 250ms linear;
+  transition: fill-opacity 250ms linear;
+}
+.nvd3 .nv-bars rect:hover {
+  fill-opacity: 1;
+}
+.nvd3 .nv-bars .hover rect {
+  fill: lightblue;
+}
+.nvd3 .nv-bars text {
+  fill: rgba(0,0,0,0);
+}
+.nvd3 .nv-bars .hover text {
+  fill: #000000;
+}
+.nvd3 .nv-multibar .nv-groups rect,
+.nvd3 .nv-multibarHorizontal .nv-groups rect,
+.nvd3 .nv-discretebar .nv-groups rect {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+  stroke: #FFF;
+  -webkit-transition: fill-opacity 250ms linear;
+  -moz-transition: fill-opacity 250ms linear;
+  -o-transition: fill-opacity 250ms linear;
+  transition: fill-opacity 250ms linear;
+}
+.nvd3 .nv-multibar .nv-groups rect:hover,
+.nvd3 .nv-multibarHorizontal .nv-groups rect:hover,
+.nvd3 .nv-discretebar .nv-groups rect:hover {
+  fill-opacity: 1;
+}
+.nvd3 .nv-discretebar .nv-groups text,
+.nvd3 .nv-multibarHorizontal .nv-groups text {
+  font-weight: bold;
+  fill: #000000;
+  stroke: rgba(0,0,0,0);
+}
+.nvd3.nv-pie path {
+  stroke-opacity: 0;
+  -webkit-transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
+  -moz-transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
+  -o-transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
+  transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
+}
+.nvd3.nv-pie .nv-slice text {
+  stroke: #000;
+  stroke-width: 0;
+}
+.nvd3.nv-pie path {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: 1;
+}
+.nvd3.nv-pie .hover path {
+  fill-opacity: .7;
+}
+.nvd3.nv-pie .nv-label rect {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+.nv-pie-hole {
+  font-size: 32px;
+  font-weight: bold;
+}
+.nvd3 .nv-groups path.nv-line {
+  fill: none;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  shape-rendering: geometricPrecision;
+}
+.nvd3 .nv-groups path.nv-area {
+  stroke: none;
+  stroke-linecap: round;
+  shape-rendering: geometricPrecision;
+}
+.nvd3 .nv-line.hover path {
+  stroke-width: 6px;
+}
+.nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+.nvd3.nv-scatter.nv-single-point .nv-groups .nv-point {
+  fill-opacity: .5;
+  stroke-opacity: .5;
+}
+.nvd3 .nv-groups .nv-point {
+  -webkit-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+  -moz-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+  -o-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+  transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+}
+.nvd3.nv-scatter .nv-groups .nv-point.hover,
+.nvd3 .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  fill-opacity: .5 !important;
+  stroke-opacity: .5 !important;
+}
+.nvd3 .nv-point-paths path {
+  stroke: #aaa;
+  stroke-opacity: 0;
+  fill: #eee;
+  fill-opacity: 0;
+}
+.nvd3 .nv-indexLine {
+  cursor: ew-resize;
+}
+.nvd3 .nv-distribution {
+  pointer-events: none;
+}
+.nvd3 .nv-groups .nv-point {
+  pointer-events: none;
+}
+.nvd3 .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  stroke-opacity: .5;
+}
+.nvd3 .nv-scatter .nv-point.hover {
+  fill-opacity: 1;
+}
+.nvd3.nv-stackedarea path.nv-area {
+  fill-opacity: .7;
+  stroke-opacity: 0;
+  -webkit-transition: fill-opacity 250ms linear, stroke-opacity 250ms linear;
+  -moz-transition: fill-opacity 250ms linear, stroke-opacity 250ms linear;
+  -o-transition: fill-opacity 250ms linear, stroke-opacity 250ms linear;
+  transition: fill-opacity 250ms linear, stroke-opacity 250ms linear;
+}
+.nvd3.nv-stackedarea path.nv-area.hover {
+  fill-opacity: .9;
+}
+.nvd3.nv-stackedarea .nv-groups .nv-point {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+.nvd3.nv-stackedarea .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  stroke-opacity: .75;
+  fill-opacity: 1;
+}
+.nvd3.nv-linePlusBar .nv-bar rect {
+  fill-opacity: .75;
+}
+.nvd3.nv-linePlusBar .nv-bar rect:hover {
+  fill-opacity: 1;
+}
+.nvd3.nv-sparklineplus .nv-hoverValue line {
+  stroke: #f44;
+  stroke-width: 1.5px;
+}
+.nvd3.nv-sparklineplus,
+.nvd3.nv-sparklineplus g {
+  pointer-events: all;
+}
+.nvd3 .nv-hoverArea {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+.nvd3.nv-sparklineplus .nv-xValue,
+.nvd3.nv-sparklineplus .nv-yValue {
+  stroke: #666;
+  font-size: .5em;
+  font-weight: normal;
+}
+.nvd3.nv-sparklineplus .nv-yValue {
+  stroke: #f66;
+}
+.nv-odomText {
+  font-weight: bold;
+  fill: #000;
+}
+.nv-arc-group {
+  fill: steelblue;
+}
+.nv-pointer {
+  fill: #888888;
+  stroke: #ffffff;
+}
+.nv-funnelChart .nv-y path {
+  stroke: none;
+}
+.nv-funnelChart .nv-label-value text {
+  font-size: 14px;
+  fill: #fff;
+}
+.nv-funnelChart text.nv-label-group {
+  font-size: 16px;
+  font-weight: bold;
+}
+.nv-funnelChart .nv-group polygon {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: 1;
+}
+.nv-bubbleChart .nvd3.nv-scatter.nv-single-point .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+.nv-multiBarWithLegend .nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+.nv-pareto .nv-quotaWrap line {
+  opacity: .8;
+  stroke: #444;
+  stroke-width: 3px;
+}
+.nv-pareto .nv-y.nv-axis .domain {
+  display: none;
+}
+.nv-pareto .nv-y.nv-axis .tick line {
+  stroke-width: 2px;
+  stroke: #bbb;
+}
+.nv-pareto .nv-x.nv-axis .domain {
+  stroke-width: 2px;
+  stroke: #bbb;
+}
+.nv-pareto svg text {
+  font-size: 12px;
+  fill: #aaa;
+}
+.nv-pareto .nvd3 .nv-multibar .nv-groups rect {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+  stroke: #FFF;
+  fill-opacity: 0.85;
+}
+.nv-pareto .nvd3 .nv-x.nv-axis text,
+.nv-pareto .nvd3.nv-legend text {
+  fill: #888;
+  font-size: 12px;
+}
+.nvd3 .nv-lineLegend .nv-series {
+  cursor: default;
+}
+.nv-treemap svg {
+  background-color: #fff;
+}
+.nv-treemap svg text {
+  pointer-events: none;
+  fill: #fff;
+}
+.nv-treemap svg .nv-depth text {
+  fill: #fff;
+}
+.nv-treemap svg .nv-grandparent text {
+  font-weight: bold;
+  fill: #58595B;
+}
+.nv-treemap svg rect {
+  stroke: #fff;
+}
+.nv-treemap svg .nv-children.hover .nv-parent {
+  fill: #fff;
+  opacity: 0.3;
+}
+.nv-treemap svg .nv-parent,
+.nv-treemap svg .nv-grandparent rect {
+  stroke-width: 3px;
+}
+.nv-treemap svg .nv-child {
+  stroke-width: 1px;
+}
+.nv-treemap svg .nv-parent {
+  fill: none;
+  font-weight: normal;
+}
+.nv-treemap svg .nv-grandparent rect {
+  fill: #fff;
+}
+.nv-treemap svg .nv-children .nv-parent,
+.nv-treemap svg .nv-grandparent rect {
+  cursor: pointer;
+}
+.nv-treemap svg .nv-parent {
+  pointer-events: all;
+}
+.stage_closedwon {
+  fill: #2ca02c;
+}
+.stage_prospecting {
+  fill: #5b2a00;
+}
+.stage_closedlost {
+  fill: #d62728;
+}
+.stage_qualification {
+  fill: #ff7f0e;
+}
+.stage_thisopp {
+  fill: #1f77b4;
+}
+.stage_negotiationreview {
+  fill: #000000;
+}
+.stage_perceptionanalysis {
+  fill: #0b280b;
+}
+.stage_proposalpricequote {
+  fill: #000000;
+}
+.stage_valueproposition {
+  fill: #ff7f0e;
+}
+.stage_iddecisionmakers {
+  fill: #9467bd;
+}
+.stage_needsanalysis {
+  fill: #d9a400;
+}
+.nv-card {
+  fill: #E9EFEF;
+  stroke: #AAA;
+  stroke-width: .5px;
+  cursor: pointer;
+}
+.nv-card .nv-circ-front {
+  stroke-width: 0;
+}
+.nv-card line {
+  stroke-width: 2;
+}
+.nv-tree path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+.nv-chart-org .nv-foreign-object body {
+  width: 100px;
+  height: 32px;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background-color: #E9EFEF;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.nv-chart-org .nv-foreign-object img.rep-avatar {
+  float: left;
+  margin-right: 4px;
+}
+.nv-chart-org .nv-foreign-object div.rep-name {
+  font-size: 10px;
+  color: steelblue;
+}
+.nv-chart-org .nv-foreign-object div.rep-title {
+  font-size: 8px;
+}
+.nv-chart-globe svg {
+  pointer-events: all;
+}
+.nv-chart-globe .globe {
+  fill: #6699cc;
+  fill-opacity: .5;
+}
+.nv-chart-globe .sphere {
+  fill: #dbe4f0;
+}
+.nv-chart-globe .graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+.nv-chart-globe .countries path {
+  fill: #AAA;
+  stroke: #fff;
+}
+.nv-chart-globe .states path {
+  fill: #CCC;
+  stroke: #fff;
+}
+.nv-chart-texture {
+  background: url("../../assets/img/texture/texture-noise.png");
+}
+.nv-fill-green {
+  fill: #3FB300;
+  background-color: #3FB300;
+}
+.nv-fill-red {
+  fill: #E61718;
+  background-color: #E61718;
+}
+.nv-fill-blue {
+  fill: #25B2F1;
+  background-color: #25B2F1;
+}
+.nv-fill00 {
+  fill: #1f77b4;
+  background-color: #1f77b4;
+}
+.nv-fill01 {
+  fill: #aec7e8;
+  background-color: #aec7e8;
+}
+.nv-fill02 {
+  fill: #ff7f0e;
+  background-color: #ff7f0e;
+}
+.nv-fill03 {
+  fill: #ffbb78;
+  background-color: #ffbb78;
+}
+.nv-fill04 {
+  fill: #2ca02c;
+  background-color: #2ca02c;
+}
+.nv-fill05 {
+  fill: #98df8a;
+  background-color: #98df8a;
+}
+.nv-fill06 {
+  fill: #d62728;
+  background-color: #d62728;
+}
+.nv-fill07 {
+  fill: #ff9896;
+  background-color: #ff9896;
+}
+.nv-fill08 {
+  fill: #9467bd;
+  background-color: #9467bd;
+}
+.nv-fill09 {
+  fill: #c5b0d5;
+  background-color: #c5b0d5;
+}
+.nv-fill10 {
+  fill: #8c564b;
+  background-color: #8c564b;
+}
+.nv-fill11 {
+  fill: #c49c94;
+  background-color: #c49c94;
+}
+.nv-fill12 {
+  fill: #e377c2;
+  background-color: #e377c2;
+}
+.nv-fill13 {
+  fill: #f7b6d2;
+  background-color: #f7b6d2;
+}
+.nv-fill14 {
+  fill: #7f7f7f;
+  background-color: #7f7f7f;
+}
+.nv-fill15 {
+  fill: #c7c7c7;
+  background-color: #c7c7c7;
+}
+.nv-fill16 {
+  fill: #bcbd22;
+  background-color: #bcbd22;
+}
+.nv-fill17 {
+  fill: #dbdb8d;
+  background-color: #dbdb8d;
+}
+.nv-fill18 {
+  fill: #17becf;
+  background-color: #17becf;
+}
+.nv-fill19 {
+  fill: #9edae5;
+  background-color: #9edae5;
+}
+.nv-legend .nv-fill00 {
+  stroke: #1f77b4;
+}
+.nv-legend .nv-fill01 {
+  stroke: #aec7e8;
+}
+.nv-legend .nv-fill02 {
+  stroke: #ff7f0e;
+}
+.nv-legend .nv-fill03 {
+  stroke: #ffbb78;
+}
+.nv-legend .nv-fill04 {
+  stroke: #2ca02c;
+}
+.nv-legend .nv-fill05 {
+  stroke: #98df8a;
+}
+.nv-legend .nv-fill06 {
+  stroke: #d62728;
+}
+.nv-legend .nv-fill07 {
+  stroke: #ff9896;
+}
+.nv-legend .nv-fill08 {
+  stroke: #9467bd;
+}
+.nv-legend .nv-fill09 {
+  stroke: #c5b0d5;
+}
+.nv-legend .nv-fill10 {
+  stroke: #8c564b;
+}
+.nv-legend .nv-fill11 {
+  stroke: #c49c94;
+}
+.nv-legend .nv-fill12 {
+  stroke: #e377c2;
+}
+.nv-legend .nv-fill13 {
+  stroke: #f7b6d2;
+}
+.nv-legend .nv-fill14 {
+  stroke: #7f7f7f;
+}
+.nv-legend .nv-fill15 {
+  stroke: #c7c7c7;
+}
+.nv-legend .nv-fill16 {
+  stroke: #bcbd22;
+}
+.nv-legend .nv-fill17 {
+  stroke: #dbdb8d;
+}
+.nv-legend .nv-fill18 {
+  stroke: #17becf;
+}
+.nv-legend .nv-fill19 {
+  stroke: #9edae5;
+}
+.nv-stroke0 {
+  stroke: #1f77b4;
+  background-color: #1f77b4;
+}
+.nv-stroke1 {
+  stroke: #ff7f0e;
+  background-color: #ff7f0e;
+}
+.nv-stroke2 {
+  stroke: #2ca02c;
+  background-color: #2ca02c;
+}
+.nv-stroke3 {
+  stroke: #d62728;
+  background-color: #d62728;
+}
+.nv-stroke4 {
+  stroke: #9467bd;
+  background-color: #9467bd;
+}
+.nv-stroke5 {
+  stroke: #8c564b;
+  background-color: #8c564b;
+}
+.nv-stroke6 {
+  stroke: #e377c2;
+  background-color: #e377c2;
+}
+.nv-stroke7 {
+  stroke: #7f7f7f;
+  background-color: #7f7f7f;
+}
+.nv-stroke8 {
+  stroke: #bcbd22;
+  background-color: #bcbd22;
+}
+.nv-stroke9 {
+  stroke: #17becf;
+  background-color: #17becf;
+}
+.dashboard .thumbnail.widget:not(.collapsed) {
+  max-height: 500px;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .widget-content,
+.dashboard .thumbnail.widget:not(.collapsed) .block {
+  max-height: 466px;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .dashlet-options+.block {
+  height: 417px;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .nv-chart {
+  height: 450px;
+  margin: 8px;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .dashlet-options+.block .nv-chart,
+.dashboard .thumbnail.widget:not(.collapsed) .dashlet-options+.nv-chart,
+.dashboard .thumbnail.widget:not(.collapsed) .opportunity-pipeline-wrapper .nv-chart,
+.dashboard .thumbnail.widget:not(.collapsed) .forecasts-chart-wrapper .nv-chart {
+  height: 409px;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .opportunity-metrics-wrapper .nv-chart {
+  height: 309px;
+}
+.dashboard .thumbnail.widget:not(.collapsed) .nv-chart-cases {
+  height: 399px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) {
+  max-height: 400px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) .widget-content,
+.sidebar-content .thumbnail.widget:not(.collapsed) .block {
+  max-height: 366px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) .dashlet-options+.block {
+  height: 317px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) .nv-chart {
+  height: 350px;
+  margin: 8px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) .dashlet-options+.block .nv-chart,
+.sidebar-content .thumbnail.widget:not(.collapsed) .dashlet-options+.nv-chart,
+.sidebar-content .thumbnail.widget:not(.collapsed) .opportunity-pipeline-wrapper .nv-chart,
+.sidebar-content .thumbnail.widget:not(.collapsed) .forecasts-chart-wrapper .nv-chart {
+  height: 309px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) .opportunity-metrics-wrapper .nv-chart {
+  height: 250px;
+}
+.sidebar-content .thumbnail.widget:not(.collapsed) .nv-chart-cases {
+  height: 250px;
+}
+span.count {
+  font-size: 16px;
+  display: block;
+}
+span.count.label {
+  font-size: 14px;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  padding: 3px;
+}
+.rotatedLabel {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.rotatedLabelReverse {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.btn-slider {
+  display: inline-block;
+  padding: 5px;
+}
+.btn-slider .noUiSlider {
+  width: 50px;
+  height: 4px;
+  display: inline-block;
+  margin: 0;
+  top: -1px;
+}
+.btn-slider .noUiSliderEnds {
+  width: 50px;
+  margin: 0 30px 0 0;
+}
+.btn-slider .noUiSliderEnds .zoom-control {
+  position: absolute;
+  top: 1px;
+  font-size: 18px;
+}
+.btn-slider .noUiSliderEnds .zoom-control.disabled {
+  color: #d5d5d5 !important;
+}
+.btn-slider .noUiSliderEnds i[data-control="zoom-out"] {
+  left: -26px;
+}
+.btn-slider .noUiSliderEnds i[data-control="zoom-in"] {
+  right: -26px;
+}
+.btn-slider .noUiSliderEnds:before,
+.btn-slider .noUiSliderEnds:after {
+  top: 6px;
+  height: 4px;
+}
+.btn-slider .noUiSliderEnds:before {
+  border-radius: 2px 0 0 2px;
+  left: -6px;
+}
+.btn-slider .noUiSliderEnds:after {
+  border-radius: 0 2px 2px 0;
+  right: -6px;
+}
+.tooltip {
+  position: absolute;
+  z-index: 1050;
+  display: block;
+  visibility: visible;
+  padding: 5px;
+  font-size: 11px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.tooltip.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.tooltip.top {
+  margin-top: -3px;
+}
+.tooltip.right {
+  margin-left: 3px;
+}
+.tooltip.bottom {
+  margin-top: 3px;
+}
+.tooltip.left {
+  margin-left: -3px;
+}
+.tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #000;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000;
+}
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #000;
+}
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000;
+}
+.tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000;
+}
+.tooltip {
+  z-index: 1050;
+  text-shadow: none;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+.tooltip.bottom {
+  margin-top: 8px;
+}
+.tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.tooltip-inner {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.tooltip-inner> div {
+  text-align: left;
+}
+.tooltip-inner> p {
+  margin: 0;
+}
+.tooltip-inner h3 {
+  font-size: 13px;
+  color: #bbb;
+  line-height: normal;
+  margin: 3px 0;
+}

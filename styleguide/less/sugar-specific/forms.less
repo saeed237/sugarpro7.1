@@ -1,0 +1,730 @@
+/*sugar mods*/
+
+form[name="signupView"] {
+  .control-group.error input,
+  .control-group.error textarea {
+    width: 180px;
+  }
+}
+
+//changes below have not been modified from first styleguide commit;
+//however, bootstrap has changed from these values
+//preserved for now until effect can be accepted
+
+legend {
+  border-bottom: 1px solid #eee;
+}
+
+label {
+  color: @grayDark;
+}
+
+.form-actions {
+  border-top: 1px solid #ddd;
+}
+
+// Reset the file input to browser defaults
+input[type="file"] {
+  width: auto;
+  padding: initial;
+  line-height: initial;
+  background-color: @inputBackground;
+  background-color: initial;
+  border: initial;
+  .box-shadow(none);
+}
+
+// Reset line-height for IE
+input[type="file"] {
+  line-height: 18px \9;
+}
+
+// Chrome on Linux and Mobile Safari need background-color
+select {
+  background-color: @inputBackground;
+  /*border: inherit; makes select boxes have sharp corners*/
+}
+
+input[type="image"] {
+  border: 0;
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"],
+input[type="image"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 3px 0;
+  *margin-top: 0; /* IE7 */
+  line-height: normal;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0 \9; /* IE9 and down */
+  .border-radius(0);
+}
+
+// Reset width of input buttons, radios, checkboxes
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  height: auto;
+}
+
+// Inputs within a label
+label input,
+label textarea,
+label select {
+  display: block;
+}
+
+// Remove shadow from image inputs
+input[type="image"] {
+  .box-shadow(none);
+}
+
+// Focus for select, file, radio, and checkbox
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  .box-shadow(none); // override for file inputs
+}
+
+// Hidden inputs
+input[type="hidden"] {
+  display: none;
+}
+
+// Placeholder text gets special styles; can't be bundled together though for some reason
+//.placeholder(@grayLight);
+::-webkit-input-placeholder { color:@grayLight; font-weight: normal; }
+::-moz-placeholder { color:@grayLight; font-weight: normal; } /* firefox 19+ */
+:-ms-input-placeholder { color:@grayLight; font-weight: normal; } /* ie */
+input:-moz-placeholder { color:@grayLight; font-weight: normal; }
+
+.control-group.error > .input-append > input {
+ .border-radius(@inputBorderRadius);
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  cursor: not-allowed;
+  border: 1px solid @inputBorder;
+  color: @placeholderText;
+}
+
+input[type=radio] {
+  display: inline-block;
+}
+
+.form-addit {
+  position: relative;
+  margin: -1px 1px 0 0;
+  padding: 5px;
+  border-top: 1px solid darken(@grayLighter, 5%);
+  background: @grayLighter;
+  border-bottom: 1px solid darken(@grayLighter, 5%);
+  z-index: 1000;
+}
+
+#header .control-group label.hide {
+  display: none;
+}
+
+.input-append {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin-bottom: 0;
+  .add-on {
+    border: none;
+    background: transparent;
+    margin-left: -26px;
+    position: relative;
+    font-size: @baseFontSize;
+  }
+  span {
+    font-size: @baseFontSize;
+  }
+  &.textarea,
+  &.select,
+  &.checkbox,
+  &.radio {
+    padding-left: 0;
+    .add-on {
+      background: transparent !important;
+      border: none;
+    }
+  }
+  &.checkbox,
+  &.radio {
+    .add-on {
+      margin-left: 0;
+      padding: 0;
+    }
+  }
+  &.select,
+  &.textarea {
+    .add-on {
+      //position: absolute;
+    }
+  }
+  &.widget {
+    width: 100%;
+    .add-on {
+      position: absolute;
+      top: 1px;
+      right: 0;
+    }
+  }
+  &.select .add-on {
+  }
+  input{
+    .border-radius(@inputBorderRadius);
+    /* The size is defined in twitter-bootstrap/forms.less */
+    padding: 4px 6px;
+  }
+  .ui-timepicker-list {
+    font-size: @baseFontSize;
+    li {
+      color: lighten(@gray, 20%);
+    }
+  }
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: none;
+}
+
+.welcome {
+  position: absolute;
+  width: 100%;
+  .modal-header {
+    padding: 9px 10px;
+    .step-circle .icon-ok-sign {
+      display: inline-block;
+    }
+  }
+  .modal-body {
+    padding: 10px 8px 54px 8px;
+    min-height: 168px;
+    margin: 0;
+  }
+  .control-group {
+    &:not(:first-child) {
+      margin: 13px 0 !important;
+    }
+  }
+  .thumbnails {
+    margin: 0;
+    li {
+      margin-bottom: 9px;
+      &.span3 .thumbnail {
+        padding: 14px 6px;
+        height: 44px;
+      }
+    }
+    .thumbnail {
+      height: 60px;
+      padding: 6px;
+      text-align: center;
+      color:  @gray;
+      font-size: @fontSizeSmall;
+      #gradient > .vertical(lighten(@grayLighter, 1%), darken(@grayLighter, 3%));
+      transition: all 0s;
+      i {
+        font-size: 24px;
+        display: inline-block;
+        width: 100%;
+        color: @grayLight;
+      }
+      &:hover{
+        @shadow: 1px 1px 1px rgba(0,0,0,0.2),2px 2px 1px rgba(0,0,0,0.1);
+        .box-shadow(@shadow);
+        border: none;
+        i {
+          text-decoration: none;
+          color: @gray;
+        }
+      }
+    }
+  }
+}
+.thumbnail.signup,
+.thumbnail.login {
+  width: 240px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 4px;
+  .box-shadow(~"inset 0 -1px 10px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.8), 0 2px 1px rgba(0,0,0,.1)");
+  .brand {
+    margin: 9px auto 19px;
+  }
+  form {
+    margin-bottom: 0;
+  }
+  .help-block {
+    float: left;
+  }
+}
+.signup-footer,
+.login-footer {
+  text-align: right;
+  margin-right: 12px;
+}
+.modal .brand,
+.thumbnail .brand {
+  background: url('@{baseUrl}/img/sugar-red-logo.png') 50% 50% no-repeat;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-indent: -7000px;
+  margin: 0 auto;
+  width: 180px;
+  height: 24px;
+}
+
+
+.control-group {
+  margin-bottom: 0;
+  /*this clear both is preventing two column. Needed for forms.html only. Remove*/
+  clear: both;
+  .btn-toolbar {
+    margin: 0 0 0 5px !important;
+    display: inline;
+  }
+  .wide {
+    text-align: left;
+  }
+  label {
+    padding: 0 1em 0 0;
+    cursor: default;
+    .rtlPadding(@direction,0 0 0 1em);
+    display: inline-block;
+    float: none;
+    &.hide {
+      display: none;
+    }
+    input {
+      display: inline-block;
+      float: none;
+    }
+  }
+  &.email .controls.pull-left {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// fluid width input fields - fixes overflow of row-fluid spans
+.controls[class*="span"] {
+  input[type="text"].inherit-width,
+  textarea.inherit-width,
+  select.inherit-width {
+    width: 100%;
+    min-height: 32px;
+    .box-sizing(border-box);
+  }
+  textarea.inherit-width { /* some modern browsers let you resize textarea, this ensures it doesn't go beyond parent container */
+    max-width: 100%;
+  }
+}
+
+//Generate fixed spanX modal widths
+.spanLabelX (@index) when (@index > 0) {
+  (~".form-horizontal .control-label.span@{index}") { .spanLabel(@index); }
+  .spanLabelX(@index - 1);
+}
+.spanLabelX (0) {}
+
+.spanLabel (@columns) {
+  width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
+  *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
+}
+
+.spanLabelX (@gridColumns);
+
+// for use by controls not in form-horizontal
+.controls {
+  padding: 0;
+  &.btn-fit {
+    position: relative;
+    &.controls-four {
+      padding-right: 144px;
+    }
+    &.controls-three {
+      padding-right: 108px;
+    }
+    &.controls-two {
+      padding-right: 72px;
+    }
+    &.controls-one {
+      padding-right: 36px;
+    }
+    .btn {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      &.fourth {
+        right: 108px;
+      }
+      &.third {
+        right: 72px;
+      }
+      &.second {
+        right: 36px;
+      }
+      &.first {
+        /* right:___; default  */
+      }
+    }
+  }
+  &.btn-group-fit {
+    position: relative;
+    &.controls-four {
+      padding-right: 118px;
+    }
+    &.controls-three {
+      padding-right: 90px;
+    }
+    &.controls-two {
+      padding-right: 63px;
+    }
+    .btn-group {
+      position: absolute;
+      top: 0;
+      right: 5px;
+    }
+  }
+}
+
+.form-horizontal {
+  margin-left: 10px;
+
+  .row-fluid.control-group {
+    margin: 0;
+    padding: 0;
+  }
+  .control-group {
+    margin-bottom: 4px;
+  }
+
+  //this is not working since p.help-block after last control-group div
+  .control-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .controls {
+    margin-left: @fluidGridGutterWidth;
+    padding: 0;
+    > span {
+      padding: 0;
+    }
+    &.btn-fit {
+      &.controls-four {
+        padding-right: 144px;
+      }
+      &.controls-three {
+        padding-right: 108px;
+      }
+      &.controls-two {
+        padding-right: 72px;
+      }
+      &.controls-one {
+        padding-right: 36px;
+      }
+      .tooltip {
+        word-wrap: normal;
+        white-space: nowrap;
+      }
+      .btn {
+        position: absolute;
+        top: 2px;
+        right: 0;
+        &.fourth {
+          right: 108px;
+        }
+        &.third {
+          right: 72px;
+        }
+        &.second {
+          right: 36px;
+        }
+        &.first {
+          /* right:___; default  */
+        }
+      }
+    }
+  }
+
+  .card2 .control-group:first-child .control-label-background ,
+  .card2 .control-group .control-label.begin-fieldgroup .control-label-background {
+    .border-radius(3px 3px 0 0);
+    border-top: 1px solid lighten(@grayLight,14%);
+  }
+  .card2 .control-group:last-child .control-label-background,
+  .card2 .control-group .control-label.end-fieldgroup .control-label-background {
+    padding-bottom: 5px;
+    .border-radius(0 0 3px 3px);
+    border-bottom: 1px solid lighten(@grayLight,14%);
+    height: auto;
+  }
+  .card2 .control-group.single .control-label .control-label-background {
+    height: 0;
+    border-radius: 3px;
+    border-top: 1px solid lighten(@grayLight,14%);
+    border-bottom: 1px solid lighten(@grayLight,14%);
+  }
+
+  div.control-label {
+    padding-top: 0;
+    .control-label-background {
+      height: 100%;
+      position: absolute;
+      padding: 4px 0 12px;
+      text-align: right;
+      border-left: 1px solid lighten(@grayLight,14%);
+      border-right: 1px solid lighten(@grayLight,14%);
+      /*background-color: @tableBackgroundAccent;*/
+      background-color: #f7f7f7;
+    }
+    label {
+      color: lighten(@gray,20%);
+      font-size: @fontSizeSmall;
+      margin-bottom: 0;
+    }
+  }
+
+  .help-block {
+    margin-top: 0;
+  }
+}
+
+.help-block {
+  font-weight: normal;
+  font-size: @baseFontSize;
+}
+.form-actions {
+  border: none;
+  background: transparent;
+}
+
+.mu.extend .fieldPlaceHolder {
+  margin-left: 4px;
+}
+
+/* Inline avatar upload */
+
+/* z-index order */
+.image_preview img {
+  z-index: 900;
+}
+.image_btn {
+  z-index: 901;
+}
+.image_input {
+  z-index: 902;
+}
+.image_btn.delete {
+  z-index: 903 !important;
+}
+
+.image_field * {
+  margin: 0;
+  padding: 0;
+}
+.image_field {
+  text-align: center;
+  position: relative;
+}
+//Specific to edit mode
+//Add border
+.image_field.image_edit {
+  border: 3px dashed #CCC;
+  .border-radius(4px);
+  top: -3px;
+  left: -3px;
+}
+//The label must hide the input
+.image_field > label {
+  display: block !important;
+  padding: 0 !important;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.image_input  {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+//Place the button in top right corner and make it big enough so that it takes the whole widget size
+.image_input input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  float:right;
+  height: 100%;
+  font-size: 600px;
+  border: none;
+
+  .opacity(0);
+  -ms-filter: "alpha(opacity=0)";
+
+  cursor: pointer !important;
+  _cursor: hand;
+}
+
+.image_input input:focus {
+  outline: none; /* Opera */
+}
+
+.image_field > label:hover {
+  cursor: pointer !important;
+  _cursor: hand;
+}
+.image_rounded img {
+  .border-radius(4px);
+}
+
+.image_btn {
+  position: absolute;
+  height: 10px;
+  line-height: 10px;
+  font-size: @fontSizeMini;
+  display: inline-block;
+  width: 100%;
+  color: white;
+}
+
+.image_btn.image_btn_label {
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  font-size: @fontSizeMini;
+  background-color: black;
+  display: inline-block;
+  border: 3px solid black;
+  text-align: left;
+  -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+      border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+      border-bottom-right-radius: 3px;
+  .opacity(60);
+}
+
+.image_btn.delete {
+  left: auto;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  z-index: 1;
+  font-size: 14px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.image_preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #CCC;
+}
+.image_preview img {
+  vertical-align: top !important;
+}
+.image_preview i.icon-plus {
+  display: block;
+}
+
+.error .image_field {
+  border: 3px dashed @errorText;
+  .image_preview > i {
+    color: @errorText !important;
+  }
+  & > .add-on.error-tooltip {
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    left: auto;
+    right: -20px;
+    padding: 0;
+    margin: 0;
+  }
+}
+.datepicker {
+  margin-top: 0;
+  span.year.active:hover,
+  span.year.active,
+  span.month.active:hover,
+  span.month.active,
+  td > .active,
+  td > .active:hover {
+    color: @white;
+    background-color: @gray;
+    border-color: darken(@gray,10%);
+    @shadow: inset 0 1px 1px rgba(0,0,0,.5);
+    .box-shadow(@shadow);
+  }
+  table th:first-child, table td:first-child {
+    padding-left: 5px;
+  }
+}
+
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  &.error {
+    border-color: @errorText;
+    color: @errorText;
+  }
+  // this is breaking forms with tight spacing around inputs like .form=search and .form-horizontal
+  //margin-bottom: 10px;
+  //tbs default is 9px but that is through off the alignment of addons so setting to 0px
+  margin-bottom: 0;
+}
+
+
+input.required {
+  border: 1px solid lighten(@gray, 25%);
+}
+
+//??legacy??
+@media (max-width: 768px) {
+  .card2 {
+    margin: 10px 0;
+  }
+  .card2 .row-fluid .span2, .card2 .row-fluid .span10 {
+    text-align: left;
+    background: none;
+    padding: 0 10px;
+    border: none;
+  }
+}

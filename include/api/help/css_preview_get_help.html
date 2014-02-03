@@ -1,0 +1,90 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Runs LessPHP for a platform and a theme and outputs the compiled CSS. It only allows to preview the theme because
+    the file is not saved on the server.
+</span>
+
+<h2>Query String Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>platform</td>
+        <td>String</td>
+        <td>The theme platform - /themes/clients/<strong>***PLATFORM***</strong>/themeName/. Accepted values are 'base' and 'portal'.</td>
+        <td>No. (defaults to <em>base</em>)</td>
+    </tr>
+    <tr>
+        <td>themeName</td>
+        <td>String</td>
+        <td>The theme name - /themes/clients/platform/<strong>***THEMENAME***</strong>/.</td>
+        <td>No. (defaults to <em>default</em>)</td>
+    </tr>
+    <tr>
+        <td>min</td>
+        <td>Boolean</td>
+        <td>Whether or not to minify the css</td>
+        <td>No. (defaults to <em>false</em>)</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Query String Example:</h3>
+<pre class="pre-scrollable">
+{
+    platform: 'portal',
+    themeName: 'default',
+    min: false
+}
+</pre>
+
+<h2>Input Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any input parameters.
+</span>
+
+<h3>Output Example:</h3>
+<strong>Content-type: text/css</strong>
+<pre class="pre-scrollable">
+.someClass {
+    any-property: any-value;
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/css/preview</code> GET endpoint.
+        </td>
+    </tr>
+</table>

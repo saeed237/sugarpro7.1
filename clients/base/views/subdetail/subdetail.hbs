@@ -1,0 +1,37 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="tab-content span5" id="folded">
+{{#each meta.panels}}
+<div class="tab-pane active">
+    <div class="block">
+        <a href="javascript:void(0)" data-toggle="tab" class="actions closeSubdetail"><i class="icon-remove"></i></a>
+        <h4><span class="label label-{{../module}}">{{str "LBL_MODULE_NAME_SINGULAR" ../module}}</span> {{../model.attributes.name}}</h4>
+        <br>
+
+        <div class="card2">
+            {{#each fields}}
+            <div class="row-fluid">
+                <div class="span2">{{str  this.label ../../this.model.module}}</div>
+                <div class="span10" name="{{this.name}}">
+                    {{field ../../this}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/each}}
+</div>

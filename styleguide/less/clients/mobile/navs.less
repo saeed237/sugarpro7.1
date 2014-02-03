@@ -1,0 +1,133 @@
+
+// Position the menu
+.nav-tabs .dropdown-menu,
+.nav-pills .dropdown-menu {
+  margin-top: 1px;
+  border-width: 1px;
+}
+
+/*sugar mods*/
+//full width tabs in interactions block
+.tabs-full {
+  .nav-tabs {
+    margin-bottom: 0;
+    border: none;
+    > li {
+      margin: 0;
+      text-align: center;
+      width: 33.33%;
+      > a {
+        background-color: @tableBackgroundAccent;
+        border: 1px solid darken(@tableBackgroundAccent,5%);
+        font-size: 14px;
+        margin:0;
+        .border-radius(0);
+        span {
+          font-size: 18px;
+          display: block;
+        }
+      }
+      &.active {
+        > a {
+          background-color: @white;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .listed li {
+    padding: 12px;
+  }
+}
+
+//These changes are an override of bootstrap native colors
+.related-tabs.nav-tabs {
+  background: @grayLighter;
+  border-bottom: 1px solid darken(@grayLighter, 5%);
+  border-top: 1px solid lighten(@grayLighter, 5%);
+  padding: 8px 10px 0;
+  margin: 0;
+}
+
+// Actual tabs (as links)
+.nav-tabs > li > a {
+    background-color: @grayLight;
+    color: @gray;
+    margin: 0 4px;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    border: 1px solid darken(@grayLight, 5%);
+}
+
+.nav-tabs  > li > a:hover {
+  background-color: darken(@grayLight, 10%);
+  border: 1px solid darken(@grayLight, 5%);
+  color: darken(@gray, 5%);
+}
+
+// Active state, and it's :hover to override normal :hover
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
+  border: 1px solid darken(@grayLighter, 5%);
+  border-bottom-color: @white;
+  font-weight: bold;
+}
+
+.nav-tabs.nav-stacked > li > a {
+  border: 1px solid @grayLight;
+}
+
+.nav-tabs.nav-stacked > li > a:hover {
+  border-color: @grayLight;
+}
+
+// Make carets use linkColor to start
+.nav-tabs .dropdown-toggle .caret,
+.nav-pills .dropdown-toggle .caret {
+  border-top-color: @gray;
+  border-bottom-color: @gray;
+}
+
+.tabs-below > .nav-tabs {
+  border-top: 1px solid @grayLight;
+}
+.tabs-below > .nav-tabs > li > a {
+  &:hover {
+    border-top-color: @grayLight;
+  }
+}
+.tabs-below > .nav-tabs > .active > a,
+.tabs-below > .nav-tabs > .active > a:hover {
+  border-color: transparent @grayLight @grayLight @grayLight;
+}
+
+// Tabs on the left
+.tabs-left > .nav-tabs {
+  border-right: 1px solid @grayLight;
+}
+.tabs-left > .nav-tabs > li > a:hover {
+  border-color: @grayLight @grayLight @grayLight @grayLight;
+}
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover {
+  border-color: @grayLight transparent @grayLight @grayLight;
+}
+
+// Tabs on the right
+.tabs-right > .nav-tabs {
+  border-left: 1px solid @grayLight;
+}
+.tabs-right > .nav-tabs > li > a:hover {
+  border-color: @grayLight @grayLight @grayLight @grayLight;
+}
+.tabs-right > .nav-tabs .active > a,
+.tabs-right > .nav-tabs .active > a:hover {
+  border-color: @grayLight @grayLight @grayLight transparent;
+}
+
+
+//These changes are from the initial bs commit but have changed in new bs
+.nav-list {
+  padding-left: 14px;
+  padding-right: 14px;
+}

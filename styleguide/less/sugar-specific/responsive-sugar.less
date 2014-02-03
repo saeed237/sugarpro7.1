@@ -1,0 +1,384 @@
+/*!
+ * Bootstrap Responsive v2.0.1
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+
+// RESPONSIVE CLASSES
+// ------------------
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+
+@media (max-width: 480px) {
+
+  .navbar {
+    min-width: 320px;
+  }
+
+  footer .pull-right .btn-group a.btn {
+    visibility: hidden;
+    width: 1.75em;
+  }
+
+  footer .pull-right .btn-group a.btn > i {
+    visibility: visible;
+  }
+
+  // Smooth out the collapsing/expanding nav
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+  }
+
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: @baseLineHeight;
+  }
+
+  // Make span* classes full width
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px; /* Make inputs at least the height of their button counterpart */
+    /* Makes inputs behave like true block-level elements */
+    .box-sizing(border-box);
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input[class*="span"],
+  .input-append input[class*="span"] {
+    width: auto;
+  }
+
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+
+  // Remove the horizontal form styles
+  .form-horizontal .control-group > label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+  // Move over all input controls and content
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+  // Move the options list down to align with labels
+  .form-horizontal .control-list {
+    padding-top: 0; // has to be padding because margin collaspes
+  }
+  // Move over buttons in .form-actions to align with .controls
+  .form-horizontal .form-actions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  // Carousel
+  .carousel-caption {
+    position: static;
+  }
+  //54580: use media queries to also position symbol properly
+  //43d1a253e5dae2f5d02b9273f527f9e43ff2dd6c
+  .row > .empty,
+  .row-fluid > .empty {
+    display:none !important;
+  }
+
+  //from responsive-forecast.less
+  .span2 .block > * {
+    display: none !important;
+  }
+
+  table th:gt(3), table td:gt(3)  {
+    display: none !important;
+  }
+
+  .span2 .block > h4 {
+    display: block !important;
+  }
+
+  #stream tbody tr td {
+    #gradient > .vertical(@white, lighten(@grayLighter, 1%));
+    border-top: 1px solid @white;
+    border-bottom: 1px solid darken(@white, 10%);
+    vertical-align: middle;
+  }
+
+  /* Change up some type stuff */
+  h2 {
+    margin-top: 27px;
+  }
+  h2 small {
+    display: block;
+    line-height: 18px;
+  }
+  h3 {
+    margin-top: 18px;
+  }
+
+  /* Don't space out quick links so much */
+  .quick-links {
+    margin: 40px 0 0;
+  }
+  /* hide the bullets on mobile since our horizontal space is limited */
+  .quick-links .divider {
+    display: none;
+  }
+
+  table code {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  /* Modal example */
+  .modal-example .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  #searchForm {
+    .search-query {
+      position: absolute;
+      right: 0;
+    }
+    .navbar-search {
+      position: relative;
+      width: 120px;
+      height: 28px;
+      right: 0;
+      background: @grayLight;
+      .border-radius(3px);
+    }
+  }
+
+  #searchForm:not(.active) {
+    .search-query {
+      display: none;
+    }
+    .navbar-search {
+      width: 28px;
+    }
+    .advanced {
+      .btn-group {
+        .advanced {
+          display: none;
+        }
+        .btn {
+          .border-radius(3px);
+          .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+          .icon-caret-down {
+            color: #bbb;
+          }
+        }
+      }
+    }
+  }
+
+  // Revert back to normal size on smaller screens
+  .modal-wide {
+    width: 560px;
+    margin-left: -280px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  // GRID & CONTAINERS
+  // -----------------
+  // Remove width from containers
+  .container,
+  .container-fluid {
+    width: auto;
+    padding: 0;
+  }
+  // Fluid rows
+  .container-fluid .row-fluid {
+    width: 100%;
+  }
+  // Undo negative margin on rows
+  .row {
+    margin-left: 0;
+  }
+  // Make all columns even
+  .row > [class*="span"],
+  .container-fluid .row-fluid > [class*="span"] {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 10px;
+  }
+  .subnav {
+    margin-top: 17px;
+  }
+  #searchForm {
+    right: auto;
+    .navbar-search {
+      .search-query {
+        //.box-sizing(inherit);
+        min-width: inherit !important;
+        width: 120px;
+      }
+    }
+    .typeahead {
+      left: auto;
+    }
+  }
+
+  .thumbnail {
+    .border-radius(0);
+    overflow: auto;
+  }
+
+  .modal {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .row > .empty,
+  .row-fluid > .empty {
+    display:none !important;
+  }
+
+  #content {
+    overflow-y: auto;
+  }
+
+  .dashboard {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .touch .dashboard {
+    padding-top: 0 !important;
+    overflow-x: visible;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch
+  }
+
+  // Homepage dashboard
+  #content > .row-fluid > .dashboard { /* specific selector to avoid applying it to .side-pane dashboard */
+    padding-top: 61px !important;
+    .dashlets.row-fluid > li {
+      width: 100%;
+      .widget-container {
+        width: 100%;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  #portal #content > .row-fluid > .dashboard {
+    padding-top: 0;
+  }
+
+
+  .main-pane.span8,
+  .main-pane.span12 {
+    float: none;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+    border-right: none;
+    width: 100%;
+    margin-top: 61px;
+    border-bottom: 1px solid darken(@grayLighter, 10%);
+  }
+
+  .touch .main-pane {
+    margin-top: 0 !important;
+  }
+
+  .side.sidebar-content {
+    float: none;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+    border-right: none;
+    width: 100%;
+    .box-shadow(~"inset 0 4px 16px -4px rgba(0, 0, 0, .2)");
+    .dashlet-cell.row-fluid > li {
+      width: 100%;
+    }
+  }
+
+  .headerpane .drawerTrig {
+    display: none;
+  }
+
+  .row-fluid .main-pane.span8 .headerpane {
+    width: 100%;
+    border-right: none;
+    z-index: 1;
+  }
+
+  .side >.preview-pane .preview-headerbar {
+    top: auto;
+    position: absolute;
+    width: 100%;
+  }
+
+  .sidebar-content .dashboard .headerpane {
+    position: relative;
+    width: 100%;
+    top: auto;
+  }
+
+  .row-fluid .side.sidebar-content.span4 {
+    .side-pane.active {
+      .block.thumbnail {
+        margin: 0;
+        width: 94%;
+      }
+    }
+    .widget-control {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .filter-value [rel=datepicker] .add-on .icon-calendar {
+    display: none;
+  }
+}
+
+//is this the best place for this? grid.less? it is responsive though
+.row-fluid [class*="span"] {
+  .rtlFloat(@direction,right);
+}

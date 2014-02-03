@@ -1,0 +1,240 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Multibar Vertical Chart - Color Options</title>
+  <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
+  <script src="../js/less-1.3.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="nv-demo">
+    <section id="colors">
+
+      <div class="page-header">
+        <h2>Multibar Vertical Chart - Color Options</h2>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <h3>Default Colors</h3>
+          <div id="chart1" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+        <div class="span4">
+          <h3>Default Gradient Fill</h3>
+          <div id="chart2" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+        <div class="span4">
+          <h3>Default Class Names</h3>
+          <div id="chart3" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <h3>Data-Defined Colors</h3>
+          <div id="chart4" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+        <div class="span4">
+          <h3>Data-Defined Gradient Fill</h3>
+          <div id="chart5" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+        <div class="span4">
+          <h3>Data-Defined Class Names</h3>
+          <div id="chart6" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <h3>Graduated Palette Colors</h3>
+          <div id="chart7" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+        <div class="span4">
+          <h3>Graduated Palette Gradient Fill</h3>
+          <div id="chart8" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div>
+        </div>
+        <div class="span4">
+          <h3>Data-Defined Classes</h3>
+          <!-- <div id="chart9" class="nv-chart nv-chart-multibar">
+            <svg></svg>
+          </div> -->
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+<script src="../../../include/javascript/nvd3/lib/d3.min.js"></script>
+<script src="../../../include/javascript/nvd3/nv.d3.min.js"></script>
+<script src="data/multibar_data.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/multiBar.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/multiBarChart.js"></script>
+
+<script>
+  var multibar_data_default_JSON = JSON.stringify(multibar_data_default);
+  var multibar_data_color_JSON = JSON.stringify(multibar_data_color);
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .tooltips(false)
+          .colorData( 'default' )
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart1 svg')
+        .datum(JSON.parse(multibar_data_default_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .tooltips(false)
+          .colorData('default', {gradient:true, orientation:'horizontal', position:'base'})
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart2 svg')
+        .datum(JSON.parse(multibar_data_default_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .tooltips(false)
+          .colorData('class', {step:2})
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart3 svg')
+        .datum(JSON.parse(multibar_data_default_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .stacked(false)
+          .tooltips(false)
+          .colorData('default')
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart4 svg')
+        .datum(JSON.parse(multibar_data_color_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .stacked(false)
+          .tooltips(false)
+          .colorData('default', {gradient:true})
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart5 svg')
+        .datum(JSON.parse(multibar_data_color_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .stacked(false)
+          .tooltips(false)
+          .colorData('class', {step:2})
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart6 svg')
+        .datum(JSON.parse(multibar_data_color_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .tooltips(false)
+          .colorData( 'graduated', {c1:'#12448f', c2:'#deeeff', l:multibar_data_default.data.length} )
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart7 svg')
+        .datum(JSON.parse(multibar_data_default_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+          .tooltips(false)
+          .colorData( 'graduated', {c1:'#12448f', c2:'#deeeff', l:multibar_data_default.data.length, gradient:true} )
+        ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+    chart.yAxis
+        .axisLabel('Expenditures ($)')
+        .tickFormat(d3.format(',.2f'));
+    d3.select('#chart8 svg')
+        .datum(JSON.parse(multibar_data_default_JSON))
+      .transition().duration(500).call(chart);
+    return chart;
+  });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+/********************
+ * SVG CSS
+ */
+
+svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Trying to get SVG to act like a greedy block in all browsers */
+  display: block;
+  width:100%;
+  height:100%;
+  max-height: 500px;
+}
+
+svg text {
+  font: normal @chartTextSize @sansFontFamily;
+  fill: @textColor;
+}
+
+svg .title {
+ font: bold @fontSizeMedium @sansFontFamily;
+}
+
+
+/********************
+ * General CSS
+ */
+
+/* Chart colors defined in colors.less */
+
+.nvd3 .nv-background {
+  fill: none;
+}
+
+.nvd3.nv-noData {
+  font-size: @fontSizeLarge;
+  font-weight: bold;
+}
+
+.nv-title {
+  font-size: @fontSizeMedium;
+}
+
+.nv-labels text {
+  font-weight: bold;
+  fill: #666;
+}
+
+.nv-chart {
+  height: 400px;
+  min-width: 300px;
+  min-height: 100px;
+  /*
+    Minimum height and width is a good idea to prevent negative SVG dimensions...
+    For example width should be =< margin.left + margin.right + 1,
+    of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+  */
+  svg {
+    max-height: none;
+  }
+}
+
+.nv-label-value {
+  font-size: @fontSizeMedium;
+}
+
+.nvtooltip {
+  pointer-events: none;
+}
+.nvtooltip-pending-removal {
+  position: absolute;
+  pointer-events: none;
+}
+
+.dashboard .thumbnail.widget:not(.collapsed) .saved-reports-chart .nv-chart {
+  max-height: 348px;
+}
+
+/**********
+* Styleguide
+*/
+
+.nv-demo {
+  padding: 20px;
+}
+
+body.full-screen {
+  .nv-chart {
+    min-width: 100px;
+    min-height: 100px;
+    border: 1px solid black;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 20px;
+    bottom: 20px;
+    height: auto;
+  }
+}
+
+
+/**********
+*  Brush
+*/
+
+.nv-brush .extent {
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.nv-brush .resize path {
+  fill: #eee;
+  stroke: #666;
+}
+
+.nvd3 .nv-brush .extent {
+  fill-opacity: 0 !important;
+}
+
+.nvd3 .nv-brushBackground rect {
+  stroke: #000;
+  stroke-width: .4;
+  fill: #fff;
+  fill-opacity: .7;
+}
+
+
+/**********
+*  Legend
+*/
+
+.nvd3 .nv-legend .nv-series {
+  cursor: pointer;
+  font-size: @chartTextSize;
+}
+
+.nvd3 .nv-legend .disabled circle {
+  fill-opacity: 0;
+}
+
+
+/**********
+*  Axes
+*/
+
+.nvd3 .nv-axis path {
+  fill: none;
+  stroke: @chartTickColor;
+  stroke-width: @chartTickWidth;
+  stroke-opacity: .75;
+  shape-rendering: crispEdges;
+}
+
+.nvd3 .nv-axis path.domain {
+  stroke-opacity: .75;
+}
+
+.nvd3 .nv-axis line {
+  fill: none;
+  stroke: @chartTickColor;
+  stroke-width: @chartTickWidth;
+  stroke-opacity: .25;
+  shape-rendering: crispEdges;
+}
+
+.nvd3 .nv-axis line.zero {
+  stroke-opacity: .75;
+}
+
+.nvd3 .nv-axis .nv-axisMaxMin text {
+  font-weight: bold;
+}
+
+.nvd3 .nv-x.nv-axis text {
+  transform: rotate(90);
+  font-size: @chartTextSize;
+}
+
+
+/**********
+*  Bars
+*/
+
+.nvd3 .nv-bars .negative rect {
+    zfill: brown;
+    cursor: pointer;
+}
+
+.nvd3 .nv-bars rect {
+  zfill: steelblue;
+  cursor: pointer;
+  fill-opacity: .75;
+
+  @transition: fill-opacity 250ms linear;
+  .transition(@transition);
+}
+
+.nvd3 .nv-bars rect:hover {
+  fill-opacity: 1;
+}
+
+.nvd3 .nv-bars .hover rect {
+  fill: lightblue;
+}
+
+.nvd3 .nv-bars text {
+  fill: rgba(0,0,0,0);
+}
+
+.nvd3 .nv-bars .hover text {
+  fill: rgba(0,0,0,1);
+}
+
+
+/**********
+*  MultiBars
+*/
+
+.nvd3 .nv-multibar .nv-groups rect,
+.nvd3 .nv-multibarHorizontal .nv-groups rect,
+.nvd3 .nv-discretebar .nv-groups rect {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+  stroke: #FFF;
+  @transition: fill-opacity 250ms linear;
+  .transition(@transition);
+}
+
+.nvd3 .nv-multibar .nv-groups rect:hover,
+.nvd3 .nv-multibarHorizontal .nv-groups rect:hover,
+.nvd3 .nv-discretebar .nv-groups rect:hover {
+  fill-opacity: 1;
+}
+
+.nvd3 .nv-discretebar .nv-groups text,
+.nvd3 .nv-multibarHorizontal .nv-groups text {
+  font-weight: bold;
+  fill: rgba(0,0,0,1);
+  stroke: rgba(0,0,0,0);
+}
+
+
+/***********
+*  Pie Chart
+*/
+
+.nvd3.nv-pie path {
+  stroke-opacity: 0;
+
+  @transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
+  .transition(@transition);
+}
+
+.nvd3.nv-pie .nv-slice text {
+  stroke: #000;
+  stroke-width: 0;
+}
+
+.nvd3.nv-pie path {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: 1;
+}
+
+.nvd3.nv-pie .hover path {
+  fill-opacity: .7;
+}
+
+.nvd3.nv-pie .nv-label rect {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+.nv-pie-hole {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
+/**********
+* Lines
+*/
+
+.nvd3 .nv-groups path.nv-line {
+  fill: none;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  shape-rendering: geometricPrecision;
+}
+
+.nvd3 .nv-groups path.nv-area {
+  stroke: none;
+  stroke-linecap: round;
+  shape-rendering: geometricPrecision;
+}
+
+.nvd3 .nv-line.hover path {
+  stroke-width: 6px;
+}
+
+.nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+.nvd3.nv-scatter.nv-single-point .nv-groups .nv-point {
+  fill-opacity: .5;
+  stroke-opacity: .5;
+}
+
+.nvd3 .nv-groups .nv-point {
+  @transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+  .transition(@transition);
+}
+
+.nvd3.nv-scatter .nv-groups .nv-point.hover,
+.nvd3 .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  fill-opacity: .5 !important;
+  stroke-opacity: .5 !important;
+}
+
+.nvd3 .nv-point-paths path {
+  stroke: #aaa;
+  stroke-opacity: 0;
+  fill: #eee;
+  fill-opacity: 0;
+}
+
+.nvd3 .nv-indexLine {
+  cursor: ew-resize;
+}
+
+/*.nv-lineChart .nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+  stroke: #FFF;
+  stroke-width: 3px;
+}*/
+
+
+/**********
+* Distribution
+*/
+
+.nvd3 .nv-distribution {
+  pointer-events: none;
+}
+
+
+/**********
+*  Scatter
+*/
+
+.nvd3 .nv-groups .nv-point {
+  pointer-events: none;
+}
+
+.nvd3 .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  stroke-opacity: .5;
+}
+
+.nvd3 .nv-scatter .nv-point.hover {
+  fill-opacity: 1;
+}
+
+
+/**********
+*  Stacked Area
+*/
+
+.nvd3.nv-stackedarea path.nv-area {
+  fill-opacity: .7;
+  stroke-opacity: 0;
+
+  @transition: fill-opacity 250ms linear, stroke-opacity 250ms linear;
+  .transition(@transition);
+}
+
+.nvd3.nv-stackedarea path.nv-area.hover {
+  fill-opacity: .9;
+}
+
+.nvd3.nv-stackedarea .nv-groups .nv-point {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+
+.nvd3.nv-stackedarea .nv-groups .nv-point.hover {
+  stroke-width: 20px;
+  stroke-opacity: .75;
+  fill-opacity: 1;
+}
+
+
+/**********
+*  Line Plus Bar
+*/
+
+.nvd3.nv-linePlusBar .nv-bar rect {
+  fill-opacity: .75;
+}
+
+.nvd3.nv-linePlusBar .nv-bar rect:hover {
+  fill-opacity: 1;
+}
+
+
+/**********
+* Sparkline plus
+*/
+
+.nvd3.nv-sparklineplus .nv-hoverValue line {
+  stroke: #f44;
+  stroke-width: 1.5px;
+ }
+
+.nvd3.nv-sparklineplus,
+.nvd3.nv-sparklineplus g {
+  pointer-events: all;
+}
+
+.nvd3 .nv-hoverArea {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+.nvd3.nv-sparklineplus .nv-xValue,
+.nvd3.nv-sparklineplus .nv-yValue {
+  stroke: #666;
+  font-size: .5em;
+  font-weight: normal;
+}
+
+.nvd3.nv-sparklineplus .nv-yValue {
+  stroke: #f66;
+}
+
+
+/**********
+* Guage
+*/
+
+.nv-odomText {
+  font-weight: bold;
+  fill: #000;
+}
+
+.nv-arc-group {
+  fill: steelblue;
+}
+
+.nv-pointer {
+  fill: #888888;
+  stroke: #ffffff;
+}
+
+
+/**********
+* Funnel
+*/
+
+.nv-funnelChart {
+  .nv-y path {
+    stroke: none;
+  }
+  .nv-label-value text {
+    font-size: 14px;
+    fill: @white;
+  }
+  text.nv-label-group {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .nv-group polygon {
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-opacity: 1;
+  }
+}
+
+
+/**********
+* Bubble
+*/
+
+.nv-bubbleChart {
+  .nvd3.nv-scatter.nv-single-point .nv-groups .nv-point {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+  }
+}
+
+
+/**********
+* Pareto
+*/
+
+.nv-multiBarWithLegend .nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+  fill-opacity: 1;
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
+.nv-pareto {
+  .nv-quotaWrap line {
+    opacity: .8;
+    stroke: #444;
+    stroke-width: 3px;
+    /*stroke-dasharray: '20, 5'; dashed lines must be defined in JS*/
+  }
+  .nv-y.nv-axis .domain {
+    display: none;
+  }
+  .nv-y.nv-axis .tick line {
+    stroke-width: 2px;
+    stroke: #bbb;
+  }
+  .nv-x.nv-axis .domain {
+    stroke-width: 2px;
+    stroke: #bbb;
+  }
+  svg text {
+    font-size: 12px;
+    fill: #aaa;
+  }
+  .nvd3 .nv-multibar .nv-groups rect {
+    stroke-opacity: 1;
+    stroke-width: 2px;
+    stroke: #FFF;
+    fill-opacity: 0.85;
+  }
+  .nvd3 .nv-x.nv-axis text,
+  .nvd3.nv-legend text {
+    fill: #888;
+    font-size: 12px;
+  }
+}
+.nvd3 .nv-lineLegend .nv-series {
+  cursor: default;
+}
+
+
+/**********
+* Treemap
+*/
+
+.nv-treemap svg {
+  background-color: @white;
+
+  text {
+    pointer-events: none;
+    fill: @white;
+  }
+
+  .nv-depth text {
+    fill: @white;
+  }
+
+  .nv-grandparent text {
+    font-weight: bold;
+    fill: @gray;
+  }
+
+  rect {
+    //fill: none;
+    stroke: @white;
+  }
+
+  .nv-children.hover .nv-parent {
+    fill: @white;
+    opacity: 0.3;
+  }
+
+  .nv-parent,
+  .nv-grandparent rect {
+    stroke-width: 3px;
+  }
+  .nv-child {
+    stroke-width: 1px;
+  }
+  .nv-parent {
+    fill: none;
+    font-weight: normal;
+  }
+  .nv-grandparent rect {
+    fill: #fff;
+  }
+
+  .nv-children .nv-parent,
+  .nv-grandparent rect {
+    cursor: pointer;
+  }
+
+  .nv-parent {
+    pointer-events: all;
+  }
+}
+
+//Opportunities Treemap
+.stage_closedwon {
+  fill: #2ca02c;
+}
+.stage_prospecting {
+  fill: darken(#ff7f0e, 35%);
+}
+.stage_closedlost {
+  fill: #d62728;
+}
+.stage_qualification {
+  fill: #ff7f0e;
+}
+.stage_thisopp {
+  fill: #1f77b4;
+}
+.stage_negotiationreview {
+  fill: darken(#2ca02c, 40%);
+}
+.stage_perceptionanalysis {
+  fill: darken(#2ca02c, 30%);
+}
+.stage_proposalpricequote {
+  fill: darken(#2ca02c, 45%);
+}
+.stage_valueproposition {
+  fill: #ff7f0e;
+}
+.stage_iddecisionmakers{
+  fill: #9467bd;
+}
+
+.stage_needsanalysis{
+  fill: darken(@yellow, 10%);
+}
+
+
+/**********
+* Dendrogram
+*/
+
+.nv-card {
+  fill: #E9EFEF;
+  stroke: #AAA;
+  stroke-width: .5px;
+  cursor: pointer;
+  .nv-circ-front {
+    stroke-width: 0;
+  }
+  line {
+    stroke-width: 2;
+  }
+}
+.nv-tree {
+  path.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+}
+
+// for org chart demo renderer
+.nv-chart-org {
+  .nv-foreign-object body {
+    width: 100px;
+    height: 32px;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background-color: #E9EFEF;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .nv-foreign-object img.rep-avatar {
+    float: left;
+    margin-right: 4px;
+  }
+  .nv-foreign-object div.rep-name {
+    font-size: 10px;
+    color: steelblue;
+  }
+  .nv-foreign-object div.rep-title {
+    font-size: 8px;
+  }
+}
+
+
+/**********
+* Globe
+*/
+
+.nv-chart-globe {
+  svg {
+    pointer-events: all;
+  }
+  .globe {
+    fill: #6699cc;
+    fill-opacity: .5;
+  }
+  .sphere {
+    fill: #dbe4f0;
+  }
+  .graticule {
+    fill: none;
+    stroke: #777;
+    stroke-width: .5px;
+    stroke-opacity: .5;
+  }
+  .countries path {
+    fill: #AAA;
+    stroke: #fff;
+  }
+  .states path {
+    fill: #CCC;
+    stroke: #fff;
+  }
+}
+
+
+/***********
+* Texture
+*/
+
+.nv-chart-texture {
+  background: url(@textureTertiary);
+}
+
+
+/***********
+* Colors
+*/
+
+.nv-fill-green {
+  fill: @green;
+  background-color: @green;
+}
+.nv-fill-red {
+  fill: @red;
+  background-color: @red;
+}
+.nv-fill-blue {
+  fill: @blue;
+  background-color: @blue;
+}
+
+@media all and (monochrome) {
+  @fill00: darken(@gray,30%);
+  @fill01: lighten(@gray,30%);
+  @fill02: darken(@gray,15%);
+  @fill03: lighten(@gray,35%);
+  @fill04: darken(@gray,10%);
+  @fill05: lighten(@gray,40%);
+  @fill06: darken(@gray,05%);
+  @fill07: lighten(@gray,45%);
+  @fill08: darken(@gray,0%);
+  @fill09: lighten(@gray,48%);
+  @fill10: lighten(@gray,5%);
+  @fill11: lighten(@gray,51%);
+  @fill12: lighten(@gray,10%);
+  @fill13: lighten(@gray,54%);
+  @fill14: lighten(@gray,15%);
+  @fill15: lighten(@gray,57%);
+  @fill16: lighten(@gray,20%);
+  @fill17: lighten(@gray,60%);
+  @fill18: lighten(@gray,25%);
+  @fill19: lighten(@gray,63%);
+}
+
+.nv-fill00 { fill:@fill00; background-color:@fill00; }
+.nv-fill01 { fill:@fill01; background-color:@fill01; }
+.nv-fill02 { fill:@fill02; background-color:@fill02; }
+.nv-fill03 { fill:@fill03; background-color:@fill03; }
+.nv-fill04 { fill:@fill04; background-color:@fill04; }
+.nv-fill05 { fill:@fill05; background-color:@fill05; }
+.nv-fill06 { fill:@fill06; background-color:@fill06; }
+.nv-fill07 { fill:@fill07; background-color:@fill07; }
+.nv-fill08 { fill:@fill08; background-color:@fill08; }
+.nv-fill09 { fill:@fill09; background-color:@fill09; }
+.nv-fill10 { fill:@fill10; background-color:@fill10; }
+.nv-fill11 { fill:@fill11; background-color:@fill11; }
+.nv-fill12 { fill:@fill12; background-color:@fill12; }
+.nv-fill13 { fill:@fill13; background-color:@fill13; }
+.nv-fill14 { fill:@fill14; background-color:@fill14; }
+.nv-fill15 { fill:@fill15; background-color:@fill15; }
+.nv-fill16 { fill:@fill16; background-color:@fill16; }
+.nv-fill17 { fill:@fill17; background-color:@fill17; }
+.nv-fill18 { fill:@fill18; background-color:@fill18; }
+.nv-fill19 { fill:@fill19; background-color:@fill19; }
+
+.nv-legend {
+  .nv-fill00 { stroke:@fill00; }
+  .nv-fill01 { stroke:@fill01; }
+  .nv-fill02 { stroke:@fill02; }
+  .nv-fill03 { stroke:@fill03; }
+  .nv-fill04 { stroke:@fill04; }
+  .nv-fill05 { stroke:@fill05; }
+  .nv-fill06 { stroke:@fill06; }
+  .nv-fill07 { stroke:@fill07; }
+  .nv-fill08 { stroke:@fill08; }
+  .nv-fill09 { stroke:@fill09; }
+  .nv-fill10 { stroke:@fill10; }
+  .nv-fill11 { stroke:@fill11; }
+  .nv-fill12 { stroke:@fill12; }
+  .nv-fill13 { stroke:@fill13; }
+  .nv-fill14 { stroke:@fill14; }
+  .nv-fill15 { stroke:@fill15; }
+  .nv-fill16 { stroke:@fill16; }
+  .nv-fill17 { stroke:@fill17; }
+  .nv-fill18 { stroke:@fill18; }
+  .nv-fill19 { stroke:@fill19; }
+}
+
+.nv-stroke0 { stroke:@stroke0; background-color:@stroke0; }
+.nv-stroke1 { stroke:@stroke1; background-color:@stroke1; }
+.nv-stroke2 { stroke:@stroke2; background-color:@stroke2; }
+.nv-stroke3 { stroke:@stroke3; background-color:@stroke3; }
+.nv-stroke4 { stroke:@stroke4; background-color:@stroke4; }
+.nv-stroke5 { stroke:@stroke5; background-color:@stroke5; }
+.nv-stroke6 { stroke:@stroke6; background-color:@stroke6; }
+.nv-stroke7 { stroke:@stroke7; background-color:@stroke7; }
+.nv-stroke8 { stroke:@stroke8; background-color:@stroke8; }
+.nv-stroke9 { stroke:@stroke9; background-color:@stroke9; }

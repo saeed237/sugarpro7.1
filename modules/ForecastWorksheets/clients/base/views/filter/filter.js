@@ -1,0 +1,13 @@
+/*
+     * By installing or using this file, you are confirming on behalf of the entity
+     * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+     * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+     * http://www.sugarcrm.com/master-subscription-agreement
+     *
+     * If Company is not bound by the MSA, then by installing or using this file
+     * you are agreeing unconditionally that Company will be bound by the MSA and
+     * certifying that you have authority to bind Company accordingly.
+     *
+     * Copyright  2004-2013 SugarCRM Inc.  All rights reserved.
+     */
+({events:{'keydown .select2-input':'disableSelect2KeyPress'},disableSelect2KeyPress:function(event){event.preventDefault();},initialize:function(options){app.view.View.prototype.initialize.call(this,options);this.selectedUser={id:app.user.get('id'),isManager:app.user.get('isManager'),showOpps:false};},bindDomChange:function(){},_render:function(){app.view.View.prototype._render.call(this);this.node=this.$el.find("#"+this.cid);this._setUpFilters();return this;},_setUpFilters:function(){var ctx=this.context.parent||this.context,selectedRanges=ctx.has("selectedRanges")?ctx.get("selectedRanges"):app.defaultSelections.ranges;this.node.select2({data:this._getRangeFilters(),initSelection:function(element,callback){callback(_.filter(this.data,function(obj){return _.contains(this,obj.id);},$(element.val().split(","))));},multiple:true,placeholder:app.lang.get("LBL_MODULE_FILTER"),dropdownCss:{width:"auto"},containerCssClass:"select2-choices-pills-close",containerCss:"border: none",formatSelection:this.formatCustomSelection,dropdownCssClass:"search-filter-dropdown",escapeMarkup:function(m){return m;},width:'100%'});this.node.select2("val",selectedRanges);this.node.change({context:ctx},function(event){app.alert.show('worksheet_filtering',{level:'process',title:app.lang.getAppString('LBL_LOADING')});_.delay(function(){event.data.context.set("selectedRanges",event.val);},25);});},formatCustomSelection:function(item){return'<span class="select2-choice-type">'+app.lang.get("LBL_FILTER")+'</span><a class="select2-choice-filter" rel="'+item.id+'" href="javascript:void(0)">'+item.text+'</a>';},_getRangeFilters:function(){var options=app.metadata.getModule('Forecasts','config').buckets_dom||'commit_stage_binary_dom';return _.map(app.lang.getAppListStrings(options),function(value,key){return{id:key,text:value};});}})

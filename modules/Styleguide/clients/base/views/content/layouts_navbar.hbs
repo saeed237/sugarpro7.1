@@ -1,0 +1,169 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<!-- Navbar
+================================================== -->
+<section id="navbar">
+  <div class="page-header">
+    <h1>Navbar</h1>
+  </div>
+  <h2>Static navbar example</h2>
+  <p>An example of a static (not fixed to the top) navbar with project name, navigation, and search form.</p>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Project name</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <i class="icon-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span2" placeholder="Search">
+          </form>
+          <ul class="nav pull-right">
+            <li><a href="#">Link</a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <i class="icon-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+
+  <div class="row-fluid">
+    <div class="span8">
+      <h3>Navbar scaffolding</h3>
+      <p>The navbar requires only a few divs to structure it well for static or fixed display.</p>
+<pre class="prettyprint linenums">
+&lt;div class="navbar"&gt;
+  &lt;div class="navbar-inner"&gt;
+    &lt;div class="container"&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      <p>To make the navbar fixed to the top of the viewport, add <code>.navbar-fixed-top</code> to the outermost div, <code>.navbar</code>. In your CSS, you will also need to account for the overlap it causes by adding <code>padding-top: 40px;</code> to your <code>&lt;body&gt;</code>.</p>
+<pre class="prettyprint linenums">
+&lt;div class="navbar navbar-fixed-top"&gt;
+  ...
+&lt;/div&gt;
+</pre>
+      <h3>Brand name</h3>
+      <p>A simple link to show your brand or project name only requires an anchor tag.</p>
+<pre class="prettyprint linenums">
+&lt;a class="brand" href="#"&gt;
+  Project name
+&lt;/a&gt;
+</pre>
+      <h3>Search form</h3>
+      <p>Search forms receive custom styles in the navbar with the <code>.navbar-search</code> class. Include <code>.pull-left</code> or <code>.pull-right</code> on the <code>form</code> to align it.</p>
+<pre class="prettyprint linenums">
+&lt;form class="navbar-search pull-left"&gt;
+  &lt;input type="text" class="search-query" placeholder="Search"&gt;
+&lt;/form&gt;
+</pre>
+      <h3>Optional responsive variation</h3>
+      <p>Depending on the amount of content in your topbar, you might want to implement the responsive options. To do so, wrap your nav content in a containing div, <code>.nav-collapse.collapse</code>, and add the navbar toggle button, <code>.btn-navbar</code>.</p>
+<pre class="prettyprint linenums">
+&lt;div class="navbar"&gt;
+  &lt;div class="navbar-inner"&gt;
+    &lt;div class="container"&gt;
+
+      &lt;!-- .btn-navbar is used as the toggle for collapsed navbar content --&gt;
+      &lt;a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+      &lt;/a&gt;
+
+      &lt;!-- Be sure to leave the brand out there if you want it shown --&gt;
+      &lt;a class="brand" href="#"&gt;Project name&lt;/a&gt;
+
+      &lt;!-- Everything you want hidden at 940px or less, place within here --&gt;
+      &lt;div class="nav-collapse"&gt;
+        &lt;!-- .nav, .navbar-search, .navbar-form, etc --&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      <div class="alert alert-info">
+        <strong>Heads up!</strong> The responsive navbar requires the <a href="widgets.html#collapse">collapse plugin</a>.
+      </div>
+
+    </div><!-- /.span -->
+    <div class="span4">
+      <h3>Nav links</h3>
+      <p>Nav items are simple to add via unordered lists.</p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav"&gt;
+  &lt;li class="active"&gt;
+    &lt;a href="#">Home&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      <h3>Adding dropdowns</h3>
+      <p>Adding dropdowns to the nav is super simple, but does require the use of <a href="widgets.html#dropdown">our javascript plugin</a>.</p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav"&gt;
+  &lt;li class="dropdown"&gt;
+    &lt;a href="#"
+          class="dropdown-toggle"
+          data-toggle="dropdown">
+          Account
+          &lt;i class="icon-caret-down"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;ul class="dropdown-menu"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      <p><a class="btn" href="widgets.html#dropdown">Get the javascript &rarr;</a></p>
+    </div><!-- /.span -->
+  </div><!-- /.row -->
+
+</section>

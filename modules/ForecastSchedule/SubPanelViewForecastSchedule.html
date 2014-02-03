@@ -1,0 +1,42 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+	<!-- END: list_nav_row -->
+	<tr height="20" >
+	<td scope="col" width="25%" ><slot>{MOD.LBL_SVFS_FORECASTDATE}</slot></td>
+	<td scope="col" width="20%" ><slot>{MOD.LBL_SVFS_STATUS}</slot></td>
+	<td scope="col" width="35%" ><slot>{MOD.LBL_SVFS_USER}</slot></td>
+	<td scope="col" width="20%" ><slot>{MOD.LBL_SVFS_CASCADE}</slot></td>
+	</tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope='row' valign=TOP><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=ForecastSchedule&record={SCHEDULE.ID}{RETURN_URL}" >{SCHEDULE.FORECAST_START_DATE}</a></slot></td>
+		<td valign=TOP><slot>{SCHEDULE.STATUS}</slot></td>
+		<td valign=TOP><slot>{SCHEDULE.USER_NAME}</slot></td>
+    	<td valign=TOP><slot><input type=checkbox class="checkbox" disabled {SCHEDULE.CASCADE_HIERARCHY_CHECKED}></slot></td>
+</tr>
+
+<!-- END: row -->
+</table>
+<!-- END: main -->

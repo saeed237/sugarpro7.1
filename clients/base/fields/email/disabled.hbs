@@ -1,0 +1,42 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#each value}}
+    <div class="control-group email row-fluid" data-emailaddress="{{email_address}}">
+        <div class="span6">
+            <div class="input-append">
+                <div class="row-fluid">
+                    <input type="text" class="span12 existingAddress" data-id="{{email_address}}" value="{{email_address}}" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="span6 btn-toolbar">
+            <div class="btn-group" data-parentEmail="{{email_address}}">
+                <button type="button" class="{{#if primary_address}}active {{/if}}is_primary btn" disabled><i class="icon-star"></i></button>
+                <button type="button" class="{{#if opt_out}}active {{/if}}btn" disabled><i class="icon-ban-circle"></i></button>
+                <button type="button" class="{{#if invalid_email}}active {{/if}}btn" disabled><i class="icon-exclamation-sign"></i></button>
+            </div>
+        </div>
+    </div>
+{{/each}}
+<div class="control-group email row-fluid">
+    <div class="span6 pull-left">
+        <div class="input-append">
+            <div class="row-fluid">
+                <input type="text" class="span12 newEmail input-append" placeholder="{{str "LBL_EMAIL_ADD"}}" disabled>
+            </div>
+        </div>
+    </div>
+</div>

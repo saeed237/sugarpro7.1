@@ -1,0 +1,76 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#if tweets}}
+    <div class="twitter-widget">
+        {{#each tweets}}
+            <div class="news-article">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="row-fluid">
+                            <div class="span1">
+                                <a target="_blank" href="https://twitter.com/{{screen_name}}"><img src="{{profile_image_url}}" class="pull-right"></a>
+                            </div>
+                            <div class="span11">
+                                <div class="row-fluid header">
+                                    <div class="span6">
+                                        <h5>
+                                            <a target="_blank" href="https://twitter.com/{{screen_name}}"><strong>{{name}}</strong></a>
+                                            <a target="_blank" href="https://twitter.com/{{screen_name}}">@{{screen_name}}</a>
+                                        </h5>
+                                    </div>
+                                    <div class="span6">
+                                        <a class="pull-right" target="_blank" href="https://twitter.com/{{screen_name}}/status/{{id}}">
+                                            {{timeago date timeLabel}}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row-fluid body">
+                                    <div class="span12"><p>{{{text}}}</p></div>
+                                </div>
+                                <div class="details">
+                                        <a class=""
+                                           target="twitter"
+                                           href="https://twitter.com/intent/tweet?in_reply_to={{id}}"
+                                           title="reply"><i
+                                                class="icon-reply"></i> {{str "LBL_TWITTER_REPLY"}}
+                                        </a>
+                                        <a class=""
+                                           title="retweet" target="twitter"
+                                           href="https://twitter.com/intent/retweet?tweet_id={{id}}"><i
+                                                class="icon-retweet"></i> {{str "LBL_TWITTER_RETWEET"}}
+                                        </a>
+                                        <a class="" target="twitter"
+                                           href="https://twitter.com/intent/favorite?tweet_id={{id}}"><i
+                                                class="icon-star"></i> {{str "LBL_TWITTER_FAVORITE"}}
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+{{else}}
+    <div class="block-footer">{{str "LBL_NO_DATA_AVAILABLE"}}</div>
+{{/if}}
+
+{{#if current_twitter_user_name}}
+<div class="block-footer">
+    <div class="pull-left">  <i class="icon-twitter"></i> @{{current_twitter_user_name}} <img class="icon-large" src="{{current_twitter_user_pic}}"></div>
+</div>
+{{/if}}

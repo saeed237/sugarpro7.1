@@ -1,0 +1,55 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="row-fluid">
+    <span class="span6">
+        {{quota_label}}
+    </span>
+    <span class="span6 tright">
+        {{quota_amount_str}}
+    </span>
+</div>
+
+<div class="row-fluid">
+    <span class="span6">
+        {{str "LBL_CLOSED" "Forecasts"}}
+    </span>
+    <span class="span6 tright">
+        {{closed_amount_str}}
+    </span>
+</div>
+
+<div class="row-fluid deficitRow">
+    <span class="span6">
+        {{deficit_label}}
+    </span>
+    <span class="span6 tright">
+        {{deficit_amount_str}}
+    </span>
+</div>
+
+<div class="row-fluid">
+    {{#if show_details_worst}}
+        {{{worst_details}}}
+    {{/if}}
+
+    {{#if show_details_likely}}
+        {{{likely_details}}}
+    {{/if}}
+
+    {{#if show_details_best}}
+        {{{best_details}}}
+    {{/if}}
+</div>

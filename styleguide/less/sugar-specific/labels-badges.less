@@ -1,0 +1,112 @@
+.label {
+  font-weight: 600;
+  text-shadow: none;
+  color: @white;
+  display: inline-block;
+  cursor: default;
+}
+.label {
+  padding: 1px 4px 2px;
+  .border-radius(@borderRadiusSmall);
+}
+a.label,
+a > .label,
+.label a {
+  font-weight: 600;
+  text-shadow: none;
+  color: @white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.label-module {
+  height: 38px;
+  width: 38px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 4px 0 0 4px;
+  margin: 0;
+  border: none;
+  .border-radius(@baseBorderRadius);
+}
+.label-module-sm {
+  height: 22px;
+  width: 22px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 11px;
+  margin: 0;
+  border: none;
+  padding: 2px 0 0 2px;
+  .border-radius(@borderRadiusSmall);
+}
+.label-module-mini {
+  height: 14px;
+  width: 15px;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 8px;
+  margin: 0;
+  border: none;
+  padding: 2px 0 0 1px;
+  .border-radius(@borderRadiusSmall);
+}
+.dropdown-menu .label-module-mini {
+  margin: 0 10px 0 0;
+}
+.disabled .label-Users, .inactive [class*=" label-"] {
+  background-color: darken(@grayLighter, 15%);
+}
+
+.label {
+  &-important {background-color: @btnDangerBackground;}
+  &-warning {background-color: @yellow;}
+  &-pending {background-color: @orange;}
+  &-success {background-color: @btnSuccessBackground;}
+  &-info {background-color: @btnInfoBackground;}
+  &-inverse {background-color: @grayDark;}
+  &-log {background-color: darken(@gray,10%);}
+
+/* Modules */
+  &-Bugs {background-color: @red;}
+  &-Cases {background-color: darken(@red,10%);}
+
+  &-Prospects {background-color: darken(@pink,20%);}
+  &-ProspectLists {background-color: darken(@pink,20%);}
+  &-Targets {background-color: darken(@pink,15%);}
+  &-TargetLists {background-color: darken(@pink,15%);}
+  &-Emails {background-color: darken(@pink,10%);}
+  &-Tasks {background-color: @pink;}
+
+  &-Opportunities {background-color: darken(@purple,5%);}
+  &-RevenueLineItems {background-color: darken(@purple,20%);}
+  &-Products {background-color: darken(@purple,20%);}
+  &-Forecasts {background-color: darken(@orange,5%);}
+
+  &-Quotes {background-color: darken(@ocean,20%);}
+  &-Notes {background-color: darken(@ocean,10%);}
+
+  &-Accounts {background-color: @green;}
+  &-Contacts {background-color: darken(@green,10%);}
+  &-Leads {background-color: lighten(@blue,10%);}
+
+  &-Reports {background-color: @orange;}
+  &-Files {background-color: darken(@orange,10%);}
+  &-Documents {background-color: darken(@orange,15%);}
+  &-KBDocuments {background-color: darken(@orange,20%);}
+
+  &-Calendar {background-color: darken(@blue,10%);}
+  &-Meetings {background-color: @yellow;}
+  &-Calls {background-color: darken(@blue,25%);}
+
+  &-Campaigns {background-color: darken(@army,19%);}
+  &-CampaignLog {background-color: darken(@army,25%);}
+  &-Workflow {background-color: darken(@army,33%);}
+
+  &-Users {background-color: @grayDarker;}
+}
+
+/* Disabled: no box-shadow*/
+.disabled .label-module.label, .disabled .label-module-sm.label, .disabled .label-module-mini.label {
+  .box-shadow(none);
+}

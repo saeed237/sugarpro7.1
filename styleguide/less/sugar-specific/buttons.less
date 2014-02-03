@@ -1,0 +1,157 @@
+
+.btn {
+  *line-height: 20px; //tbs=18px
+  font-weight: 500;
+  font-size: @baseFontSize;
+  .box-shadow(none);
+  margin-left: 8px;
+  border: 1px solid rgba(0,0,0,.1);
+  /* keeps button widths with icons the same regardless of icon width */
+  > [class^="icon-"],
+  > [class*=" icon-"] {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    line-height: 14px;
+    font-size: @baseFontSize + 2;
+    position: relative;
+    top: 1px;
+    color: @grayLight;
+  }
+  &.down {
+    .buttonBackground(@btnBackgroundHighlight,@btnBackground);
+  }
+  // Hover state
+  &:not(.disabled):hover {
+    .box-shadow(~"inset 0 -8px 8px rgba(0,0,0,.1)");
+    > [class^="icon-"] {
+      color: darken(@grayLight, 10%);
+      color: lighten(@gray, 5%);
+    }
+  }
+  // Active state
+  &.active,
+  &:not(.disabled):active,
+  &.active:hover {
+    background-image: none;
+    .outline(none);
+    color: @gray;
+    text-shadow: none;
+    background-color: darken(@grayLighter, 5%);
+    .box-shadow(~"inset 0 1px 8px rgba(0,0,0,.2)");
+    > [class^="icon-"] {
+      color: @grayDark;
+    }
+  }
+  &.active:hover {
+    > [class^="icon-"] {
+      color: @gray;
+      color: lighten(@gray, 5%);
+    }
+  }
+  // Disabled state override bootstrap default
+  &.disabled,
+  &[disabled] {
+    .opacity(35);
+  }
+}
+
+
+// invisible appears as no button
+.btn.btn-invisible {
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  .box-shadow(none);
+  .outline(none);
+  &:not(.disabled):hover {
+    color: @gray;
+    .box-shadow(none);
+    border-color: transparent;
+    text-shadow: none;
+  }
+  &.active,
+  &:not(.disabled):active {
+    color: @gray;
+    .box-shadow(none);
+    background-color: darken(@grayLighter, 5%);
+  }
+  &.disabled {
+    text-decoration: none;
+    color: @grayLight;
+    .opacity(65);
+    [class^="icon-"] {
+      .opacity(65);
+      color: @grayLight;
+    }
+  }
+}
+
+// Buttons styled as links
+.btn.btn-link {
+  color: @linkColor;
+  &:not(.disabled):hover {
+    text-decoration: underline;
+    color: @linkColorHover;
+  }
+  &.active,
+  &:not(.disabled):active {
+    color: @linkColor;
+    background-color: transparent;
+  }
+}
+
+
+// Reposition the caret
+.btn:hover .icon-caret-down,
+.open.btn-group .icon-caret-down {
+  .opacity(100);
+}
+
+// Small dropdowns caret
+.btn-small .icon-caret-down {
+  margin-top: 6px;
+}
+//
+.btn-fixed {
+  width: 178px;
+  margin-right: 10px;
+}
+
+// Account for other colors
+.btn-primary,
+.btn-danger,
+.btn-info,
+.btn-success,
+.btn-inverse {
+  .icon-caret-down {
+    border-top-color: @white;
+    .opacity(60);
+  }
+}
+
+// Set caret text color
+.btn-primary,
+.btn-primary:hover,
+.btn-warning,
+.btn-warning:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover,
+.btn-inverse,
+.btn-inverse:hover {
+  color: @white;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    color: @white;
+  }
+  &:not(.disabled):hover {
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: @white;
+    }
+  }
+}

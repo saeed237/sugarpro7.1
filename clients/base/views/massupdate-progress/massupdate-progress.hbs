@@ -1,0 +1,40 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="modal progress-modal">
+    <div class="modal-header header">
+        <button type="button" data-action="stop" class="close">&times;</button>
+        <h3 data-holder="title">{{str 'TPL_MASSUPDATE_TITLE' this.module this}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row-fluid">
+            <div class="offset1 span10">
+                <div class="progress-label">
+                    <span data-holder="message"></span>
+                    <span data-holder="estimate"></span>
+                </div>
+                <div class="progress progress-info progress-striped active" data-holder="bar">
+                    <div class="bar" data-holder="progressbar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            {{#each meta.buttons}}
+                {{field ../this model=../model}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop"></div>

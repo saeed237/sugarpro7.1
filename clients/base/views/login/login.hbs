@@ -1,0 +1,40 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="welcome">
+    <div class="thumbnail login">
+        <div class="tcenter">
+            <h2 class="brand" style="background-image: url({{logoUrl}});">SugarCRM</h2>
+        </div>
+        <form name='{{name}}' class="tcenter">
+            {{#each meta.panels}}
+                {{#each fields}}
+                <div class="control-group">{{field ../../this model=../../model}}</div>
+                {{/each}}
+                <p class="help-block">
+                    {{#if ../showPasswordReset}}
+                        <a href="#forgotpassword" class="btn btn-link btn-invisible" rel="popoverTop" data-content="{{str "LBL_LOGIN_FORGOTPASSWORD"}}"
+                       title="{{str "LBL_LOGIN_FORGOTPASSWORD_TITLE"}}">{{str "LBL_LOGIN_FORGOT_PASSWORD"}}</a>
+                    {{/if}}
+                </p>
+            {{/each}}
+            <div class="login-footer">
+                {{#each meta.buttons}}
+                {{field ../this model=../model}}
+                {{/each}}
+            </div>
+        </form>
+    </div>
+</div>

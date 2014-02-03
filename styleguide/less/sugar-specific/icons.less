@@ -1,0 +1,49 @@
+/* Icons
+------------------------- */
+[class^="icon-"] {
+  -webkit-font-smoothing: antialiased;
+  color: @grayLight;
+}
+
+a > [class^="icon-"] {
+  color: @grayLight;
+}
+a:not(.disabled):hover > [class^="icon-"] {
+  color: @gray;
+}
+a:not(.disabled).active > [class^="icon-"],
+a:not(.disabled):active > [class^="icon-"] {
+  color: @black;
+}
+
+.icon-favorite:before {
+  content: "\f005";
+}
+
+.icon-favorite {
+  color: @grayLight;
+  cursor: pointer;
+  &.active {
+    color: @yellow_favorite !important;
+  }
+}
+
+.btn:hover > .icon-favorite.active {
+  color: @yellow_favorite !important;
+}
+
+.wide {
+  width: 98%;
+  text-align: center;
+}
+
+.icon {
+  &-updated { color: @blue; }
+  &-added { color: @green; }
+}
+
+i.icon-white,
+btn.icon-white,
+span.icon-white {
+  color: @white !important;
+}

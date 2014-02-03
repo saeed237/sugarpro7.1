@@ -1,0 +1,105 @@
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+	
+
+$mod_strings = array (
+  'ERR_DELETE_RECORD' => '고객을 삭제하시려면 정확한 자료 고유번호를 입력하셔야합니다.',
+  'LBL_ACCEPT' => '수락',
+  'LBL_ACCEPT_THIS' => '수락하시겠습니까?',
+  'LBL_COLON' => ':',
+  'LBL_CONTACT_NAME' => '연락처명:',
+  'LBL_DATE' => '시작일',
+  'LBL_DATE_TIME' => '시작 날짜와&시간',
+  'LBL_DEFAULT_SUBPANEL_TITLE' => '열린 활동내역',
+  'LBL_DESCRIPTION' => '설명:',
+  'LBL_DESCRIPTION_INFORMATION' => '정보설명',
+  'LBL_DIRECTION' => '방향',
+  'LBL_DURATION' => '기간',
+  'LBL_DURATION_MINUTES' => '분',
+  'LBL_HISTORY' => 'History',
+  'LBL_HOURS_MINS' => '시/분',
+  'LBL_INVITEE' => '초대자 목록',
+  'LBL_LIST_ASSIGNED_TO_NAME' => '담당자',
+  'LBL_LIST_CLOSE' => '닫기',
+  'LBL_LIST_CONTACT' => '연락처',
+  'LBL_LIST_DATE' => '날짜',
+  'LBL_LIST_DIRECTION' => '방향',
+  'LBL_LIST_DUE_DATE' => '완료 날짜',
+  'LBL_LIST_FORM_TITLE' => '활동 목록',
+  'LBL_LIST_LAST_MODIFIED' => '최종 수정일자:',
+  'LBL_LIST_RELATED_TO' => '관련',
+  'LBL_LIST_STATUS' => '상태',
+  'LBL_LIST_SUBJECT' => '제목',
+  'LBL_LIST_TIME' => '시작 시간',
+  'LBL_LOCATION' => '위치',
+  'LBL_MEETING' => '회의',
+  'LBL_MODULE_NAME' => '활동내역',
+  'LBL_MODULE_NAME_SINGULAR' => '활동내역',
+  'LBL_MODULE_TITLE' => '활동내역 :홈',
+  'LBL_NEW_NOTE_BUTTON_KEY' => 'T',
+  'LBL_NEW_NOTE_BUTTON_LABEL' => '메모 추가하거나 첨부하기',
+  'LBL_NEW_NOTE_BUTTON_TITLE' => '메모 추가하거나 첨부하기',
+  'LBL_NEW_TASK_BUTTON_KEY' => 'N',
+  'LBL_NEW_TASK_BUTTON_LABEL' => '신규 업무 추가하기',
+  'LBL_NEW_TASK_BUTTON_TITLE' => '신규 업무 추가하기',
+  'LBL_OPEN_ACTIVITIES' => '열린 활동내역',
+  'LBL_SCHEDULE_CALL_BUTTON_KEY' => 'C',
+  'LBL_SCHEDULE_CALL_BUTTON_LABEL' => '통화일지',
+  'LBL_SCHEDULE_CALL_BUTTON_TITLE' => '통화일지',
+  'LBL_SCHEDULE_MEETING_BUTTON_KEY' => 'M',
+  'LBL_SCHEDULE_MEETING_BUTTON_LABEL' => '회의 일정잡기',
+  'LBL_SCHEDULE_MEETING_BUTTON_TITLE' => '회의 일정잡기',
+  'LBL_SEARCH_FORM_TITLE' => '활동 검색',
+  'LBL_STATUS' => '상태',
+  'LBL_SUBJECT' => '제목',
+  'LBL_TIME' => '시작 시간',
+  'LBL_TODAY' => '통하여',
+  'LBL_TRACK_EMAIL_BUTTON_KEY' => 'K',
+  'LBL_TRACK_EMAIL_BUTTON_LABEL' => '이메일 보관하기',
+  'LBL_TRACK_EMAIL_BUTTON_TITLE' => '이메일 보관하기',
+  'LBL_UPCOMING' => '내 다가오는 일정목록',
+  'LNK_CALL_LIST' => '전화상담 보기',
+  'LNK_EMAIL_LIST' => '이메일 보기',
+  'LNK_IMPORT_CALLS' => '전화 상담내역 가져오기',
+  'LNK_IMPORT_MEETINGS' => '미팅목록 가져오기',
+  'LNK_IMPORT_NOTES' => '노트 가져오기',
+  'LNK_IMPORT_TASKS' => '업무내역 가져오기',
+  'LNK_MEETING_LIST' => '회의 목록 보기',
+  'LNK_NEW_APPOINTMENT' => '일정 추가하기',
+  'LNK_NEW_CALL' => '통화일지',
+  'LNK_NEW_EMAIL' => '보관 이메일 새로 만들기',
+  'LNK_NEW_MEETING' => '회의 일정잡기',
+  'LNK_NEW_NOTE' => '노트 추가하거나 첨부하기',
+  'LNK_NEW_TASK' => '업무내역 추가하기',
+  'LNK_NOTE_LIST' => '노트 보기',
+  'LNK_TASK_LIST' => '업무내역 보기',
+  'LNK_VIEW_CALENDAR' => '달력 보기',
+  'NTC_NONE' => '없음',
+  'NTC_NONE_SCHEDULED' => '일정 없음',
+  'NTC_REMOVE_INVITEE' => '회의로부터 이 초대자를 삭제하시겠습니까?',
+  'appointment_filter_dom' => 
+  array (
+    'last next_month' => '다음달',
+    'last this_month' => '이번 달',
+    'next Saturday' => '다음주',
+    'this Saturday' => '이번 주',
+    'today' => '오늘',
+    'tomorrow' => '내일',
+  ),
+);
+

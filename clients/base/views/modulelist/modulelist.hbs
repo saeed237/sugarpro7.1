@@ -1,0 +1,66 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<ul class="nav megamenu" id="module_list">
+    {{#each module_list}}
+        {{#eq name 'Home'}}
+        <li class="dropdown home" data-module="Home">
+            <div class="btn-group" title="{{str "LBL_TABGROUP_HOME"}}">
+                <a class="cube btn btn-invisible btn-link" href="#Home" data-route="#Home"></a>
+            {{#if menu}}
+                <a data-toggle="dropdown" role="button" href="javascript: void(0);" class="btn btn-invisible btn-link dropdown-toggle"><b class="icon-caret-down"></b></a>
+                <div class="dropdown-menu scroll">
+                    <ul role="menu">
+                        {{#each menu}}
+                            <li><a tabindex="-1" href="{{route}}" data-route="{{route}}">{{#if icon}}<i class="{{icon}}"></i>{{/if}}{{str label ../name}}</a></li>
+                        {{/each}}
+                        <div class="dashboardContainer "></div>
+                    </ul>
+                </div>
+            {{/if}}
+            </div>
+        </li>
+        {{/eq}}
+        {{#notEq name 'Home'}}
+        <li class="dropdown" data-module="{{name}}" data-menuindex="{{menuIndex}}">
+            <a  class="moreLink hide" href="#{{name}}" data-route="#{{name}}">{{label}}</a>
+            <div class="btn-group">
+                <a  class="btn btn-invisible btn-link routeLink" href="#{{name}}" data-route="#{{name}}">{{label}}</a>
+                {{#if menu}}
+                    <a data-toggle="dropdown" role="button" href="javascript: void(0);" class="btn btn-invisible btn-link dropdown-toggle"><i class="icon-caret-down"></i></a>
+                    <div class="dropdown-menu scroll">
+                        <ul role="menu">
+                            {{#each menu}}
+                                <li><a class="actionLink" tabindex="-1" href="{{#if event}}javascript:void(0);{{else}}{{route}}{{/if}}" data-navbar-menu-item="{{this.label}}" data-{{#if event}}event="{{event}}"{{else}}route="{{route}}"{{/if}}>{{#if icon}}<i class="{{icon}}"></i>{{/if}}{{str label ../name}}</a></li>
+                            {{/each}}
+                            <div class="recentContainer hide"></div>
+                            <div class="favoritesContainer hide"></div>
+                        </ul>
+                    </div>
+                {{/if}}
+            </div>
+        </li>
+        {{/notEq}}
+    {{/each}}
+    <li class="dropdown more">
+        <div class="btn-group">
+            <a href="javascript:void(0)" role="button" data-toggle="dropdown" class="btn btn-invisible btn-link dropdown-toggle" id="moreDrop"><b title="{{str "LBL_LINK_MORE"}}" class="icon-chevron-down"></b></a>
+            <div class="dropdown-menu scroll"role="menu">
+            <ul class="more-drop-container">
+            </ul>
+            </div>
+        </div>
+    </li>
+</ul>

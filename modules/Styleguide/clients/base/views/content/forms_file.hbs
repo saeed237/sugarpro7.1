@@ -1,0 +1,186 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<section id="file-uploader">
+  <div class="page-header">
+    <h1>File uploader <small>custom layouts of field components</small></h1>
+  </div>
+
+  <div class="row-fluid control-group">
+    <div class="span2">Label</div>
+    <div class="span10">
+      <span sfuuid="1">
+        <label class="file-upload">
+          <input type="file" name="uploadfile4" />
+        </label>
+      </span>
+      <p class="help-block"></p></span>
+    </div>
+  </div>
+
+  <h4><em>styled</em> <small>note: js required, look in application.js near line that has: <code>var uobj = []</code></small></h4>
+  <div class="row-fluid control-group">
+    <div class="span2">Label</div>
+    <div class="span10">
+      <span sfuuid="1">
+        <span class="upload-field-custom btn">
+          <label class="file-upload">
+            <span><strong>Upload file</strong></span>
+            <input type="file" name="uploadfile14" />
+          </label>
+        </span>
+      </span>
+      <p class="help-block"></p></span>
+    </div>
+  </div>
+
+  <div class="row-fluid control-group">
+    <div class="span2">Label</div>
+    <div class="span10">
+      <span sfuuid="1">
+        <span class="upload-field-custom btn">
+          <label class="file-upload">
+            <span><strong><i class="icon-upload-alt"></i></strong></span>
+            <input type="file" name="uploadfile24" />
+          </label>
+        </span>
+      </span>
+      <p class="help-block"></p></span>
+    </div>
+  </div>
+
+  <hr>
+
+  <form id="imageform" method="post" enctype="multipart/form-data" action='ajaximage.php'>
+    <div class="row-fluid control-group">
+      <div class="span1">Avatar</div>
+      <div class="span3">
+        <span sfuuid="1">
+          <div class="image_field image_edit" style="max-width: 42px; height: 42px; min-height: 42px; line-height: 42px;">
+            <label style="line-height: 42px;">
+              <span class="image_input">
+                <input type="file" name="picture">
+              </span>
+              <span class="image_btn image_btn_label">Edit</span>
+              <span class="image_preview">
+                <i class="icon-plus" style="line-height: 32px;"></i>
+              </span>
+              <span class="image_btn delete icon-trash"></span>
+            </label>
+          </div>
+          <p class="help-block"></p>
+        </span>
+      </div>
+      <div class="span1">Avatar</div>
+      <div class="span3">
+        <span sfuuid="1">
+          <div class="image_field image_edit" style="max-width: 42px; height: 42px; min-height: 42px; line-height: 42px;">
+            <label style="line-height: 42px;">
+              <span class="image_input">
+                <input type="file" name="picture">
+              </span>
+              <span class="image_btn image_btn_label">Edit</span>
+              <span class="image_preview">
+                <i class="icon-plus" style="line-height: 32px;"></i>
+              </span>
+              <span class="image_btn delete icon-remove"></span>
+            </label>
+          </div>
+          <p class="help-block"></p>
+        </span>
+      </div>
+      <div class="span1">Avatar</div>
+      <div class="span3 error">
+        <span sfuuid="1">
+          <div class="image_field image_edit" style="max-width: 42px; height: 42px; min-height: 42px; line-height: 42px;">
+            <label style="line-height: 42px;">
+              <span class="image_input">
+                <input type="file" name="picture">
+              </span>
+              <span class="image_btn image_btn_label">Edit</span>
+              <span class="image_preview">
+                <i class="icon-plus" style="line-height: 32px;"></i>
+              </span>
+            </label>
+            <span class="error-tooltip  add-on" rel="tooltip" data-original-title="Invalid file format, only image file can be uploaded."><i class="icon-exclamation-sign"></i></span>
+          </div>
+          <p class="help-block"></p>
+        </span>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<script>
+  /* Custom file upload overrides and avatar widget */
+  var uobj = [],
+      onUploadChange = function (e) {
+        var status = $(this);
+        if ( this.value ) {
+          var this_container = $(this).parent('.file-upload').parent('.upload-field-custom'),
+            value_explode = this.value.split('\\'),
+            value = value_explode[value_explode.length-1];
+
+          if($(this).closest('.upload-field-custom').hasClass('avatar')===true) { /* hide status for avatars */
+            var opts = "hide";
+          }
+
+          if(this_container.next('.file-upload-status').length > 0){
+            this_container.next('.file-upload-status').remove();
+          }
+          //this_container.append('<span class="file-upload-status">'+value+'</span>');
+          $('<span class="file-upload-status '+opts+' ">'+value+'</span>').insertAfter(this_container);
+        }
+      },
+      onUploadFocus = function () {
+        $(this).parent().addClass('focus');
+      },
+      onUploadBlur = function () {
+        $(this).parent().addClass('focus');
+      };
+
+  $('.upload-field-custom input[type=file]').each(function() {
+    // Bind events
+    $(this)
+      .bind('focus',onUploadFocus)
+      .bind('blur',onUploadBlur)
+      .bind('change',onUploadChange);
+
+    // Get label width so we can make button fluid, 12px default left/right padding
+    var lbl_width = $(this).parent().find('span strong').width() + 24;
+    $(this)
+      .parent().find('span').css('width',lbl_width)
+      .closest('.upload-field-custom').css('width',lbl_width);
+
+    // Set current state
+    onUploadChange.call(this);
+
+    // Minimizes the text input part in IE
+    $(this).css('width','0');
+  });
+
+  $('#photoimg').live('change', function() {
+    $("#preview1").html('');
+    $("#preview1").html('<span class="loading">Loading...</span>');
+    $("#imageform").ajaxForm({
+      target: '#preview1'
+    }).submit();
+  });
+
+  $('.preview.avatar').click(function(e){
+      $(this).closest('.span10').find('label.file-upload span strong').trigger('click');
+  });
+</script>

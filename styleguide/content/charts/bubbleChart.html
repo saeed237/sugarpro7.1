@@ -1,0 +1,131 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Bubble Chart</title>
+  <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
+  <script src="../js/less-1.3.3.min.js" type="text/javascript"></script>
+</head>
+<body class="full-screen">
+  <div class="nv-demo">
+    <div id="bubble" class="nv-chart">
+      <svg></svg>
+    </div>
+  </div>
+
+<script src="../js/jquery-1.7.2.min.js"></script>
+
+<script src="../../../include/javascript/nvd3/lib/d3.min.js"></script>
+<script src="../../../include/javascript/nvd3/nv.d3.min.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/scatter.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/bubbleChart.js"></script>
+
+<script>
+
+  // Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+  nv.addGraph(function() {
+    var self = this,
+        now = new Date(),
+        duration = 12,
+        startDate = new Date(now.getFullYear(), (duration === 12 ? 0 : Math.ceil((now.getMonth())/3)-1+duration), 1),
+        endDate = new Date(now.getFullYear(), (duration === 12 ? 12 : startDate.getMonth()+3), 0),
+        dateRange = [startDate,endDate];
+
+    d3.json("data/top10_opportunities_debug_grp.json", function(data) {
+
+      var salesStageMap = {
+              'Negotiation/Review': 'Negotiat./Review',
+              'Perception Analysis': 'Percept. Analysis',
+              'Proposal/Price Quote': 'Proposal/Quote',
+              'Id. Decision Makers': 'Id. Deciders'
+          };
+      var bubble_data = {
+          data: data.records.map(function (d) {
+              return {
+                  id: d.id,
+                  x: d.date_closed,
+                  y: Math.round(parseInt(d.likely_case, 10) / parseFloat(d.base_rate)),
+                  shape: 'circle',
+                  account_name: d.account_name,
+                  assigned_user_name: d.assigned_user_name,
+                  sales_stage: d.sales_stage,
+                  sales_stage_short: salesStageMap[d.sales_stage] || d.sales_stage,
+                  probability: parseInt(d.probability, 10),
+                  base_amount: parseInt(d.likely_case, 10),
+                  currency_symbol: '$'
+              };
+          }),
+          properties: {
+              title: 'LBL_DASHLET_TOP10_SALES_OPPORTUNITIES_NAME',
+              value: data.records.length
+          }
+      };
+
+      var seriesLength = d3.nest()
+                          .key(function(d){return d.probability;})
+                          .entries(bubble_data).length;
+
+      var filterAssigned = 'group';
+
+      var chart = nv.models.bubbleChart()
+          .x(function(d) { return d3.time.format("%Y-%m-%d").parse(d.x) })
+          .y(function(d) { return d.y })
+          .tooltipContent( function(key, x, y, e, graph) {
+              return '<p>Assigned: <b>' + e.point.assigned_user_name + '</b></p>' +
+                     '<p>Amount: <b>$' +  d3.format(',.2d')(e.point.opportunity) + '</b></p>' +
+                     '<p>Close Date: <b>' +  d3.time.format('%x')(d3.time.format("%Y-%m-%d").parse(e.point.x)) + '</b></p>' +
+                     '<p>Probability: <b>' +  e.point.probability + '%</b></p>' +
+                     '<p>Account: <b>' +  e.point.account_name + '</b></p>';
+          })
+          .showTitle(false)
+          .tooltips(true)
+          .showLegend(true)
+          .colorData( 'class', {step:2} )
+          .groupBy(function (d) {
+                return (filterAssigned === 'my') ? d.sales_stage_short : d.assigned_user_name;
+            })
+          .filterBy(function(d){ return d.probability; })
+        ;
+
+      d3.select('#bubble svg')
+          .datum(bubble_data)
+        .transition().duration(500)
+          .call(chart);
+
+      self.chart = chart;
+
+
+      nv.utils.windowResize(self.chart.render);
+
+      return chart;
+    });
+
+  });
+
+// http://localhost:8888/builds/sugar7/ent/sugarcrm/rest/v10/Opportunities/filter?fields=assigned_user_name%2Cteam_name%2Copportunity_type%2Caccount_name%2Ccampaign_name%2Clead_source%2Ccurrency_name%2Ccurrency_symbol%2Cdate_closed%2Csales_stage%2Csales_status%2Ccommit_stage%2Cassigned_user_id%2Caccount_id%2Ccampaign_id%2Ccurrency_id%2Cname%2Camount%2Cnext_step%2Cprobability%2Ccreated_by_name%2Cmodified_by_name%2Cdate_entered%2Ccreated_by%2Cmodified_user_id&max_num=20&filter%5B0%5D%5B%24owner%5D=
+// url = 'http://localhost:8888/builds/sugar7/ent/sugarcrm/rest/v10/Opportunities/filter?fields=assigned_user_name%2Cteam_name%2Copportunity_type%2Caccount_name%2Ccampaign_name%2Clead_source%2Ccurrency_name%2Ccurrency_symbol%2Cdate_closed%2Csales_stage%2Csales_status%2Ccommit_stage%2Cassigned_user_id%2Caccount_id%2Ccampaign_id%2Ccurrency_id%2Cname%2Camount%2Cnext_step%2Cprobability%2Ccreated_by_name%2Cmodified_by_name%2Cdate_entered%2Ccreated_by%2Cmodified_user_id&max_num=20&filter%5B0%5D%5B%24owner%5D=';
+// url = 'http://localhost:8888/builds/sugar7/ent/sugarcrm/rest/v10/Opportunities?fields=name%2Caccount_name%2Camount%2Cassigned_user_name%2Cdate_closed%2Ccurrency_id%2Cbase_rate%2Caccount_id&max_num=10&order_by=amount%3Adesc&my_items=1';
+
+// url = 'http://localhost:8888/builds/sugar7/ent/sugarcrm/rest/v10/Opportunities?fields=name%2Caccount_name%2Camount%2Cassigned_user_name%2Cdate_closed%2Ccurrency_id%2Cbase_rate%2Caccount_id&max_num=10&order_by=amount%3Adesc&my_items=1&list=all&limit=0';
+</script>
+</body>
+</html>
+
+

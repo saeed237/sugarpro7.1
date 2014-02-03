@@ -1,0 +1,33 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="accordion-heading {{#unless this.meta.dependentModules}}enabled{{/unless}}" data-module="{{this.meta.module}}">
+    <span class="pull-left step-circle">
+        <span>{{this.meta.moduleNumber}}</span>
+        <i class="icon-ok-sign"></i>
+    </span>
+    <span class="title">{{this.initial.title}}</span>
+    <span class="dupecheck-results"></span>
+    <span class="btn btn-invisible active-indicator pull-right"><i class="icon-chevron-down"></i></span>
+    <span class="buttons pull-right">
+        {{#each meta.buttons}}
+            {{field ../this}}
+        {{/each}}
+    </span>
+    <span class="subview-toggle pull-right hide">
+        <a class="toggle-link dupecheck" data-next-toggle="create" href="javascript:void(0)">{{str 'LBL_CONVERT_IGNORE_DUPLICATES' module}}</a>
+        <a class="toggle-link create" data-next-toggle="dupecheck" href="javascript:void(0)" >{{str 'LBL_CONVERT_BACK_TO_DUPLICATES' module}}</a>
+    </span>
+</div>

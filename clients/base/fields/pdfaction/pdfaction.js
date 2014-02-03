@@ -1,0 +1,14 @@
+/*********************************************************************************
+     * By installing or using this file, you are confirming on behalf of the entity
+     * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+     * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+     * http://www.sugarcrm.com/master-subscription-agreement
+     *
+     * If Company is not bound by the MSA, then by installing or using this file
+     * you are agreeing unconditionally that Company will be bound by the MSA and
+     * certifying that you have authority to bind Company accordingly.
+     *
+     * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+     ********************************************************************************/
+({extendsFrom:'RowactionField',events:{'click [data-action=link]':'linkClicked','click [data-action=download]':'downloadClicked','click [data-action=email]':'emailClicked'},templateCollection:null,fetchCalled:false,initialize:function(options){this._super('initialize',[options]);this.templateCollection=app.data.createBeanCollection('PdfManager');},_render:function(){if(this.def.action==='email'&&app.user.getPreference('use_sugar_email_client')!=='true'){this.hide();}else{this._super('_render');}},_fetchTemplate:function(){this.fetchCalled=true;var collection=this.templateCollection;collection.filterDef={'$and':[{'base_module':this.module},{'published':'yes'}]};collection.fetch();},_buildDownloadLink:function(templateId){var urlParams=$.param({'action':'sugarpdf','module':this.module,'sugarpdf':'pdfmanager','record':this.model.id,'pdf_template_id':templateId});return'?'+urlParams;},_buildEmailLink:function(templateId){return'#'+app.bwc.buildRoute(this.module,null,'sugarpdf',{'sugarpdf':'pdfmanager','record':this.model.id,'pdf_template_id':templateId,'to_email':'1'});},linkClicked:function(evt){evt.preventDefault();evt.stopPropagation();if(this.templateCollection.dataFetched){this.fetchCalled=!this.fetchCalled;}else{this._fetchTemplate();}
+this.render();},emailClicked:function(evt){var templateId=this.$(evt.currentTarget).data('id');app.router.navigate(this._buildEmailLink(templateId),{trigger:true});},downloadClicked:function(evt){var templateId=this.$(evt.currentTarget).data('id');app.api.fileDownload(this._buildDownloadLink(templateId),{error:function(data){app.error.handleHttpError(data,{});}},{iframe:this.$el});},bindDataChange:function(){this.templateCollection.on('reset',this.render,this);this._super('bindDataChange');},unbindData:function(){this.templateCollection.off(null,null,this);this.templateCollection=null;this._super('unbindData');},hasAccess:function(){var pdfAccess=app.acl.hasAccess('view','PdfManager');return pdfAccess&&this._super('hasAccess');}})

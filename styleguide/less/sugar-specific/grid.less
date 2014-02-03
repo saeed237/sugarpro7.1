@@ -1,0 +1,27 @@
+//this less file augments the twitter bootstrap fluid grid
+//to allow for absolute postioned content before offset div
+
+.fluid-offset-absolute (@fluidGridColumnWidth, @fluidGridGutterWidth) {
+
+  .offsetFirstChild (@columns) {
+    margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth);
+    *margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+  }
+
+  .offsetX (@index) when (@index > 0) {
+    (~'.offset@{index}.absolute') { .offsetFirstChild(@index); }
+    .offsetX(@index - 1);
+  }
+  .offsetX (0) {}
+
+  .row-fluid {
+    .offsetX (@gridColumns);
+  }
+}
+.absolute{margin-left: 0;}
+.fluid-offset-absolute(@fluidGridColumnWidth, @fluidGridGutterWidth);
+
+//this change removes the left margin of spanX divs that are next to hidden first spans
+[class*="span"]:first-child.hide + [class*="span"] {
+  margin-left: 0;
+}

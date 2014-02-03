@@ -1,0 +1,87 @@
+{{!
+/*
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright  2004-2013 SugarCRM Inc.  All rights reserved.
+ */
+}}
+{{#each meta.panels}}
+<div class="flex-list-view-content">
+<table class="table table-striped dataTable">
+    <thead>
+    <tr>
+        {{#each ../leftColumns}}
+        <th data-fieldname="{{name}}">
+            <span>
+                {{field ../../this template="list-header"}}
+            </span>
+        </th>
+        {{/each}}
+        {{#each ../_fields.visible}}
+            <th {{#if this.width}}width="{{this.width}}" {{/if}}class="{{#isSortable ../../module this}}sorting{{#eq ../../../orderBy.field name}}_{{../../../../orderBy.direction}}{{/eq}} orderBy{{name}}{{/isSortable}}"
+                data-fieldname="{{name}}" data-orderby="{{orderBy}}">
+                <span>
+                    {{str label ../../module}}
+                </span>
+            </th>
+        {{/each}}
+        {{#each ../rightColumns}}
+            {{#if isColumnDropdown}}
+            <th class="nosort morecol">
+                <div class="dropdown">
+                    <button class="btn btn-link btn-invisible" data-toggle="dropdown" data-action="fields-toggle">. . .</button>
+                    <ul class="dropdown-menu left carettop">
+                    {{#each ../../../_fields.options}}
+                        <li>
+                            <button class="btn btn-link btn-invisible{{#if selected}} active{{/if}}" data-field-toggle="{{name}}">
+                                {{#if selected}}<i class="icon icon-ok"></i> {{/if}}{{str label ../../../../module}}
+                            </button>
+                        </li>
+                    {{/each}}
+                    </ul>
+                </div>
+            </th>
+            {{else}}
+            <th data-fieldname="{{name}}">
+                <span>
+                    {{field ../../this template="list-header"}}
+                </span>
+            </th>
+            {{/if}}
+        {{/each}}
+    </tr>
+    <tr class="alert alert-warning hide">
+        <td class="container"{{#if ../this.colSpan}} colspan="{{../../this.colSpan}}"{{/if}}></td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each ../filteredCollection.models}}
+    <tr name="{{module}}_{{attributes.id}}" class="single" data-forecast="{{attributes.commit_stage}}">
+        {{#each ../../leftColumns}}
+        <td>
+             {{field ../../../this model=../this template=../../../this.viewName}}
+        </td>
+        {{/each}}
+        {{#each ../../_fields.visible}}
+            <td class="{{#if this.align}} {{this.align}}{{/if}}{{#if click_to_edit}} editableColumn{{/if}}" data-field-name="{{name}}">
+              {{field ../../../this model=../this template=../../../this.viewName}}
+            </td>
+        {{/each}}
+        {{#each ../../rightColumns}}
+        <td>
+             {{field ../../../this model=../this template=../../../this.viewName}}
+        </td>
+        {{/each}}
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+</div>
+{{/each}}

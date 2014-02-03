@@ -1,0 +1,17 @@
+/* currency formatting */
+.currency-field {
+  white-space: nowrap;
+  label.original {
+    margin: 0 4px 0 0;
+    display: inline-block;
+    background-color: @grayLight;
+    .border-radius(4px);
+    padding: 2px 4px;
+  }
+  .converted {
+    display: inline-block;
+    .rtlMargin(@direction,0 16px 0 0);
+    width: calc(50% - 6px);
+  }
+}
+

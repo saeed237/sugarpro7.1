@@ -1,0 +1,108 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+
+<h2>Overview</h2>
+<span class="lead">
+Updates the variables.less (less file containing customizable vars in the theme folder) with the set of variables passed as arguments.
+</span>
+
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>platform</td>
+        <td>String</td>
+        <td>The theme platform - /themes/clients/***PLATFORM***/themeName/. Accepted values are 'base' and 'portal'.</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>themeName</td>
+        <td>String</td>
+        <td>The theme name - /themes/clients/platform/***THEMENAME***/.</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>&lt;theme variable&gt;</td>
+        <td>String</td>
+        <td>The variables of the theme</td>
+        <td>False</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Parameters Example:</h3>
+<pre class="pre-scrollable">
+{
+    platform:'portal',
+    themeName:'default',
+    primary:'default',
+    secondary:'#aaaaaa',
+    primaryBtn:'#bbbbbb',
+}
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;css path&gt;
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Returns the path of the new bootstrap.css file.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<pre class="pre-scrollable">
+"http:\/\/sugarcrm\/cache\/themes\/clients\/base\/default\/6a031485bf5239b9462e4aaba72a4646.css"
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;theme&gt;</code> POST endpoint.
+        </td>
+    </tr>
+</table>

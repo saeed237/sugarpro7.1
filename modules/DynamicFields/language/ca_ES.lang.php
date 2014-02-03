@@ -1,0 +1,115 @@
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+	
+
+$mod_strings = array (
+  'COLUMN_DISABLE_NUMBER_FORMAT' => 'deshabilitar el format',
+  'COLUMN_TITLE_AUDIT' => 'Auditoria',
+  'COLUMN_TITLE_AUTOINC_NEXT' => 'Auto increment valor següent',
+  'COLUMN_TITLE_COMMENT_TEXT' => 'Comentari de text',
+  'COLUMN_TITLE_DATA_TYPE' => 'Tipus de dades',
+  'COLUMN_TITLE_DEFAULT_EMAIL' => 'Valor per defecte',
+  'COLUMN_TITLE_DEFAULT_VALUE' => 'Valor per defecte',
+  'COLUMN_TITLE_DISPLAYED_ITEM_COUNT' => '# Items de la mostra',
+  'COLUMN_TITLE_DISPLAY_LABEL' => 'Etiqueta de visualizació',
+  'COLUMN_TITLE_DUPLICATE_MERGE' => 'Combinar duplicats',
+  'COLUMN_TITLE_ENABLE_RANGE_SEARCH' => 'Habilitar la cerca de rang',
+  'COLUMN_TITLE_EXT1' => 'Meta de camp addicional 1',
+  'COLUMN_TITLE_EXT2' => 'Meta de camp addicional 2',
+  'COLUMN_TITLE_EXT3' => 'Meta de camp addicional 3',
+  'COLUMN_TITLE_FRAME_HEIGHT' => 'Alçada iframe',
+  'COLUMN_TITLE_FTS' => 'Text complet cerques',
+  'COLUMN_TITLE_GLOBAL_SEARCH' => 'Cerca Global',
+  'COLUMN_TITLE_HELP_TEXT' => 'Text d&#39;ajuda',
+  'COLUMN_TITLE_HTML_CONTENT' => 'HTML',
+  'COLUMN_TITLE_IMPORTABLE' => 'Importable',
+  'COLUMN_TITLE_LABEL' => 'Sistema d&#39;etiquetatge',
+  'COLUMN_TITLE_LABEL_COLS' => 'Columns',
+  'COLUMN_TITLE_LABEL_ROWS' => 'Files',
+  'COLUMN_TITLE_LABEL_VALUE' => 'Etiqueta de valor',
+  'COLUMN_TITLE_MASS_UPDATE' => 'Actualització massiva',
+  'COLUMN_TITLE_MAX_SIZE' => 'Mida màxima',
+  'COLUMN_TITLE_MAX_VALUE' => 'Valor màxim',
+  'COLUMN_TITLE_MIN_VALUE' => 'Valor mínim',
+  'COLUMN_TITLE_NAME' => 'Nom del camp',
+  'COLUMN_TITLE_PRECISION' => 'Precisió',
+  'COLUMN_TITLE_REPORTABLE' => 'Reportar',
+  'COLUMN_TITLE_REQUIRED_OPTION' => 'Camp obligatori',
+  'COLUMN_TITLE_URL' => 'Default URL',
+  'COLUMN_TITLE_VALIDATE_US_FORMAT' => 'U.S. Format',
+  'ERR_FIELD_NAME_ALREADY_EXISTS' => 'El nom de camp ja existeix',
+  'ERR_NO_MODULE_INCLUDED' => 'No Inclou mòdul no va poder salvar',
+  'ERR_RESERVED_FIELD_NAME' => 'Paraula reservada',
+  'ERR_SELECT_FIELD_TYPE' => 'Seleccioneu un tipus de camp',
+  'LBL_ADDING_COLUMN' => 'Addició de la columna {0}',
+  'LBL_ADD_FIELD' => 'Afegir camp:',
+  'LBL_AUDITED' => 'Auditats',
+  'LBL_BTN_ADD' => 'Afegir',
+  'LBL_BTN_EDIT' => 'Editar',
+  'LBL_BTN_EDIT_VISIBILITY' => 'Edita visibilitat',
+  'LBL_CALCULATED' => 'Valor calculat',
+  'LBL_DATA_TYPE' => 'Tipus',
+  'LBL_DEFAULT_VALUE' => 'Valor per defecte',
+  'LBL_DEPENDENT' => 'Dependent',
+  'LBL_DEPENDENT_CHECKBOX' => 'Dependent',
+  'LBL_DEPENDENT_TRIGGER' => 'Disparador',
+  'LBL_DONE' => 'Fet',
+  'LBL_DROPPING_COLUMN' => 'Eliminant la columna {0} de {1} per al mòdul',
+  'LBL_DROP_DOWN_LIST' => 'Llista desplegable',
+  'LBL_DYNAMIC_VALUES_CHECKBOX' => 'Dependent',
+  'LBL_EDIT_VIS' => 'Edita visibilitat',
+  'LBL_ENFORCED' => 'Forçades',
+  'LBL_EXE_NON_SIM_MODE' => 'Executar en mode no de simulació',
+  'LBL_FIELD_MISSING' => 'camp(s) que manca de',
+  'LBL_FIX_COLUMN_TYPE' => 'Fixació de Tipus de columna per {0} canviant {1} de',
+  'LBL_FORMULA' => 'Formula',
+  'LBL_GENERATE_URL' => 'Generar URL',
+  'LBL_HAS_PARENT' => 'Té pares',
+  'LBL_HELP' => 'Ajuda',
+  'LBL_IMAGE_BORDER' => 'Vora',
+  'LBL_IMAGE_HEIGHT' => 'Alçada',
+  'LBL_IMAGE_WIDTH' => 'Amplada',
+  'LBL_LABEL' => 'Etiqueta',
+  'LBL_LINK_TARGET' => 'Obrir aquest enllaç en',
+  'LBL_MODULE' => 'Mòdul',
+  'LBL_MODULE_SELECT' => 'Mòdul d&#39;edició',
+  'LBL_MULTI_SELECT_LIST' => 'Selecciona multi llista',
+  'LBL_PARENT_DROPDOWN' => 'Pares desplegable',
+  'LBL_RADIO_FIELDS' => 'Els camps de ràdio',
+  'LBL_REPORTABLE' => 'Reportar',
+  'LBL_SCAN_MODULE' => 'Explorant',
+  'LBL_SEARCH_FORM_TITLE' => 'Mòdul de recerca',
+  'LBL_SIMULATION_MODE' => 'MODE SIMULACIÓ - SENSE CANVIS ES FAN MENYS Netejant Arxius Temporals',
+  'LBL_VISIBLE_IF' => 'Visibles si',
+  'LNK_CALL_LIST' => 'Trucades',
+  'LNK_EMAIL_LIST' => 'Correus',
+  'LNK_MEETING_LIST' => 'Reunions',
+  'LNK_NEW_CALL' => 'Programar Trucada',
+  'LNK_NEW_EMAIL' => 'Arxivar Correu',
+  'LNK_NEW_MEETING' => 'Programar Reunió',
+  'LNK_NEW_NOTE' => 'Crear Nota o Adjunt',
+  'LNK_NEW_TASK' => 'Crear Tasca',
+  'LNK_NOTE_LIST' => 'Notes',
+  'LNK_REPAIR_CUSTOM_FIELD' => 'Reparar camps personalitzats',
+  'LNK_SELECT_CUSTOM_FIELD' => 'Seleccionar camp personalitzat',
+  'LNK_TASK_LIST' => 'Tasques',
+  'MSG_DELETE_CONFIRM' => 'Esteu segur que voleu suprimir aquest element?',
+  'POPUP_EDIT_HEADER_TITLE' => 'Editar camp personalitzat',
+  'POPUP_INSERT_HEADER_TITLE' => 'Afegir camp personalitzat',
+);
+

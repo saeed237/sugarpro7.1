@@ -1,0 +1,86 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ * Description:
+ ********************************************************************************/
+-->
+<!-- BEGIN: main -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" id="tableButtonsWorkFlow">
+<form action="index.php" method="post" name="DetailView" id="form">
+
+			<input type="hidden" name="module" value="WorkFlow">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="isDuplicate" value=false>
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module">
+			<input type="hidden" name="return_action">
+			<input type="hidden" name="return_id">
+		<tr>
+		<td>
+			{ACTION_MENU}
+		</td>
+
+		<td align='right'>{ADMIN_EDIT}</td>
+		</tr></table>
+	</form>
+
+<div class="detail view">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+{PAGINATION}
+<tr>
+
+	<td width="25%" scope="row"><slot>{MOD.LBL_NAME}</slot></td>
+	<td width="25%"><slot>{NAME}&nbsp;</slot></td>
+	<td width="25%" scope="row"><slot>&nbsp;</slot></td>
+	<td width="25%"><slot>&nbsp;</slot></td>
+	</tr><tr>
+	<td width="25%" scope="row"><slot>{MOD.LBL_TYPE}</slot></td>
+	<td width="25%"><slot>{TYPE}&nbsp;</slot></td>
+	<td scope="row"><slot>{MOD.LBL_STATUS}</slot></td>
+	<td><slot>{STATUS}&nbsp;</slot></td>
+	</tr><tr>
+	<td scope="row"><slot>{MOD.LBL_LIST_BASE_MODULE}</slot></td>
+	<td><slot>{BASE_MODULE}&nbsp;</slot></td>
+	<td scope="row"><slot>{MOD.LBL_RECORD_TYPE}</slot></td>
+	<td><slot>{RECORD_TYPE}&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>{MOD.LBL_FIRE_ORDER}</slot></td>
+	<td><slot>{FIRE_ORDER}&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row" valign="top" ><slot>{MOD.LBL_DESCRIPTION}</slot></td>
+	<td colspan='3'><slot>{DESCRIPTION}&nbsp;</slot></td>
+	</tr>
+	<tr>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	<td scope="row"><slot>&nbsp;</slot></td>
+	<td><slot>&nbsp;</slot></td>
+	</tr>
+</table>
+</div>
+
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<slot>{SUBTRIGGERS}</slot>
+<slot>{SUBTRIGGERFILTERS}</slot>
+<slot>{SUBALERTS}</slot>
+<slot>{SUBACTIONS}</slot>
+<!-- END: subpanel -->

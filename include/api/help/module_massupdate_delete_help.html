@@ -1,0 +1,194 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    An API to mass delete records.
+</span>
+
+<h2>Query String Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            massupdate_params
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            Mass update parameters.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.uid
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            A list of ids.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.entire
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            True for all records.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    <tr>
+        <td>
+            massupdate_params.filter
+        </td>
+        <td>
+            Array
+        </td>
+        <td>
+            The filter expression. More information on filter expressions can be found in <code>/&lt;module&gt;/filter</code>.
+        </td>
+        <td>
+            False
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Examples</h3>
+<h4>Mass Deleting Records by ID in a Module</h4>
+<pre class="pre-scrollable">
+{
+    "massupdate_params":{
+        "uid":[
+            "ebf22b86-94ea-1601-4f4f-512d09173438",
+            "e3b71c55-d96b-80bb-1696-512d09672398"
+        ]
+    }
+}
+</pre>
+
+<h4>Mass Deleting with a Filter</h4>
+<pre class="pre-scrollable">
+{
+   "massupdate_params":{
+      "entire":true,
+      "filter":[
+         [
+            {
+               "name":"airline"
+            }
+         ]
+      ]
+   }
+}
+</pre>
+
+<h4>Mass Deleting All Records in a Module</h4>
+<pre class="pre-scrollable">
+{
+    "massupdate_params":{
+        "entire":true
+    }
+}
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr>
+        <td>
+            Status
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The status of the mass update. Possible values are 'done' and 'queued'.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            jobid
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            The ID of the job if queued. This is only returned if the status is 'queued'.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Done Example</h3>
+<pre class="pre-scrollable">
+{
+    "status":"done"
+}
+</pre>
+
+<h3>Output Queued Example</h3>
+<pre class="pre-scrollable">
+{
+    "status":"queued",
+    "jobId":"1530025c-7329-5243-be2e-512ff0171b7a"
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;module&gt;/MassUpdate</code> DELETE endpoint.
+        </td>
+    </tr>
+</table>

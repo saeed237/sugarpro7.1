@@ -1,0 +1,49 @@
+{"nodes":[
+{"name":"Cold Call"},
+{"name":"Existing Customer"},
+{"name":"Self Generated"},
+{"name":"Employee"},
+{"name":"Partner"},
+
+{"name":"Closed Won"},
+{"name":"Closed Lost"},
+
+{"name":"Chris Olliver"},
+{"name":"Jim Brennan"},
+{"name":"Max Jenson"},
+{"name":"Sally Bronsen"},
+{"name":"Sarah Smith"},
+{"name":"Will Westin"}
+],
+"links":[
+
+{"source":0,"target":5,"value":5},
+{"source":0,"target":6,"value":5},
+
+{"source":1,"target":5,"value":20},
+{"source":1,"target":6,"value":10},
+
+{"source":2,"target":5,"value":24},
+{"source":2,"target":6,"value":10},
+
+{"source":3,"target":5,"value":15},
+{"source":3,"target":6,"value":5},
+
+{"source":4,"target":5,"value":40},
+{"source":4,"target":6,"value":10},
+
+{"source":5,"target":7,"value":19},
+{"source":5,"target":8,"value":8},
+{"source":5,"target":9,"value":36},
+{"source":5,"target":10,"value":24},
+{"source":5,"target":11,"value":9},
+{"source":5,"target":12,"value":8},
+
+{"source":6,"target":7,"value":6},
+{"source":6,"target":8,"value":6},
+{"source":6,"target":9,"value":12},
+{"source":6,"target":10,"value":9},
+{"source":6,"target":11,"value":4},
+{"source":6,"target":12,"value":3}
+]}
+

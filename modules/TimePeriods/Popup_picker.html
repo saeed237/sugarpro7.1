@@ -1,0 +1,70 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+<script type="text/javascript" src="include/javascript/popup_helper.js?v={VERSION_MARK}"></script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr>
+<td>
+<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td scope="row" nowrap="nowrap">{MOD.LBL_SEARCH_TP_NAME}&nbsp;&nbsp;<input type="text" name="name"  size="10" value="{NAME}" /></td>
+<td scope="row" nowrap="nowrap">{MOD.LBL_SEARCH_TP_START_DATE}&nbsp;&nbsp;<input type="text" name="start_date"  size="10" value="{START_DATE}" /></td>
+<td scope="row" nowrap="nowrap">{MOD.LBL_SEARCH_TP_END_DATE}&nbsp;&nbsp;<input type="text" name="end_date"  size="10" value="{END_DATE}" /></td>
+<td align="right">
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="action" value="Popup" />
+<input type="hidden" name="query" value="true" />
+<input type="hidden" name="func_name" value="" />
+<input type="hidden" name="request_data" value="{request_data}" />
+<input type="hidden" name="populate_parent" value="false" />
+<input type="hidden" name="record_id" value="" />
+<input type="submit" name="button" class="button" id="search_form_submit"
+	title="{APP.LBL_SEARCH_BUTTON_TITLE}"
+	value="{APP.LBL_SEARCH_BUTTON_LABEL}" />
+</td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+
+<!-- END: SearchHeader -->
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+<tr height="20" >
+<td scope="col" width="33%"  nowrap="nowrap"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_TP_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="33%"  nowrap="nowrap">{MOD.LBL_TP_START_DATE}</td>
+<td scope="col" width="34%"  nowrap="nowrap">{MOD.LBL_TP_END_DATE}</td>
+</tr>
+<!-- BEGIN: row -->
+<tr height="20" class="{ROW_COLOR}S1">
+<td scope="row" valign="top"><a href="#" onclick="send_back('TimePeriods','{TIMEPERIOD.ID}');" >{TIMEPERIOD.NAME}</a></td>
+<td valign="top">{TIMEPERIOD.START_DATE}</td>
+<td valign="top">{TIMEPERIOD.END_DATE}</td>
+</tr>
+
+<!-- END: row -->
+</table>
+{ASSOCIATED_JAVASCRIPT_DATA}
+<!-- END: main -->

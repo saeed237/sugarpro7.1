@@ -1,0 +1,55 @@
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+body
+{
+	color: #444;
+	background-color: #fff;
+	background-image:none;
+	background-repeat:no-repeat;
+}
+
+
+#welcome {
+	color: #222;
+
+}
+
+#globalLinks span {
+	color: #222;	
+}
+
+
+button, input[type="submit"], input[type="reset"], input[type="button"], .button, .buttons .button, .yui-button button {
+	color: #000000;	
+}
+
+.detail tr td[scope="row"] {
+    color: #222222;
+}
+
+#moduleList.yuimenubar .yuimenuitemlabel.group {
+    color: #666666;
+}
+
+.skipHeader, .pageContent {
+    position: absolute;
+    text-indent: -9999px;	
+}
+
+
+.accessKeyHelp{
+    cursor:pointer;
+    cursor:hand;
+    text-decoration:underline;
+}

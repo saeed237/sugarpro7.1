@@ -1,0 +1,115 @@
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+	
+
+$mod_strings = array (
+  'COLUMN_DISABLE_NUMBER_FORMAT' => 'Nedovolený formát',
+  'COLUMN_TITLE_AUDIT' => 'Audit',
+  'COLUMN_TITLE_AUTOINC_NEXT' => 'Automatický prírastok ďalšej hodnoty',
+  'COLUMN_TITLE_COMMENT_TEXT' => 'Komentár',
+  'COLUMN_TITLE_DATA_TYPE' => 'Typ údajov',
+  'COLUMN_TITLE_DEFAULT_EMAIL' => 'Prednastavená hodnota',
+  'COLUMN_TITLE_DEFAULT_VALUE' => 'Prednastavená hodnota',
+  'COLUMN_TITLE_DISPLAYED_ITEM_COUNT' => '# zobrazených položiek',
+  'COLUMN_TITLE_DISPLAY_LABEL' => 'Zobrazenie etikiet',
+  'COLUMN_TITLE_DUPLICATE_MERGE' => 'Duplicita zlučovania',
+  'COLUMN_TITLE_ENABLE_RANGE_SEARCH' => 'Povoliť rozsah vyhľadávania',
+  'COLUMN_TITLE_EXT1' => 'Extra Meta poľa 1',
+  'COLUMN_TITLE_EXT2' => 'Extra Meta  poľa 2',
+  'COLUMN_TITLE_EXT3' => 'Extra Meta poľa3',
+  'COLUMN_TITLE_FRAME_HEIGHT' => 'IFrame výška',
+  'COLUMN_TITLE_FTS' => 'prehľadávateľný Plný text',
+  'COLUMN_TITLE_GLOBAL_SEARCH' => 'Globálne vyhľadávanie',
+  'COLUMN_TITLE_HELP_TEXT' => 'Nápoveda',
+  'COLUMN_TITLE_HTML_CONTENT' => 'HTML',
+  'COLUMN_TITLE_IMPORTABLE' => 'Importovateľný',
+  'COLUMN_TITLE_LABEL' => 'Systémová etiketa',
+  'COLUMN_TITLE_LABEL_COLS' => 'Stĺpce',
+  'COLUMN_TITLE_LABEL_ROWS' => 'Riadky',
+  'COLUMN_TITLE_LABEL_VALUE' => 'Hodnota etikety',
+  'COLUMN_TITLE_MASS_UPDATE' => 'Hromadná aktualizácia',
+  'COLUMN_TITLE_MAX_SIZE' => 'Max. veľkosť',
+  'COLUMN_TITLE_MAX_VALUE' => 'Max. hodnota',
+  'COLUMN_TITLE_MIN_VALUE' => 'Minimálna hodnota',
+  'COLUMN_TITLE_NAME' => 'Názov poľa',
+  'COLUMN_TITLE_PRECISION' => 'Presnosť',
+  'COLUMN_TITLE_REPORTABLE' => 'Podliehajúci oznámeniu',
+  'COLUMN_TITLE_REQUIRED_OPTION' => 'Vyžadované pole',
+  'COLUMN_TITLE_URL' => 'Prednastavené URL',
+  'COLUMN_TITLE_VALIDATE_US_FORMAT' => 'U.S. formát',
+  'ERR_FIELD_NAME_ALREADY_EXISTS' => 'Názov poľa už existuje',
+  'ERR_NO_MODULE_INCLUDED' => 'Neobsahuje žiaden modul, nemožno uložiť.',
+  'ERR_RESERVED_FIELD_NAME' => 'Rezervované kľúčové slovo',
+  'ERR_SELECT_FIELD_TYPE' => 'Prosím, vyberte typ poľa',
+  'LBL_ADDING_COLUMN' => 'Pridanie stĺpca {0} až',
+  'LBL_ADD_FIELD' => 'Pridať pole:',
+  'LBL_AUDITED' => 'Overený',
+  'LBL_BTN_ADD' => 'Pridať',
+  'LBL_BTN_EDIT' => 'Upraviť',
+  'LBL_BTN_EDIT_VISIBILITY' => 'Upraviť viditeľnosť',
+  'LBL_CALCULATED' => 'Kalkulovaná hodnota',
+  'LBL_DATA_TYPE' => 'Typ údajov',
+  'LBL_DEFAULT_VALUE' => 'Prednastavená hodnota:',
+  'LBL_DEPENDENT' => 'Závislý',
+  'LBL_DEPENDENT_CHECKBOX' => 'Závislý',
+  'LBL_DEPENDENT_TRIGGER' => 'Spúšťač',
+  'LBL_DONE' => 'Dokončené',
+  'LBL_DROPPING_COLUMN' => 'Stĺpec zhrnutie {0} od {1} pre modul',
+  'LBL_DROP_DOWN_LIST' => 'Rozbaľovací zoznam',
+  'LBL_DYNAMIC_VALUES_CHECKBOX' => 'Závislý',
+  'LBL_EDIT_VIS' => 'Upraviť viditeľnosť',
+  'LBL_ENFORCED' => 'Vynútené',
+  'LBL_EXE_NON_SIM_MODE' => 'Vykonať nesimulačný režim',
+  'LBL_FIELD_MISSING' => 'pole/polia chýbajúce od',
+  'LBL_FIX_COLUMN_TYPE' => 'Pevný typ stĺpca pre {0} meniaci sa na {1} až',
+  'LBL_FORMULA' => 'Vzorec',
+  'LBL_GENERATE_URL' => 'Generovať URL',
+  'LBL_HAS_PARENT' => 'májú rodičia',
+  'LBL_HELP' => 'Pomoc',
+  'LBL_IMAGE_BORDER' => 'Okraj',
+  'LBL_IMAGE_HEIGHT' => 'Výška',
+  'LBL_IMAGE_WIDTH' => 'Šírka',
+  'LBL_LABEL' => 'Etiketa',
+  'LBL_LINK_TARGET' => 'Otvoriť link v',
+  'LBL_MODULE' => 'Modul',
+  'LBL_MODULE_SELECT' => 'Modul k úprave',
+  'LBL_MULTI_SELECT_LIST' => 'Viacnásobný zoznam',
+  'LBL_PARENT_DROPDOWN' => 'Materský pokles',
+  'LBL_RADIO_FIELDS' => 'Radio pole',
+  'LBL_REPORTABLE' => 'Podliehajúci oznámeniu',
+  'LBL_SCAN_MODULE' => 'Prezeranie',
+  'LBL_SEARCH_FORM_TITLE' => 'Modul vyhľadávania',
+  'LBL_SIMULATION_MODE' => 'Simulačný režim - žiadne zmeny nebudú vykonané okrem vymazania vyrovnávacej pamäte',
+  'LBL_VISIBLE_IF' => 'Viditeľný ak',
+  'LNK_CALL_LIST' => 'Volania',
+  'LNK_EMAIL_LIST' => 'Emaily',
+  'LNK_MEETING_LIST' => 'Schódzky',
+  'LNK_NEW_CALL' => 'Záznam volania',
+  'LNK_NEW_EMAIL' => 'Archivovať Email',
+  'LNK_NEW_MEETING' => 'Harmonogram rokovaní',
+  'LNK_NEW_NOTE' => 'Vytvoriť poznámku alebo prílohu',
+  'LNK_NEW_TASK' => 'Vytvoriť úlohu',
+  'LNK_NOTE_LIST' => 'Poznámky',
+  'LNK_REPAIR_CUSTOM_FIELD' => 'Opraviť zákaznícke polw',
+  'LNK_SELECT_CUSTOM_FIELD' => 'Výber zákazníckeho poľa',
+  'LNK_TASK_LIST' => 'Úlohy',
+  'MSG_DELETE_CONFIRM' => 'Skutočne, chcete vymazať túto položku?',
+  'POPUP_EDIT_HEADER_TITLE' => 'Upraviť zákaznícke pole',
+  'POPUP_INSERT_HEADER_TITLE' => 'Pridať zákaznícke pole',
+);
+

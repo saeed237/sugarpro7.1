@@ -1,0 +1,38 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="dashlet-options">
+    <div class="row-fluid">
+        <div class="span6">
+            {{#each this.dashletConfig.buttons}}
+                {{field ../this model=../this.settings template="edit"}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{#each this.collection.models}}
+    <div class="news-article">
+        <div class="row-fluid header">
+            <div class="span12">
+                <p>
+                    <img src="{{getFieldValue this "pictureUrl"}}" class="avatar"> <a href="#{{buildRoute module='Employees' id=this.attributes.user_id}}">{{getFieldValue this "name"}}</a>
+                </p>
+                <span class="details">
+                    <icon class="{{getFieldValue this "icon"}} icon-large"></icon> {{getFieldValue this "label"}}
+                </span>
+            </div>
+        </div>
+    </div>
+{{/each}}

@@ -1,0 +1,40 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<form>
+		<td width="25%" scope="row" noWrap><slot>{MOD.LBL_DV_TIMEPERIODS}</slot>&nbsp;&nbsp;<slot><select name="timeperiod_id" class=dataField">{CURRENT_TIMEPERIODS}</select></slot></td>
+		<td cwidth="35%" scope="row">{FORECAST_TYPE}</td>
+		<td width="40%" align="right"><input type="hidden" name="action" value="ListView"/>
+			<input type="hidden" name="query" value="true"/>
+			<input type="hidden" name="module" value="Forecasts" />
+			<input type="hidden" name="user_id" value="{CURRENT_USER_ID}" />			
+			<input title="{APP.LBL_CLEAR_BUTTON_TITLE}" onclick="clear_form(this.form);" class="button" type="button" name="clear" value="{APP.LBL_CLEAR_BUTTON_LABEL}" id="search_form_clear"/>
+			<input title="{APP.LBL_SEARCH_BUTTON_LABEL}" class="button" type="submit" name="button" value="{APP.LBL_SEARCH_BUTTON_LABEL}"/>
+		</td>
+	</form>
+	</tr>
+	</table>
+</td></tr>
+</table>
+{JAVASCRIPT}
+<!-- END: main -->

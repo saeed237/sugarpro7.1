@@ -1,0 +1,297 @@
+/* Clearlooks 2 */
+
+/* Reset */
+.sugar7modal,
+.sugar7modal div,
+.sugar7modal span,
+.sugar7modal a {
+  text-align: left;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font-size: 11px;
+  color: #000;
+  text-decoration: none;
+  font-weight: normal;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+}
+
+/* General */
+.sugar7modal {
+  direction: ltr;
+  border: none;
+  *border: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  overflow: hidden !important;
+}
+
+.sugar7modal .mceWrapper {
+  position: static;
+  height: 100%;
+}
+
+.mceEventBlocker {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: url(img/horizontal.gif) no-repeat 0 -75px;
+  width: 100%;
+  height: 100%;
+}
+
+.sugar7modal .mcePlaceHolder {
+  border: 1px solid #000;
+  background: #888;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  -ms-filter: 'alpha(opacity=50)';
+  filter: alpha(opacity=50);
+}
+
+.sugar7modal_modalBlocker {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+  opacity: 0.6;
+  -ms-filter: 'alpha(opacity=60)';
+  filter: alpha(opacity=60);
+  display: none;
+}
+
+/* Top */
+.sugar7modal .mceTop {
+  top: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 9px 15px;
+  border-bottom: 1px solid #EEE;
+  background-color: #303030;
+  background-image: -moz-linear-gradient(top,#404040,#1a1a1a);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#404040),to(#1a1a1a));
+  background-image: -webkit-linear-gradient(top,#404040,#1a1a1a);
+  background-image: -o-linear-gradient(top,#404040,#1a1a1a);
+  background-image: linear-gradient(to bottom,#404040,#1a1a1a);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3f3f3f', endColorstr='#ff191919', GradientType=0);
+  -webkit-border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.sugar7modal .mceTop div {
+  display: none;
+}
+
+.sugar7modal .mceTop span {
+  margin: 0;
+  line-height: 30px;
+  font-size: 21px;
+  font-weight: 500;
+  color: #FFF;
+  position: relative;
+}
+
+/* Middle */
+.sugar7modal .mceMiddle {
+  padding: 0;
+  position: relative;
+  overflow-y: auto;
+  top: 48px;
+  font-size: 0;
+  height: calc(100% - 48px);
+  border-radius: 0 0 8px 8px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.sugar7modal .mceMiddle .mceLeft {
+  display: none;
+}
+
+.sugar7modal .mceMiddle span {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.sugar7modal .mceMiddle span iframe {
+  height: 100% !important;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.sugar7modal .mceMiddle .mceRight {
+  display: none;
+}
+
+/* Bottom */
+.sugar7modal .mceBottom,
+.sugar7modal .mceStatusbar {
+  display: none;
+}
+
+/* Actions */
+.sugar7modal a {
+  top: 3px;
+  line-height: 18px;
+  font-size: 18px;
+  vertical-align: top;
+  font-weight: 500;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  top: 14px;
+  -webkit-font-smoothing: antialiased;
+  color: #FFF;
+  background-image: none;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  margin-top: 0;
+  font-family: FontAwesome;
+  font-style: normal;
+  text-decoration: inherit;
+}
+
+.sugar7modal a:before {
+  text-decoration: inherit;
+  display: inline-block;
+  speak: none;
+}
+
+.sugar7modal .mceClose {
+  right: 10px;
+}
+
+.sugar7modal .mceClose:before {
+  content: "\f00d";
+}
+
+.sugar7modal .mceMin {
+  display: none;
+  right: 68px;
+}
+
+.sugar7modal .mceMed {
+  display: none;
+  right: 37px;
+}
+
+.sugar7modal .mceMed:before {
+  content: "\f066";
+}
+
+.sugar7modal .mceMax {
+  display: none;
+  right: 37px;
+}
+
+.sugar7modal .mceMax:before {
+  content: "\f065";
+}
+
+.sugar7modal .mceMove {
+  display: none;
+  width: 90%;
+  cursor: move;
+  margin-left: 3px;
+}
+
+.sugar7modal .mceMovable .mceMove {
+  display: block;
+}
+
+/* Resize */
+.sugar7modal .mceResize {
+  top: auto;
+  left: auto;
+  display: none;
+  width: 5px;
+  height: 5px;
+}
+
+.sugar7modal .mceResizable .mceResize,
+.sugar7modal .mceMinimizable .mceMin,
+.sugar7modal .mceMaximizable .mceMax,
+.sugar7modal .mceMaximized .mceMed {
+  display: block;
+}
+
+.sugar7modal .mceResizable .mceMin,
+.sugar7modal .mceMax,
+.sugar7modal .mceMaximized .mceMax {
+  display: none;
+}
+
+.sugar7modal a.mceResizeN {
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: n-resize;
+}
+
+.sugar7modal a.mceResizeNW {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+}
+
+.sugar7modal a.mceResizeNE {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+}
+
+.sugar7modal a.mceResizeW {
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: w-resize;
+}
+
+.sugar7modal a.mceResizeE {
+  top: 0;
+  right: 0;
+  height: 100%;
+  cursor: e-resize;
+}
+
+.sugar7modal a.mceResizeS {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  cursor: s-resize;
+}
+
+.sugar7modal a.mceResizeSW {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+}
+
+.sugar7modal a.mceResizeSE {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}

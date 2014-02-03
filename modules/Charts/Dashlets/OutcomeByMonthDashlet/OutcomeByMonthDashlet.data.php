@@ -1,0 +1,36 @@
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+
+
+
+$dashletData['OutcomeByMonthDashlet']['searchFields'] = array(
+        'obm_date_start' => array(
+                'name'  => 'obm_date_start',
+                'vname' => 'LBL_DATE_START',
+                'type'  => 'datepicker',
+            ),
+        'obm_date_end' => array(
+                'name'  => 'obm_date_end',
+                'vname' => 'LBL_DATE_END',
+                'type'  => 'datepicker',
+            ),
+        'obm_ids' => array(
+                'name'  => 'obm_ids',
+                'vname' => 'LBL_USERS',
+                'type'  => 'user_name',
+            ),
+        );
+?>

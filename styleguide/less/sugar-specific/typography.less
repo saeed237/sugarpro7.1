@@ -1,0 +1,44 @@
+/* Typography */
+h1 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+//from navbar.less
+h4 i {
+  color: @grayLight;
+}
+
+.ellipsis_inline {
+  display: block !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*
+.ellipsis-container {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  .ellipsis-row {
+    display: table-row;
+  }
+  .ellipsis-cell {
+    display: table-cell;
+  }
+  label.ellipsis-addon {
+    display: table-cell;
+    padding: 0 0 0 4px;
+    margin: 0;
+    white-space: nowrap;
+    width: 70px;
+  }
+}
+*/
+
+//from nutmeg
+html, body, #content {
+  //try to avoid this. we are using absolute + top & bottom = 0 in sugar7
+  //height: 100%;
+  //.rtl(@direction,rtl);
+}

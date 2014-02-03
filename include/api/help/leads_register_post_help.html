@@ -1,0 +1,127 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2 xmlns="http://www.w3.org/1999/html">Overview</h2>
+<span class="lead">
+    Create new Leads.
+</span>
+
+<h2>Query String Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any query string parameters.
+</span>
+
+<h2>Input Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            &lt;record field type&gt;
+        </td>
+        <td>
+            The name value list of fields to populate.
+        </td>
+        <td>
+            True
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Input Example</h3>
+<pre class="pre-scrollable">
+{
+   "first_name":"John",
+   "last_name":"Smith"
+}
+</pre>
+
+<h2>Result</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            &lt;record field&gt;
+        </td>
+        <td>
+            &lt;record field type&gt;
+        </td>
+        <td>
+            Returns the fields for the newly created record.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+   "id":"ecba9f86-4a4a-def6-359c-505a5b33f014",
+   "name":"John Smith",
+   "date_entered":"2012-09-19T23:54:54+0000",
+   "date_modified":"2012-09-19T23:54:54+0000",
+   "modified_user_id":"1",
+   "created_by":"1",
+   "deleted":0,
+   "team_id":"1",
+   "team_set_id":"1",
+   "first_name":"John",
+   "last_name":"Smith",
+   "full_name":"John Smith",
+   "do_not_call":false,
+   "converted":false,
+   "lead_source":"Support Portal User Registration",
+   "status":"New",
+   "preferred_language":"en_us",
+   "email":[
+
+   ],
+   "my_favorite":false
+}
+</pre>
+
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/Leads/register</code> POST endpoint.
+        </td>
+    </tr>
+</table>

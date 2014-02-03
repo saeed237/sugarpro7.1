@@ -1,0 +1,51 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<a class="rowaction" href="javascript:void(0);"
+   data-action="link"
+    {{#if def.tooltip}}
+   rel="tooltip"
+   data-container="body"
+   data-placement="bottom"
+   data-original-title="{{str def.tooltip module}}"
+    {{/if}}
+   name="{{name}}">
+    {{#if def.icon}}<i class="{{def.icon}}"></i>{{/if}}{{str label}}</a>
+{{#if fetchCalled}}
+    {{#if templateCollection.length}}
+        <ul class="dropdown-inset">
+            {{#each templateCollection.models}}
+                <li>
+                    <a href="javascript:void(0);" data-action="{{../../../def.action}}" data-id="{{attributes.id}}">{{attributes.name}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <ul class="dropdown-inset">
+            <li>
+                {{#if templateCollection.dataFetched}}
+                    <a href="javascript:void(0);" class="disabled"><em>{{str "LBL_NO_PDF_TEMPLATE" this.module}}</em></a>
+                {{else}}
+                    <div class="alert-process">
+                        <strong>{{str "LBL_PORTAL_LOADING"}}</strong>
+                        <div class="loading">
+                            <span class="l1"></span><span class="l2"></span><span class="l3"></span>
+                        </div>
+                    </div>
+                {{/if}}
+            </li>
+        </ul>
+    {{/if}}
+{{/if}}

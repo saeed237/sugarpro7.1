@@ -1,0 +1,30 @@
+/* sugar mods */
+.tooltip {
+  z-index: @zindexTooltip;
+  text-shadow: none;
+  font-weight: normal;
+  word-wrap: break-word;
+  &.bottom {
+    margin-top: 8px;
+  }
+  &.in {
+    .opacity(100);
+  }
+}
+
+.tooltip-inner {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  &> div {
+    text-align: left;
+  }
+  &> p {
+    margin: 0;
+  }
+  h3 {
+    font-size: 13px;
+    color: @grayLight;
+    line-height: normal;
+    margin: 3px 0;
+  }
+}

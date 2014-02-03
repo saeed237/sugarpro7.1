@@ -1,0 +1,35 @@
+div.access-denied {
+  background-image: url('@{textureSecondary}');
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .error-message {
+    position: relative;
+    top: 7%;
+    h1 {
+      color: @gray;
+    }
+    p {
+      color: @grayLight;
+      font-size: @fontSizeLarge;
+    }
+  }
+
+  .sugar-cube {
+    width: 80px;
+    height: 80px;
+    fill: @grayLight;
+    left: 50%;
+    margin-left: -40px;
+    top: 50%;
+    position: absolute;
+  }
+
+  .icon-spin {
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+  }
+}

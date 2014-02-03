@@ -1,0 +1,44 @@
+admin	<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+ * {APP.LBL_CURRENCY_SYM}Header: /cvsroot/sugarcrm/sugarcrm/modules/Activities/SubPanelView.html,v 1.3 2004/07/03 22:08:29 sugarclint Exp {APP.LBL_CURRENCY_SYM}
+ ********************************************************************************/
+-->
+<!-- BEGIN: notes -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" scope="col" width="40%" ><slot>{MOD.LBL_LIST_SUBJECT}</slot></td>
+	<td scope="col" width="20%" ><slot>{MOD.LBL_LIST_FILENAME}</slot></td>
+	<td scope="col" width="15%" ><slot>{MOD.LBL_LIST_CONTACT_NAME}</slot></td>
+	<td scope="col" width="15%" ><slot>{MOD.LBL_LIST_DATE_MODIFIED}</slot></td>
+	<td scope="col" width="10%" ><slot>&nbsp;</slot></td>
+	</tr>
+	
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    	<td scope="row" valign=TOP><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Notes&record={NOTE.ID}{RETURN_URL}" >{NOTE.NAME}</a></slot></td>
+    	<td valign=TOP><slot><a href="{NOTE.FILEURL}" target="_blank" >{NOTE.FILENAME}</a></slot></td>
+		<td valign=TOP><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Contacts&record={NOTE.CONTACT_ID}{RETURN_URL}">{NOTE.CONTACT_NAME}</a></slot></td>
+    	<td nowrap valign=TOP><slot>{NOTE.DATE_MODIFIED}</slot></td>
+    	
+     			<td nowrap align="center" valign=TOP><slot><a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Notes&record={NOTE.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Notes&record={NOTE.ID}{RETURN_URL}">{APP.LNK_EDIT}</a>&nbsp;&nbsp;<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_DELETE_RECORD}')" href="{URL_PREFIX}index.php?action=Delete&module=Notes&record={NOTE.ID}{RETURN_URL}">{DELETE_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_DELETE_RECORD}')" href="{URL_PREFIX}index.php?action=Delete&module=Notes&record={NOTE.ID}{RETURN_URL}">{APP.LNK_DELETE}</a></slot></td>
+	  	
+</tr>
+<!-- END: row -->
+	
+</table>
+<!-- END: notes -->

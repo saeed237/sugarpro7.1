@@ -1,0 +1,37 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="block preview-data">
+{{#each meta.panels}}
+{{#each fields}}
+    <div class="row-fluid{{#if ../hide}}{{#if ../../../hidePanel}} hide{{/if}} panel_hidden{{/if}}">
+        <div class="span5">{{str  this.label ../../this.model.module}}</div>
+        <div class="span7" name="{{this.name}}">
+            {{field ../../this model=../../model template="detail"}}
+        </div>
+    </div>
+{{/each}}
+{{/each}}
+    <div class="row-fluid">
+        <div class="{{#unless hiddenPanelExists}} hide{{/unless}} span5 show-hide-toggle">
+            <button class="btn-link btn-invisible more{{#if hideMoreButton}} hide{{/if}}"
+                    data-moreless="more"
+                    data-target=".panel_hidden">{{str "LBL_SHOW_MORE"}} <i class="icon-chevron-down"></i></button>
+            <button class="btn-link btn-invisible less{{#if hideLessButton}} hide{{/if}}"
+                    data-moreless="less"
+                    data-target=".panel_hidden">{{str "LBL_SHOW_LESS"}} <i class="icon-chevron-up"></i></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+{{#if total}}
+<div class="tabbable tabs-full {{tabClass}}">
+    <ul id="tab" class="nav nav-tabs">
+        <li class="active"><a href="#tab-chart" data-toggle="tab">Summary<br><span class="label count nv-fill00">{{total}}</span></a></li>
+        {{#each tabData}}
+            <li><a href="#tab-{{index}}" data-toggle="tab">{{status}}<br><span class="label count {{cssClass}}">{{models.length}}</span></a></li>
+        {{/each}}
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active" id="tab-chart">
+            <div id="casesSummaryPie" class="nv-chart nv-chart-cases">
+                <svg id="{{cid}}"></svg>
+            </div>
+        </div>
+        {{#each tabData}}
+            <div class="tab-pane fade" id="tab-{{index}}">
+                <ul class="listed">
+                {{#each models}}
+                    <li><span data-model-id="{{getFieldValue this "id"}}" class="favTarget"></span>&nbsp;<a href="#{{buildRoute model=this}}">{{attributes.name}}</a></li>
+                {{/each}}
+                </ul>
+            </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+{{#eq total 0}}
+    <div class="block-footer">{{str "LBL_NO_DATA_AVAILABLE"}}</div>
+{{/eq}}

@@ -1,0 +1,23 @@
+/*********************************************************************************
+     * By installing or using this file, you are confirming on behalf of the entity
+     * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+     * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+     * http://www.sugarcrm.com/master-subscription-agreement
+     *
+     * If Company is not bound by the MSA, then by installing or using this file
+     * you are agreeing unconditionally that Company will be bound by the MSA and
+     * certifying that you have authority to bind Company accordingly.
+     *
+     * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+     ********************************************************************************/
+(function(app){var metadataCache={};var metadataConverters={listviewdefs:function(meta){var obj={panels:[{label:'LBL_PANEL_DEFAULT',fields:[]}]};_.each(meta,function(value,key){var fieldOverrides={name:key.toLowerCase()};fieldOverrides.type=value['type']||fieldOverrides.name;if(fieldOverrides.type==='team_name'){fieldOverrides.type='teamset';}
+if(app.config.platform==='portal'){fieldOverrides['default']=true;}else{fieldOverrides['default']=!!value['default'];}
+if(_.isUndefined(value.enabled)){fieldOverrides.enabled=true;}else{fieldOverrides.enabled=!!value.enabled;}
+_.extend(value,fieldOverrides);obj.panels[0].fields.push(value);});return obj;}};var Bwc={login:function(redirectUrl,callback){var url=app.api.buildURL('oauth2','bwc/login');return app.api.call('create',url,{},{success:function(data){if(data&&data.name){app.cache.set("SessionName",data.name);}
+if(callback){callback();}
+if(redirectUrl){app.router.navigate('#bwc/'+redirectUrl,{trigger:true});}}});},getAction:function(action){var bwcActions={'create':'EditView','edit':'EditView','detail':'DetailView'};return bwcActions[action]||action;},buildRoute:function(module,id,action,params){var href='bwc/index.php?',params=_.extend({},{module:module},params);if(!action&&!id||action==='DetailView'&&!id){params.action='index';}else{if(action){params.action=action;}else{params.action='DetailView';}
+if(id){params.record=id;}}
+return href+$.param(params);},_createRelatedRecordUrlParams:function(parentModel,link){var params={parent_type:parentModel.module,parent_name:parentModel.get('name')||parentModel.get('full_name'),parent_id:parentModel.get("id"),return_module:parentModel.module,return_id:parentModel.get("id"),return_name:parentModel.get('name')||parentModel.get('full_name')};if(parentModel.module=="Contacts"&&parentModel.get("account_id")&&(link=="meetings"||link=='calls')){params=_.extend(params,{parent_type:"Accounts",parent_id:parentModel.get("account_id"),account_id:parentModel.get("account_id"),account_name:parentModel.get("account_name"),parent_name:parentModel.get("account_name"),contact_id:parentModel.get("id"),contact_name:parentModel.get("full_name")});}
+var fields=app.data.getRelateFields(parentModel.module,link);_.each(fields,function(field){params[field.name]=parentModel.get(field.rname);params[field.id_name]=parentModel.get("id");if(field.populate_list){_.each(field.populate_list,function(target,source){source=_.isNumber(source)?target:source;if(!_.isUndefined(parentModel.get(source))){params[target]=parentModel.get(source);}},this);}});return params;},createRelatedRecord:function(module,parentModel,link){var params=this._createRelatedRecordUrlParams(parentModel,link);var route=app.bwc.buildRoute(module,null,"EditView",params);app.router.navigate("#"+route,{trigger:true});},shareRecord:function(module,id,name){var shareField=app.view.createField({def:{type:'shareaction'},module:module,model:app.data.createBean(module,{id:id,name:name}),view:app.view.createView({})});shareField.share();},revertAttributes:function(){var view=app.controller.layout.getComponent('bwc');if(!view){return;}
+view.revertBwcModel();},_getLegacyMetadataConverter:function(type){return metadataConverters[type];},getLegacyMetadata:function(module,type){var converter=this._getLegacyMetadataConverter(type),cacheKey=module+'-'+type,bwcModule=app.metadata.getModule(module).isBwcEnabled;if(!metadataCache[cacheKey]&&converter&&bwcModule){var result,url=app.api.buildURL('metadata','legacy',{},{module:module,type:type}),request=app.api.call('read',url,null,{success:function(data){result=converter(data[module]);}},{async:false});metadataCache[cacheKey]=result;}
+return metadataCache[cacheKey];}};app.augment('bwc',Bwc,false);})(SUGAR.App);

@@ -1,0 +1,175 @@
+/* Editable
+--------------*/
+/*
+.bcard1 .icon-pencil {
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+
+.eSelect:hover {}
+
+.editable {
+  margin: 0;
+}
+
+.inlined {
+  margin: 0;
+  position: absolute !important;
+}*/
+
+
+/* Inline Editable Fields */
+/*.inline-editable-wrap,
+.urleditable-wrap {
+  height: 30px;
+  a.btn-mini.urleditable:not(:hover) {
+    background: transparent;
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  .inline-editable {
+    .icon-pencil {
+      visibility: hidden;
+    }
+  }
+  form {
+    display: inline;
+    input {
+      width: 210px;
+      display: block;
+    }
+  }
+  .editable-trigger {
+    margin-right: 6px;
+  }
+  &:hover .icon-pencil {
+    visibility: visible;
+  }
+  .urleditable-field {
+    &> a {
+      overflow: hidden;
+      display: inline-block;
+      text-overflow: ellipsis;
+    }
+    form {
+      top: -3px;
+      input {
+        padding-top: 0;
+        top: 2px;
+        left: 1px;
+        height: 20px;
+      }
+    }
+  }
+  .editable-field {
+    &> a {
+      overflow: hidden;
+      display: block;
+      text-overflow: ellipsis;
+    }
+    form {
+      input {
+        padding-top: 0;
+        top: 2px;
+        left: 1px;
+        height: 20px;
+      }
+    }
+  }
+}*/
+
+.error {
+  &.input-append.select, &.input-append.select2 {
+    display: inline;
+  }
+  label,
+  .record-label {
+    font-weight: 500;
+    color: @errorText !important;
+  }
+  .help-block {
+    color: @errorText;
+    position: relative;
+  }
+  .add-on {
+    color: @errorText;
+    position: relative;
+    z-index: 2;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: @errorText;
+    }
+  }
+  input {
+    border-color: @errorText !important;
+    margin-bottom: 0;
+    color: @errorText !important;
+    &:focus {
+      z-index: 3;
+      border-color: @errorText !important;
+      border-width: 1px !important;
+    }
+    &:focus + span.error-tooltip > i {
+      display: none;
+    }
+  }
+  textarea {
+    border-color:@errorText !important;
+    color: @errorText !important;
+  }
+  /* On fieldset/email, only the input that has an error must be decorate */
+  .control-group.email input, &[data-type=fieldset] input {
+    border-color: @gray !important;
+    color: @gray !important;
+  }
+  .control-group.email .input-append.error input , &[data-type=fieldset] .error input{
+    border-color: @errorText !important;
+    color: @errorText !important;
+  }
+
+  /* To maintain same size of input boxes, subtracting 27px for .add-on exclamation */
+    /* from twitter-bootstrap/forms.less
+      input.input-mini       { width: 33px; }
+      input.input-small      { width: 63px; }
+      input.input-medium     { width: 127px; }
+      input.input-large      { width: 183px; }
+      input.input-xlarge     { width: 243px; }
+      input.input-xxlarge    { width: 503px; }
+    */
+    &>div:first-child,
+    &>div:first-child label,
+    &> label {
+      font-weight: 500;
+      color: @errorText;
+    }
+    .input-append label {
+      color: @errorText;
+    }
+    .select2-choice,
+    .select2-choices,
+    .upload-field-custom.btn.avatar {
+      border-color: @errorText;
+    }
+    .select2-choice > div {
+      margin-right: 18px;
+    }
+    .help-block {
+      font-weight: normal;
+    }
+    .preview > span > .icon-plus {
+      border-color: @errorText;
+      color: @errorText;
+    }
+    label.file-upload {
+      background: @errorText;
+    }
+    .urleditable-wrap {
+      .editable-trigger > i,
+      .urleditable-field a {
+        color: @errorText !important;
+      }
+    }
+}

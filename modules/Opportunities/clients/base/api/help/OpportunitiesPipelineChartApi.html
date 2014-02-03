@@ -1,0 +1,129 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<div class="longHelpTitle">Get the current users personal or team opportunity pipeline</div>
+<div class="summary">
+    <h2>Summary:</h2>
+     This endpoint is used to pipeline chart data for the Pipeline widget
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td>timeperiod_id</td>
+            <td>Which Timeperiod to View, defaults to the current timeperiod if not defined</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>What type of pipeline to view, valid options are self which will just show your pipeline and team
+            which will show you and everyone under the current user, defaults to self if not defined</td>
+            <td>true</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Valid Urls:</h2>
+    <ul>
+        <li>/rest/v10/Opportunities/chart/pipeline/</li>
+        <li>/rest/v10/Opportunities/chart/pipeline/:timeperiod_id</li>
+        <li>/rest/v10/Opportunities/chart/pipeline/:timeperiod_id/:type</li>
+    </ul>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        {
+           "properties":{
+              "title":"Pipeline Total is $2,384,681.00",
+              "total":"2384681",
+              "scale":1000,
+              "units":"$"
+           },
+           "data":[
+              {
+                 "key":"Qualification",
+                 "count":1,
+                 "values":[
+                    {
+                       "series":0,
+                       "label":"$131,020",
+                       "x":0,
+                       "y":131020,
+                       "y0":0
+                    }
+                 ]
+              },
+              {
+                 "key":"Id. Decision Makers",
+                 "count":1,
+                 "values":[
+                    {
+                       "series":1,
+                       "label":"$422,557",
+                       "x":0,
+                       "y":422557,
+                       "y0":131020
+                    }
+                 ]
+              },
+              {
+                 "key":"Needs Analysis",
+                 "count":2,
+                 "values":[
+                    {
+                       "series":2,
+                       "label":"$516,556",
+                       "x":0,
+                       "y":516556,
+                       "y0":553577
+                    }
+                 ]
+              },
+              {
+                 "key":"Proposal\/Price Quote",
+                 "count":2,
+                 "values":[
+                    {
+                       "series":3,
+                       "label":"$655,428",
+                       "x":0,
+                       "y":655428,
+                       "y0":1070133
+                    }
+                 ]
+              },
+              {
+                 "key":"Prospecting",
+                 "count":2,
+                 "values":[
+                    {
+                       "series":4,
+                       "label":"$659,120",
+                       "x":0,
+                       "y":659120,
+                       "y0":1725561
+                    }
+                 ]
+              }
+           ]
+        }
+    </code>
+</div>

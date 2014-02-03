@@ -1,0 +1,31 @@
+/*sugar mods*/
+
+p {
+  font-family: @baseFontFamily;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: @gray;
+  small {
+    color: darken(@grayLight, 10%);
+  }
+}
+
+.muted {
+  color: lighten(@gray, 20%);
+}
+
+//bootstrap 2.0.4 requires [title] for abbr ??remove??
+abbr {
+  font-size: 90%;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #ddd;
+  cursor: help;
+}
+
+td > dl {
+  margin: 0;
+}

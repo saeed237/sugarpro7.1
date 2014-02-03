@@ -1,0 +1,38 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="welcome">
+    <div class="thumbnail modal">
+        <div class="modal-header modal-header-firstlogin">
+            <div class="row-fluid">
+                <div class="span1">
+                    <span class="pull-left step-circle">
+                        {{#if wizardCompleted}}<i class="icon-ok-sign"></i>{{/if}}
+                        {{#unless wizardCompleted}}<span>{{progress.page}}</span>{{/unless}}
+                    </span>
+                </div>
+                <div class="span6 firstlogin-title">
+                    <h3>{{str meta.title module}}</h3>
+                    <span>{{str meta.message module}}</span>
+                </div>
+                <div class="span5 progress-section">
+                    <span>{{str "LBL_SETUP_PROGRESS" module}}</span>
+                    <div class="progress progress-success">
+                        <div class="bar" style="width: {{percentComplete}}%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{! This is a partial, the close for the .modal div is in the footer partial}}

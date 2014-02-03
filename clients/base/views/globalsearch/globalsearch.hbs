@@ -1,0 +1,37 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<form class="navbar-search">
+    <input type="text" class="search-query" placeholder="{{str "LBL_SEARCH"}}" data-provide="typeahead" data-items="5">
+    <div class="advanced">
+        <div class="btn-toolbar pull-right">
+            <div class="btn-group">
+                <a class="btn btn-link btn-invisible advanced dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><i class="icon-caret-down"></i></a>
+                <div class="dropdown-menu pull-right scroll-child">
+                    <div class="globalsearch-adv-wrap">
+                        <ul class="globalsearch-adv reset-width" role="menu" data-advanced="options">
+                            <li><label class="active"><input data-action="select-module" data-module="all" type="checkbox" checked="checked"> {{str "LBL_SEARCH_ALL_MODULES"}}</label></li>
+                            {{#each searchModules}}
+                            <li><label><input data-action="select-module" data-module="{{this}}" type="checkbox"> {{str "LBL_MODULE_NAME" this}}</label></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn btn-inverse" data-action="search" href="javascript:void(0);"><i class="icon icon-search"></i></a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="typeahead-wrapper"></div>

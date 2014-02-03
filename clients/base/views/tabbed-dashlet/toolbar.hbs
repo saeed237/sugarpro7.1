@@ -1,0 +1,30 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="dashlet-options">
+    <div class="row-fluid">
+        <div class="span8">
+            {{#each dashletConfig.filter}}
+                {{field ../this model=../settings template="edit"}}
+            {{/each}}
+        </div>
+        <div class="span4">
+            <div class="btn-group pull-right dashlet-group" data-toggle="buttons-radio">
+                <button class="btn{{#eq settings.attributes.visibility "user"}} active{{/eq}}" value="user" data-action="visibility-switcher rel="tooltip" data-container="body" data-placement="bottom" title="{{str "TPL_TABBED_DASHLET_USER_BUTTON_LABEL" this.module}}"><i class="icon-user"></i></button>
+                <button class="btn{{#eq settings.attributes.visibility "group"}} active{{/eq}}" value="group" data-action="visibility-switcher" rel="tooltip" data-container="body" data-placement="bottom" title="{{str "TPL_TABBED_DASHLET_GROUP_BUTTON_LABEL" this.module}}"><i class="icon-group"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

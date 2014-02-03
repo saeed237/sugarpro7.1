@@ -1,0 +1,68 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Treemap Chart</title>
+  <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
+  <script src="../js/less-1.3.3.min.js" type="text/javascript"></script>
+</head>
+<body class="full-screen">
+  <div class="nv-demo">
+    <div id="treemap" class="nv-chart nv-treemap">
+      <svg></svg>
+    </div>
+  </div>
+
+<script src="../../../include/javascript/nvd3/lib/d3.min.js"></script>
+<script src="../../../include/javascript/nvd3/nv.d3.min.js"></script>
+<script src="data/flare.js"></script>
+
+<script src="../../../include/javascript/nvd3/src/models/treemap.js"></script>
+<script src="../../../include/javascript/nvd3/src/models/treemapChart.js"></script>
+<script>
+
+  // Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+  nv.addGraph(function() {
+
+    var chart = nv.models.treemapChart()
+          .leafClick( function(d) {
+              alert('leaf clicked');
+          })
+          .showTitle(false)
+          .tooltips(true)
+          .getSize(function(d) { return d.size; })
+          //.colorData( 'graduated', {c1: '#e8e2ca', c2: '#3e6c0a', l: chartData.data.length} )
+          //.colorData( 'class' )
+          .colorData( 'default' )
+      ;
+
+    d3.select('#treemap svg')
+        .datum(flare_data)
+      .transition().duration(500)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+</script>
+</body>
+</html>

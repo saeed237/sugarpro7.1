@@ -1,0 +1,37 @@
+{{!
+/*
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright  2004-2013 SugarCRM Inc.  All rights reserved.
+ */
+}}
+<div class="dashlet-options">
+    <div class="row-fluid">
+        <div class="span8">
+            {{#each dashletConfig.filter_duration}}
+                {{field ../this model=../this.settings template="edit"}}
+            {{/each}}
+        </div>
+        <div class="span4">
+            <div data-toggle="buttons-radio" class="btn-group pull-right dashlet-group">
+                <button class="btn toggle-control {{#eq this.filterAssigned "my"}}active{{/eq}}" value="my" rel="tooltip" data-placement="bottom" title="{{str "LBL_TOP10_OPPORTUNITIES_MY_OPP"}}">
+                    <i class="icon-user"></i>
+                </button>
+                <button class="btn toggle-control {{#eq this.filterAssigned "group"}}active{{/eq}}" value="group" rel="tooltip" data-placement="bottom" title="{{str "LBL_TOP10_OPPORTUNITIES_MY_TEAMS_OPP"}}">
+                    <i class="icon-group"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="nv-chart nv-chart-bubble">
+    <svg id="{{cid}}"></svg>
+</div>
+<div class="block-footer hide">{{str "LBL_NO_DATA_AVAILABLE"}}</div>

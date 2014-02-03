@@ -1,0 +1,50 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+
+<!-- BEGIN: main -->
+{PRETABLE}
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	
+	<tr height="20">
+	<td scope="col" width="1%" >{CHECKALL}</td>
+		<td scope="col" width="20%"  nowrap><slot>{MOD.LBL_LIST_NAME}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_ISO4217}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_SYMBOL}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_RATE}</slot></td>
+		<td scope="col" width="10%"  nowrap><slot>{MOD.LBL_LIST_STATUS}</slot></td>
+		<td scope="col" width="8%" ><slot>&nbsp;</slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+    			<td >{PREROW}&nbsp;</td>
+				<td scope='row'  valign=TOP><slot>{CURRENCY.HIDE}<a href="{URL_PREFIX}index.php?action=index&module=Currencies&record={CURRENCY.ID}" >{CURRENCY.UNHIDE}{CURRENCY.NAME}{CURRENCY.HIDE}</a>{CURRENCY.UNHIDE}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.ISO4217}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.SYMBOL}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.CONVERSION_RATE}</slot></td>
+    			<td valign=TOP><slot>{CURRENCY.STATUS}</slot></td>
+    			<td nowrap align="center" valign=TOP><slot>{CURRENCY.HIDE}<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_DELETE_CONFIRMATION}')" href="{URL_PREFIX}index.php?action=Delete&module=Currencies&record={CURRENCY.ID}&return_module=Currencies&return_action=index&return_id=">{DELETE_INLINE_PNG}&nbsp;{APP.LNK_DELETE}</a>{CURRENCY.UNHIDE}</slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+	</table>
+	{POSTTABLE}
+<!-- END: main -->

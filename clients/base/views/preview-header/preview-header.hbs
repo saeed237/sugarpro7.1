@@ -1,0 +1,27 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<h1>{{str "LBL_PREVIEW"}}</h1>
+<div class="btn-toolbar pull-right">
+    <div class="btn-group">
+        {{#unless layout.hideNextPrevious}}
+        <a class="btn btn-invisible{{#unless layout.previous}} disabled{{/unless}}" data-direction="left"><i class="icon-chevron-left"></i></a>
+        <a class="btn btn-invisible{{#unless layout.next}} disabled{{/unless}}" data-direction="right"><i class="icon-chevron-right"></i></a>
+        {{/unless}}
+    </div>
+    <div class="btn-group">
+        <a class="btn btn-invisible closeSubdetail" data-toggle="tab"><i class="icon-remove"></i></a>
+    </div>
+</div>

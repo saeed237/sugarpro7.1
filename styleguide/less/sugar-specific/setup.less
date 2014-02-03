@@ -1,0 +1,99 @@
+
+.modal.setup {
+    margin-left: 0; // this allows jquery to center modal on screen resize
+}
+
+.setup {
+    .to {
+        padding: 0 10px;
+        position: relative;
+        top: -10px;
+    }
+    input[type=checkbox], input[type=radio] {
+        margin-right: 10px;
+    }
+    .currency td {
+        padding: 10px;
+        position: relative;
+    }
+    .currency td > div {
+        background-color: @grayLighter;
+        padding: 10px 40px;
+        border: 1px dashed @grayLight;
+        position: relative;
+    }
+    .currency .total {
+        height: 20px;
+        border-radius: 50%;
+        background-color: @orange;
+        position: absolute;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        top: -10px;
+        width: 20px;
+    }
+    #hierarchy_currency {
+        width: 30%;
+        float: left;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+    .modal-body {
+        .screen {
+            display: none;
+        }
+        fieldset {
+            border: 1px dashed @grayLight;
+            margin-left: 10px;
+            //padding: 5px 15px;
+			//nutmeg
+            padding: 5px 10px 5px 35px;
+            position: relative;
+        }
+	    //nutmeg
+        fieldset.active {
+            border: 1px dashed @green;
+        }
+        #screen3 input[type=radio].category_options {
+            position: absolute;
+			//nutmeg
+            left: 9px;
+        }
+    }
+    .modal-footer {
+        .btn + .btn {
+            margin-right: 10px;
+        }
+    }
+}
+
+
+#chartActions,
+#projectActions {
+    .dropdown-menu {
+        padding: 10px 20px;
+        li {
+            padding: 4px 0;
+            font-size: 14px;
+        }
+        input[type=checkbox] {
+            margin-right: 5px;
+        }
+    }
+}
+
+
+#pageConfig {
+    &.btn-group > .btn {
+        float: none;
+    }
+    .dropdown-menu {
+        left: auto;
+        right: 0;
+        z-index:1001;
+        li a {
+            padding: 8px;
+        }
+    }
+}

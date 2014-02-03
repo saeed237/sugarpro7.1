@@ -1,0 +1,46 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<div class="row-fluid topline">
+    <div class="span4">
+        {{#if this.meta.timeperiod}}
+            {{#each this.meta.timeperiod}}
+                <strong>{{str "LBL_IN_FORECAST" "Forecasts"}}</strong>
+                <label for="date_filter" class="control-label">{{str this.label "Forecasts"}}</label>
+                <div class="controls">
+                    {{field ../this model=../this.model}}
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+    <div class="hr hide"></div>
+    <div class="span8 datapoints">
+        <div class="pull-right">
+            {{#each this.meta.datapoints}}
+                {{field ../this model=../this.model}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{#if this.meta.last_commit}}
+    {{#each this.meta.last_commit}}
+        {{field ../this model=../this.model}}
+    {{/each}}
+{{/if}}
+{{#if this.meta.commitlog}}
+    {{#each this.meta.commitlog}}
+        {{field ../this model=../this.model}}
+    {{/each}}
+{{/if}}

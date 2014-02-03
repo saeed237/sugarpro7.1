@@ -1,0 +1,18 @@
+/*********************************************************************************
+     * By installing or using this file, you are confirming on behalf of the entity
+     * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+     * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+     * http://www.sugarcrm.com/master-subscription-agreement
+     *
+     * If Company is not bound by the MSA, then by installing or using this file
+     * you are agreeing unconditionally that Company will be bound by the MSA and
+     * certifying that you have authority to bind Company accordingly.
+     *
+     * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+     ********************************************************************************/
+({plugins:['ErrorDecoration'],fallbackFieldTemplate:'edit',events:{"click [name=login_button]":"login","keypress":"handleKeypress"},handleKeypress:function(e){if(e.keyCode===13){this.$("input").trigger("blur");this.login();}},_declareModel:function(meta){meta=meta||{};var fields={};_.each(_.flatten(_.pluck(meta.panels,"fields")),function(field){fields[field.name]=field;});app.data.declareModel('Login',{fields:fields});},initialize:function(options){this._declareModel(options.meta);options.context.prepare(true);app.view.View.prototype.initialize.call(this,options);var config=app.metadata.getConfig();if(config&&app.config.forgotpasswordON===true){this.showPasswordReset=true;}},_render:function(){this.logoUrl=app.metadata.getLogoUrl();app.view.View.prototype._render.call(this);this.refreshAddtionalComponents();if(!this._isSupportedBrowser()){app.alert.show('unsupported_browser',{level:'warning',title:'',messages:[app.lang.getAppString('LBL_ALERT_BROWSER_NOT_SUPPORTED'),app.lang.getAppString('LBL_ALERT_BROWSER_SUPPORT')]});}
+var config=app.metadata.getConfig();if(config.system_status&&config.system_status.level&&(config.system_status.level=='maintenance'||config.system_status.level=='admin_only')){app.alert.show('admin_only',{level:'warning',title:'',messages:['',app.lang.getAppString(config.system_status.message),]});}
+return this;},refreshAddtionalComponents:function(){_.each(app.additionalComponents,function(component){component.render();});},login:function(){var self=this;this.model.doValidate(null,_.bind(function(isValid){if(isValid){app.$contentEl.hide();var args={password:this.model.get("password"),username:this.model.get("username")};app.alert.show('login',{level:'process',title:app.lang.getAppString('LBL_LOADING'),autoClose:false});app.login(args,null,{error:function(){app.$contentEl.show();app.logger.debug("login failed!");},success:function(){app.logger.debug("logged in successfully!");app.events.on('app:sync:complete',function(){app.logger.debug("sync in successfully!");_.defer(_.bind(this.postLogin,this));},self);},complete:function(){app.alert.dismiss('login');}});}},self));},postLogin:function(){if(!app.user.get('show_wizard')){this.refreshAddtionalComponents();if(new Date().getTimezoneOffset()!=(app.user.getPreference('tz_offset_sec')/-60)){var link=new Handlebars.SafeString('<a href="#'+
+app.router.buildRoute('Users',app.user.id,'edit')+'">'+
+app.lang.get('LBL_TIMEZONE_DIFFERENT_LINK')+'</a>');var message=app.lang.get('TPL_TIMEZONE_DIFFERENT',null,{link:link});app.alert.show('offset_problem',{messages:message,closeable:true,level:'warning'});}}
+app.$contentEl.show();},_isSupportedBrowser:function(){var supportedBrowsers={msie:{min:9},mozilla:{min:18},safari:{min:536},chrome:{min:537}};for(var b in supportedBrowsers){if($.browser[b]){var current=parseInt($.browser.version);var supported=supportedBrowsers[b];return current>=supported.min;}}}})

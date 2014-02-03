@@ -1,0 +1,91 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ * Description:
+ ********************************************************************************/
+-->
+<!-- BEGIN: embeded -->
+<script>
+function togglefield_select(field_num){
+	var focus_field = 'mod_field_' + field_num;
+	var setting = this.document.getElementById(focus_field).checked;
+	window.parent.togglefield_select(field_num, setting);
+//end function togglefieldselect	
+}	
+
+function applylanguage(action_update, action_update_rel, action_new){
+
+	this.document.getElementById('lang_update').style.display= action_update;
+	this.document.getElementById('lang_update_rel').style.display= action_update_rel;
+	this.document.getElementById('lang_new').style.display= action_new;
+	
+//end function applylanguage
+}
+function changehref_text(href_object, href_value){
+	
+	this.document.getElementById(href_object).innerHTML = this.document.getElementById(href_value).value;
+//end function changehref_text
+}
+
+function getCheckedValue(radioObj) {
+	if(!radioObj)
+		return "";
+	var radioLength = radioObj.length;
+	if(radioLength == undefined)
+		if(radioObj.checked)
+			return radioObj.value;
+		else
+			return "";
+	for(var i = 0; i < radioLength; i++) {
+		if(radioObj[i].checked) {
+			return radioObj[i].value;
+		}
+	}
+	return "";
+}	
+
+</script>
+<!-- END: embeded -->
+<!-- BEGIN: main -->
+
+{SET_RETURN_JS}
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit view">
+<tr><td>
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+			<form name="FieldView" method="POST" action="index.php">
+			<input type="hidden" id="total_field_count" name="total_field_count" value="{TOTAL_FIELD_COUNT}">
+	<td></td></tr>
+</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<!-- BEGIN: field -->	
+		<tr>
+		<td width="10%" scope="row"><slot><input id='mod_field_{FIELD_NUM}' name='mod_field_{FIELD_NUM}' type='checkbox' tabindex='2' value ='{FIELD_VALUE}' onclick="togglefield_select('{FIELD_NUM}');" {SELECTED_ACTION}></slot></td>
+		<td width="90%" scope="row"><slot>{MOD.LBL_MODIFY_FIELD} {FIELD_NAME}</slot></td>
+		</tr>
+<!-- END: field -->				
+		<tr>
+		<td>&nbsp;</td>
+		</tr>
+		</form>
+	</table>
+
+<script>
+
+</script>
+
+<!-- END: main -->

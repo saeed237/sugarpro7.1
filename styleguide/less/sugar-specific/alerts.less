@@ -1,0 +1,82 @@
+/*sugar mods*/
+
+// Base alert styles
+.alert {
+  padding: 8px 20px 8px 10px;
+  background-color: @grayLighter;
+  border: 1px solid @grayLight;
+}
+.alert [class^=icon-] {
+  margin: 0 5px 0 0;
+}
+.alert,
+.alert-heading {
+  color:  @gray;
+}
+
+// Adjust close link position
+.alert .close {
+  right: -10px;
+}
+
+// Alternate styles
+// ----------------
+
+.alert-success,
+.alert-success .alert-heading {
+  background-color: @successBackground;
+  border-color: @successBorder;
+  color:  darken(@successBackground, 70%);
+}
+.alert-danger,
+.alert-error {
+  background: @errorBackground;
+  border-color: @errorBorder;
+}
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading {
+  color: darken(@red, 10%);
+}
+.alert-warning {
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  border: 1px solid @warningBorder;
+  background-color: @warningBackground;
+}
+.alert-info,
+.alert-info .alert-heading {
+  background-color: @infoBackground;
+  border-color: @infoBorder;
+  color:  darken(@infoBackground, 70%);
+}
+
+
+// Block alerts
+// ------------------------
+
+.alert-top {
+  position: fixed;
+  top: 38px;
+  height: 0;
+  width: 100%;
+  z-index: 1060;
+  text-align: center;
+  &> div {
+    text-align: center;
+    display: inline-block;
+  }
+}
+.alert-top .alert {
+  text-align: left;
+  @shadow: 0 1px 4px rgba(0,0,0,.4);
+  .box-shadow(@shadow);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.alert a.btn {
+  margin-top: 6px;
+}
+.alert.modal {
+  display: none;
+}

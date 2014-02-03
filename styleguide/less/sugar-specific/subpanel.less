@@ -1,0 +1,74 @@
+.subpanel {
+  border-bottom: 1px solid darken(@grayLighter, 5%);
+  border-top: 1px solid @white;
+  background-color: @white;
+  &.closed {
+    background-color: @grayLighter;
+    .subpanel-list {
+      display: none;
+    }
+    i.icon-chevron-up::before {
+      content: "\f078";
+    }
+  }
+  &.empty {
+    .label {
+      background-color: darken(@grayLighter, 15%);
+    }
+    h4 {
+      color: @grayLight;
+    }
+  }
+  tbody {
+    border-bottom: 1px solid darken(@grayLighter, 15%);
+  }
+  .more{
+    height: 32px;
+  }
+  .list-view {
+    overflow: visible;
+  }
+}
+
+.subpanel-header {
+  border-bottom: 1px solid darken(@grayLighter, 15%);
+  height: 44px;
+  display: block;
+  cursor: pointer;
+  &:hover {
+    background-color: lighten(@grayLighter,2%);
+  }
+  h4 {
+    line-height: 26px;
+    font-weight: normal;
+    white-space: nowrap;
+    width: 65%;
+    width: ~"-moz-calc(100% - 202px)";
+    width: ~"-webkit-calc(100% - 202px)";
+    width: ~"calc(100% - 202px)";
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .label-module-sm {
+    width: 26px;
+    height: 26px;
+    margin: 7px 10px;
+  }
+  a.btn {
+    width: 28px;
+    .box-sizing(border-box);
+  }
+  .btn-toolbar > .btn-group {
+    margin-left: 16px;
+    margin-right: 10px;
+  }
+}
+
+.subpanel-controls {
+  margin-top: 7px;
+}
+
+.main-content .filtered .results {
+  margin-bottom: 0;
+}

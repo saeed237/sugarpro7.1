@@ -1,0 +1,264 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<h2>Overview</h2>
+<span class="lead">
+    Gets the customizable variables of a theme.
+</span>
+
+<h2>Query String Parameters</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>platform</td>
+        <td>String</td>
+        <td>The theme platform - /themes/clients/***PLATFORM***/themeName/. Accepted values are 'base' and 'portal'.</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>themeName</td>
+        <td>String</td>
+        <td>The theme name - /themes/clients/platform/***THEMENAME***/.</td>
+        <td>False</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Query String Example:</h3>
+<pre class="pre-scrollable">
+{
+   platform: 'base',
+   themeName: 'default'
+}
+</pre>
+
+<h2>Input Parameters</h2>
+<span class="lead">
+    This endpoint does not accept any input parameters.
+</span>
+
+<h2>Result</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>mixins</td>
+            <td>Array</td>
+            <td>An array of name value pairs detailing mixin colors</td>
+        </tr>
+        <tr>
+            <td>hex</td>
+            <td>Array</td>
+            <td>A array of name value pairs detailing css colors</td>
+        </tr>
+        <tr>
+            <td>rgba</td>
+            <td>Array</td>
+            <td>An array of name value pairs detailing colors</td>
+        </tr>
+        <tr>
+            <td>rel</td>
+            <td>Array</td>
+            <td>An array of name value pairs detailing relationships</td>
+        </tr>
+        <tr>
+            <td>bg</td>
+            <td>Array</td>
+            <td>An array of name value pairs detailing backgroup colors</td>
+        </tr>
+        </tbody>
+    </table>
+</span>
+
+<h3>Output Example:</h3>
+<pre class="pre-scrollable">
+{
+   "mixins":[
+
+   ],
+   "hex":[
+      {
+         "name":"BorderColor",
+         "value":"#E61718"
+      },
+      {
+         "name":"NavigationBar",
+         "value":"#000000"
+      },
+      {
+         "name":"PrimaryButton",
+         "value":"#177EE5"
+      },
+      {
+         "name":"fill00",
+         "value":"#1f77b4"
+      },
+      {
+         "name":"fill01",
+         "value":"#aec7e8"
+      },
+      {
+         "name":"fill02",
+         "value":"#ff7f0e"
+      },
+      {
+         "name":"fill03",
+         "value":"#ffbb78"
+      },
+      {
+         "name":"fill04",
+         "value":"#2ca02c"
+      },
+      {
+         "name":"fill05",
+         "value":"#98df8a"
+      },
+      {
+         "name":"fill06",
+         "value":"#d62728"
+      },
+      {
+         "name":"fill07",
+         "value":"#ff9896"
+      },
+      {
+         "name":"fill08",
+         "value":"#9467bd"
+      },
+      {
+         "name":"fill09",
+         "value":"#c5b0d5"
+      },
+      {
+         "name":"fill10",
+         "value":"#8c564b"
+      },
+      {
+         "name":"fill11",
+         "value":"#c49c94"
+      },
+      {
+         "name":"fill12",
+         "value":"#e377c2"
+      },
+      {
+         "name":"fill13",
+         "value":"#f7b6d2"
+      },
+      {
+         "name":"fill14",
+         "value":"#7f7f7f"
+      },
+      {
+         "name":"fill15",
+         "value":"#c7c7c7"
+      },
+      {
+         "name":"fill16",
+         "value":"#bcbd22"
+      },
+      {
+         "name":"fill17",
+         "value":"#dbdb8d"
+      },
+      {
+         "name":"fill18",
+         "value":"#17becf"
+      },
+      {
+         "name":"fill19",
+         "value":"#9edae5"
+      },
+      {
+         "name":"stroke0",
+         "value":"#1f77b4"
+      },
+      {
+         "name":"stroke1",
+         "value":"#ff7f0e"
+      },
+      {
+         "name":"stroke2",
+         "value":"#2ca02c"
+      },
+      {
+         "name":"stroke3",
+         "value":"#d62728"
+      },
+      {
+         "name":"stroke4",
+         "value":"#9467bd"
+      },
+      {
+         "name":"stroke5",
+         "value":"#8c564b"
+      },
+      {
+         "name":"stroke6",
+         "value":"#e377c2"
+      },
+      {
+         "name":"stroke7",
+         "value":"#7f7f7f"
+      },
+      {
+         "name":"stroke8",
+         "value":"#bcbd22"
+      },
+      {
+         "name":"stroke9",
+         "value":"#17becf"
+      }
+   ],
+   "rgba":[
+
+   ],
+   "rel":[
+
+   ],
+   "bg":[
+
+   ]
+}
+</pre>
+<h2>Change Log</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Version</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>
+            v10
+        </td>
+        <td>
+            Added <code>/&lt;theme&gt;</code> GET endpoint.
+        </td>
+    </tr>
+</table>

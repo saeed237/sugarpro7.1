@@ -1,0 +1,18 @@
+/*********************************************************************************
+     * By installing or using this file, you are confirming on behalf of the entity
+     * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+     * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+     * http://www.sugarcrm.com/master-subscription-agreement
+     *
+     * If Company is not bound by the MSA, then by installing or using this file
+     * you are agreeing unconditionally that Company will be bound by the MSA and
+     * certifying that you have authority to bind Company accordingly.
+     *
+     * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+     ********************************************************************************/
+({titleSelectedValues:'',titleViewNameTitle:'',titleMessage:'',toggleTitleTpl:{},events:{'click .resetLink':'onResetLinkClicked'},initialize:function(options){app.view.View.prototype.initialize.call(this,options);this.titleViewNameTitle=app.lang.get('LBL_FORECASTS_CONFIG_TITLE_TIMEPERIODS','Forecasts');this.titleMessage=app.lang.get('LBL_FORECASTS_CONFIG_TITLE_MESSAGE_TIMEPERIODS','Forecasts');this.toggleTitleTpl=app.template.getView('forecastsConfigHelpers.toggleTitle','Forecasts');},onResetLinkClicked:function(evt){evt.preventDefault();evt.stopImmediatePropagation();},bindDataChange:function(){if(this.model){this.model.on('change',function(model){if(_.isUndefined(model)){model=this.model;}
+if(model.changed['timeperiod_start_date']){var tmpD=new Date(new Date(model.changed['timeperiod_start_date']))
+tmpD=new Date(tmpD.getTime()+(tmpD.getTimezoneOffset()*60000));this.titleSelectedValues=app.date.format(tmpD,app.user.getPreference('datepref'));this.updateTitle();}},this);}},updateTitle:function(){var tplVars={title:this.titleViewNameTitle,message:this.titleMessage,selectedValues:this.titleSelectedValues,viewName:'forecastsConfigTimeperiods'};this.$el.find('#'+this.name+'Title').html(this.toggleTitleTpl(tplVars));},_renderField:function(field){field=this._setUpTimeperiodConfigField(field);if(this.model.get('is_setup')){field.options.def.view='detail';}
+app.view.View.prototype._renderField.call(this,field);},_render:function(){app.view.View.prototype._render.call(this);this.$el.addClass('accordion-group');this.updateTitle();},_setUpTimeperiodConfigField:function(field){switch(field.name){case"timeperiod_shown_forward":case"timeperiod_shown_backward":return this._setUpTimeperiodShowField(field);case"timeperiod_interval":return this._setUpTimeperiodIntervalBind(field);default:return field;}},_setUpTimeperiodShowField:function(field){field.events=_.extend({"change input":"_updateSelection"},field.events);field.bindDomChange=function(){};field._updateSelection=function(event){var value=$(event.currentTarget).val();this.def.value=value;this.model.set(this.name,value);};this.model.set(field.name,this.model.get(field.name).toString(),{silent:true});field.def.value=this.model.get(field.name)||1;return field;},_setUpTimeperiodIntervalBind:function(field){field.def.value=this.model.get(field.name);field.events=_.extend({"change input":"_updateIntervals"},field.events);field.bindDomChange=function(){};if(typeof(field.def.options)=='string'){field.def.options=app.lang.getAppListStrings(field.def.options);}
+field._updateIntervals=function(event){var selected_interval=$(event.currentTarget).val();this.def.value=selected_interval;this.model.set(this.name,selected_interval);this.model.set('timeperiod_leaf_interval',selected_interval=='Annual'?'Quarter':'Month');}
+return field;}})

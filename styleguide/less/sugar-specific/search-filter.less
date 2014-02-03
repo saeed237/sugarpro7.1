@@ -1,0 +1,458 @@
+// search filter widget
+.form-search-related {
+  .select2-container .select2-choice {
+      padding: 0 0 0 4px;
+  }
+  // outer wrapper
+  .control-group {
+    padding: 5px 5px 5px 9px;
+  }
+
+  // search filter inputs
+  .filter-view {
+    border: 1px solid @inputBorder;
+    position: relative;
+    margin-left: 0;
+    margin-right: 5px;
+    background-color: @white;
+    margin-bottom: 0;
+    overflow: hidden;
+    height: 26px;
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,0.075)");
+    .border-radius(@baseBorderRadius);
+    .user-select(none);
+
+    // non-select2 filter pills
+    div.choice-related,
+    div.choice-filter {
+      .border-radius(0 10px 10px 0);
+      padding: 4px 6px 4px 4px;
+      display: inline-block;
+      height: 12px;
+      white-space: nowrap;
+      margin-top: 3px;
+      margin-left: -6px;
+      font-size: @fontSizeSmall;
+      font-weight: bold;
+      line-height: 12px;
+      vertical-align: top;
+    }
+    div.choice-related {
+      background: darken(@grayLighter, 5%);
+      color: @gray;
+      cursor: text;
+    }
+    div.choice-filter {
+      background: @dropdownLinkBackgroundHover;
+      color: @dropdownLinkColorHover;
+    }
+
+    // select2 filter pills
+    .select2-container {
+      &.related-filter {
+        vertical-align: top;
+      }
+      &.select2-container-disabled .select2-choice div {
+        background: none;
+        .icon-caret-down {
+          display: none;
+        }
+      }
+      .select2-choices {
+        padding: 1px 4px 2px 0;
+        border: none;
+        background-image: none;
+        background-color: transparent;
+        .box-shadow(none);
+        .select2-input {
+          .box-sizing(border-box);
+          height: 21px;
+          font-size: @baseFontSize;
+        }
+      }
+      .select2-search-choice,
+      .select2-choice {
+        font-size: @fontSizeSmall;
+        background: none;
+        border: none;
+        .border-radius(0);
+        .box-shadow(none);
+        span {
+          display: inline-block;
+          margin-right: 0;
+        }
+        div {
+          display: none;
+        }
+        span.select2-choice-type {
+          .border-radius(10px 0 0 10px);
+          color: @gray;
+          padding: 4px 4px 4px 6px;
+          margin-right: 5px;
+          line-height: 12px;
+          height: 12px;
+          background: @grayLighter;
+          i[class^="icon-"] {
+            margin-left: 4px;
+          }
+          &:hover {
+            .box-shadow(~"inset 0 -16px 8px rgba(0,0,0,.1) !important");
+          }
+        }
+        span.select2-choice-related,
+        a.select2-choice-related,
+        span.select2-choice-filter,
+        a.select2-choice-filter {
+          .border-radius(0 10px 10px 0);
+          padding: 4px 6px 4px 4px;
+          display: inline-block;
+          line-height: 12px;
+        }
+        span.select2-choice-related,
+        a.select2-choice-related {
+          background: #c0f0ca;
+          color: #407648;
+          cursor: text;
+        }
+        span.select2-choice-filter,
+        a.select2-choice-filter {
+          background: @dropdownLinkBackgroundHover;
+          color: @dropdownLinkColorHover;
+        }
+        a:hover {
+          text-decoration: none;
+        }
+        .filter-disabled a {
+          background: @grayLighter;
+          color: @gray;
+          cursor: pointer;
+          &:hover {
+            color: @gray;
+          }
+        }
+        &.select2-locked {
+          padding-right: 0px !important;
+        }
+      }
+      &.select2-container-multi.select2-choices-pills-close .select2-search-choice {
+        div {
+          display: inline-block;
+          span.select2-choice-type {
+            margin-right: 2px;
+          }
+        }
+        a.select2-choice-filter {
+          padding-right: 20px;
+        }
+      }
+      &.select2-container-disabled {
+        .select2-choices {
+          padding-right: 0px;
+        }
+      }
+    }
+
+    // search input field
+    .search-name {
+      position: absolute;
+      left: auto;
+      width: 100%;
+      .box-sizing(border-box);
+      height: 22px;
+      border: 0;
+      padding: 4px 8px;
+      top: 2px;
+      box-shadow: none;
+      &.hide {
+        display: none;
+      }
+    }
+    .search-name:focus {
+      border: 0;
+      .box-shadow(none);
+    }
+  }
+
+  .add-on.icon-remove {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 7px 10px;
+    color: @gray;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  //not working for input focus
+  .filter-view:focus {
+    border-color: rgba(82,168,236,0.8);
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
+  }
+}
+
+// inset forms - specific
+.form-search-related,
+.form-search  {
+  margin: -1px 0 0 0;
+  .box-shadow(~"inset 0 -1px 0 rgba(255,255,255,.5)");
+  background: @grayLighter;
+  border-top: 1px solid darken(@grayLighter,10%);
+  border-bottom: 1px solid darken(@grayLighter,10%);
+  .mu.extend,
+  .inset-form.extend {
+    margin-top:-1px;
+    article.filter-header,
+    .inset-form-header {
+      padding-left: 20px;
+      .controls {
+        padding-top: 7px;
+      }
+    }
+    .controls {
+      padding-top: 2px;
+    }
+  }
+}
+
+
+// inset forms - general
+.filter-options.extend,
+.mu.extend,
+.inset-form.extend {
+  .filter-body {
+    .controls {
+      line-height: 16px;
+      .filter-rows .input-append .add-on:first-child {
+        margin-left: 0;
+        min-width: 70px;
+        text-align: right;
+      }
+      .filter-rows .input-append input.inherit-width {
+        width: 80%;
+        width: ~"-moz-calc(100% - 80px)";
+        width: ~"-webkit-calc(100% - 80px)";
+        width: ~"calc(100% - 80px)";
+      }
+    }
+    input[type=checkbox] {
+      margin-bottom: inherit;
+      vertical-align: baseline;
+    }
+  }
+
+  // inset form rows
+  article {
+    background-color: transparent;
+    border-top: 1px solid lighten(@grayLighter, 5%);
+    border-bottom: 1px solid darken(@grayLighter, 5%);
+    padding: 7px 10px 7px 11px;
+  }
+  article.filter-header,
+  .inset-form-header {
+    padding: 9px 10px 7px 10px;
+    .box-shadow(~"inset 0 4px 8px -4px rgba(0, 0, 0, 0.5)");
+    border-top: none;
+    .pull-right {
+      padding: 2px 0;
+      font-size: 0;
+    }
+  }
+  article:last-child {
+    .box-shadow(~"inset 0 -2px 6px -6px rgba(0, 0, 0, 0.5)");
+  }
+
+  // containing divs for create filter
+  .filter-field,
+  .filter-operator {
+  }
+  .filter-value {
+    position: relative;
+    .date {
+      width: 100%;
+      input[type="text"].datepicker,
+      input[type="text"].ui-timepicker-input {
+        width: 46%;
+        padding: 4px 3%;
+      }
+      input.ui-timepicker-input {
+        margin-left: 4%;
+      }
+      .add-on {
+        height: 11px;
+        padding: 9px 5px;
+      }
+    }
+    .row-fluid {
+      span {
+        &> label {
+          padding-top: 6px;
+        }
+      }
+    }
+  }
+  .filter-actions {
+    position: relative;
+    float: right;
+    padding: 2px 0;
+    font-size: 0;
+  }
+  .filter-close {
+    margin-left: 8px;
+  }
+
+  // inset form select2 controls
+  .select2-container {
+    width: 100%;
+    .select2-single-with-drop div b {
+      background-position: 0 0;
+    }
+    .select2-choices {
+      padding: 3px 70px 3px 0;
+      min-height: 20px;
+      border: 1px solid @grayLight;
+      background-image: none;
+      .border-radius(4px);
+      .box-shadow(~"inset 0 1px 1px rgba(0, 0, 0, 0.075)");
+    }
+    .select2-search-field {
+      height: 20px;
+      input {
+        padding: 0 0 0 9px;
+        line-height: 19px;
+        height: 20px;
+      }
+    }
+    .select2-search-choice {
+      padding: 0;
+      margin: 4px 4px 4px;
+      font-size: @baseFontSize;
+      background: none;
+      border: none;
+      .border-radius(0);
+      .box-shadow(none);
+      span {
+        .border-radius(10px 0 0 10px);
+        background: #ddd;
+        color: #777;
+        padding: 2px 4px 2px 6px;
+        margin-right: 2px;
+      }
+      a, span:last-child {
+        .border-radius(0 10px 10px 0);
+      }
+      span:last-child {
+        background: @grayLighter;
+      }
+      a {
+        background: #E5F4FB;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      .filter-disabled a {
+        background: @grayLighter;
+        color: @gray;
+        cursor: pointer;
+        &:hover {
+          color: @gray;
+        }
+      }
+    }
+    .select2-select-legend {
+      .icon-plus {
+        margin-top: 3px;
+        line-height: 4px;
+      }
+    }
+  }
+
+  // line up input text with left hand vertical
+  input {
+    padding: 4px 8px;
+  }
+
+  // datetime picker
+  .input-append {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .help-block {
+    display: none;
+  }
+
+  // not used?
+  .toolbar-btns {
+    width: 150px;
+    position: absolute;
+    right: 3px;
+    top: 6px;
+    a.btn {
+      &>i {
+        color:lighten(@gray,20%) !important;
+      }
+      &.active > i {
+        color:darken(@gray,20%) !important;
+      }
+    }
+  }
+
+  // inset form row controls
+  // mass update controls are named .add and .remove
+  .addme,
+  .removeme,
+  .updateme {
+    position: absolute;
+    top: 0;
+    padding: 5px 7px 3px;
+    background-color: darken(@grayLighter, 5%);
+  }
+  .addme,
+  .updateme {
+    right: 0;
+  }
+  .removeme {
+    right: 36px;
+  }
+
+  //adding this for mass update teamset
+  label {
+    padding-left: 16px;
+    text-indent: -16px;
+    line-height: 16px;
+    margin-bottom: 0;
+  }
+}
+.search-filter-dropdown.select2-drop.select2-drop-active {
+  .box-shadow(0px 0px 1px 0px @gray);//uiux-1172, using box-shadow over border because of artifacts
+  .border-radius(2px);
+}
+
+// dropdown menu for filter pills
+.search-filter-dropdown {
+  border: 0px none;
+  width: auto;
+  margin-top: 5px;
+  .result-selected {
+    display: block;
+    font-weight: bold;
+  }
+  .select2-results {
+    margin: 0;
+    padding: 0;
+    max-height: 235px;
+    li {
+      line-height: 26px;
+      border-bottom: 1px solid darken(@grayLighter, 5%);
+    }
+    li:hover,
+    .select2-highlighted {
+      background: @dropdownLinkBackgroundHover;
+      color: @dropdownLinkColorHover;
+    }
+  }
+  &:before,
+  &:after {
+    display: none;
+  }
+}

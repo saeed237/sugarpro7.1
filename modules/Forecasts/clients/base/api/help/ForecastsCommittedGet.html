@@ -1,0 +1,83 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+-->
+<div class="longHelpTitle">A list of forecasts entries matching filter criteria</div>
+<div class="summary">
+    <h2>Summary:</h2>
+    This endpoint is used to return the json Data for the committed values of a user's forecast based on the passed in filter criteria
+</div>
+<div class="params">
+    <h2>Query Parameters:</h2>
+    <table>
+        <tr>
+            <td><strong>Param</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Optional</strong></td>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>Show for a specific user, defaults to current user if not defined</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>timeperiod_id</td>
+            <td>Show for a specific time period, defaults to the current time period if one is not passed</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>forecast_type</td>
+            <td>Which forecast type to supply, rollup or direct</td>
+            <td>required</td>
+        </tr>
+        <tr>
+            <td>show_deleted</td>
+            <td>control if deleted committed forecasts should be included or not</td>
+            <td>required</td>
+        </tr>
+    </table>
+</div>
+<div class="input">
+    <h2>Input Example:</h2>
+    <code class="codesample">
+{
+    'user_id':'seed_max_id,
+    'timeperiod_id':'36f7085a-5889-ea75-84c8-50f42bd1a5ba',
+    'forecast_type':'36f7085a-5889-ea75-84c8-50f42bd1a5ba',
+}
+    </code>
+</div>
+<div class="output">
+    <h2>Output Example:</h2>
+    <code class="codesample">
+        [ { "base_rate" : "1",
+            "best_case" : "649700.000000",
+            "currency_id" : "-99",
+            "date_entered" : "2013-01-17T14:39:13-05:00",
+            "date_modified" : "2013-01-17T14:39:13-05:00",
+            "deleted" : "0",
+            "end_date" : "2013-03-31",
+            "forecast_type" : "Rollup",
+            "id" : "cec2c6ba-5d1c-0ca8-16b7-50f8532125d8",
+            "likely_case" : "649800.000000",
+            "opp_count" : "23",
+            "opp_weigh_value" : "649500",
+            "start_date" : "2013-01-01",
+            "timeperiod_id" : "dcc2885a-5889-ea75-84c8-50f853d1a5ba",
+            "timeperiod_name" : "Q1 (01/01/2013 - 03/31/2013)",
+            "user_id" : "seed_jim_id",
+            "worst_case" : "649600.000000"
+          } ]
+    </code>
+</div>

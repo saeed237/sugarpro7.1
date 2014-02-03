@@ -1,0 +1,72 @@
+<!--
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+/*********************************************************************************
+ * {APP.LBL_CURRENCY_SYM}Header: /cvsroot/sugarcrm/sugarcrm/modules/Emails/SubPanelViewRecipients.html,v 1.2 2004/06/29 07:22:26 sugarclint Exp {APP.LBL_CURRENCY_SYM}
+ ********************************************************************************/
+-->
+<!-- BEGIN: users -->
+<h3>{APP.LBL_USER_LIST}</h3>
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td scope="col" width="25%" ><slot>{APP.LBL_LIST_NAME}</slot></td>
+	<td scope="col" width="20%" ><slot>{APP.LBL_LIST_USER_NAME}</slot></td>
+	<td scope="col" width="30%" ><slot>{APP.LBL_LIST_EMAIL}</slot></td>
+	<td scope="col" width="15%" ><slot>{APP.LBL_LIST_PHONE}</slot></td>
+	<td scope="col" width="10%" ><slot><img src="include/images/blank.gif" widht="1" height="1" alt=""></slot></td>
+	</tr>
+
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td scope='row' valign=TOP><slot><a  href="{URL_PREFIX}index.php?action=DetailView&module=Users&record={USER.ID}">{USER.FIRST_NAME}&nbsp;{USER.LAST_NAME}</a></slot></td>
+    	<td valign=TOP><slot>{USER.USER_NAME}</slot></td>
+    	<td valign=TOP><slot><A HREF="mailto:{USER.EMAIL1}"  >{USER.EMAIL1}</A></slot></td>
+    	<td valign=TOP  nowrap><slot>{USER.PHONE_WORK}</slot></td>
+    	<td nowrap align="center" valign=TOP><slot><a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_REMOVE_INVITEE}')" href="{URL_PREFIX}index.php?action=DeleteEmailUserRelationship&module=Emails&user_id={USER.ID}&email_id={RECORD_ID}{RETURN_URL}">{REMOVE_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_REMOVE_INVITEE}')" href="{URL_PREFIX}index.php?action=DeleteEmailUserRelationship&module=Emails&user_id={USER.ID}&email_id={RECORD_ID}{RETURN_URL}">{APP.LNK_REMOVE}</a></slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+</table>
+
+<!-- END: users -->
+<!-- BEGIN: contacts -->
+<h3>{APP.LBL_CONTACT_LIST}</h3>
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="list view">
+	<tr height="20" >
+	<td width="25%" ><slot>{APP.LBL_LIST_CONTACT_NAME}</slot></td>
+	<td width="20%" ><slot>{APP.LBL_LIST_ACCOUNT_NAME}</slot></td>
+	<td width="30%" ><slot>{APP.LBL_LIST_EMAIL}</slot></td>
+	<td width="15%" ><slot>{APP.LBL_LIST_PHONE}</slot></td>
+	<td width="10%" ><slot>&nbsp;</slot></td>
+	</tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"  class="{ROW_COLOR}S1">
+		<td valign=TOP><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Contacts&record={CONTACT.ID}" >{CONTACT.FIRST_NAME}&nbsp;{CONTACT.LAST_NAME}</a></slot></td>
+    	<td valign=TOP><slot>{CONTACT.ACCOUNT_NAME}</slot></td>
+    	<td valign=TOP><slot><A HREF="mailto:{CONTACT.EMAIL1}" >{CONTACT.EMAIL1}</A></slot></td>
+    	<td valign=TOP  nowrap><slot>{CONTACT.PHONE_WORK}</slot></td>
+    	<td nowrap align="center" valign=TOP><slot><a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Contacts&record={CONTACT.ID}{RETURN_URL}">{EDIT_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1" href="{URL_PREFIX}index.php?action=EditView&module=Contacts&record={CONTACT.ID}{RETURN_URL}">{APP.LNK_EDIT}</a>&nbsp;&nbsp;<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_REMOVE_INVITEE}')" href="{URL_PREFIX}index.php?action=DeleteEmailContactRelationship&module=Emails&contact_id={CONTACT.ID}&email_id={RECORD_ID}{RETURN_URL}">{REMOVE_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1" onclick="return confirm('{MOD.NTC_REMOVE_INVITEE}')" href="{URL_PREFIX}index.php?action=DeleteEmailContactRelationship&module=Emails&contact_id={CONTACT.ID}&email_id={RECORD_ID}{RETURN_URL}">{APP.LNK_REMOVE}</a></slot></td>
+
+</tr>
+
+<!-- END: row -->
+
+</table>
+<!-- END: contacts -->

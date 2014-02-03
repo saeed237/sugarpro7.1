@@ -1,0 +1,116 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<section id="horizontal-bar">
+  <div class="page-header">
+    <h2>Horizontal Bar <small>used for comparing many values in a single series</small></h2>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>All Opportunities By Lead Source</h3>
+      <p>A horizontal bar chart with stacked data. [<a href="styleguide/content/charts/multiBarHorizontalChart_opportunities.html" target="_blank">Full Screen</a> | <a href="styleguide/content/charts/multiBarHorizontalChart_colors.html" target="_blank">Color Options</a>]</p>
+      <div>
+<div id="horiz1" class="nv-chart">
+<svg></svg>
+</div>
+      </div>
+    </div>
+    <div class="span6">
+      <h3>Short/Long Horizontal Bar</h3>
+      <p>A horizontal bar chart relative to a baseline. [<a href="styleguide/content/charts/multiBarHorizontalChart.html" target="_blank">Full Screen</a> | <a href="styleguide/content/charts/multiBarHorizontalChart_colors.html" target="_blank">Color Options</a>]</p>
+      <div>
+<div id="horiz2" class="nv-chart">
+<svg></svg>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="styleguide/content/charts/data/horizbar_data.js"></script>
+
+<script>
+  // Multibar Horizontal Chart
+  nv.addGraph({
+    generate: function() {
+      nv.addGraph(function() {
+        var chart = nv.models.multiBarHorizontalChart()
+              .x(function(d) { return d.label })
+              .y(function(d) { return d.value })
+              .margin({top: 10, right: 10, bottom: 20, left: 90})
+              .showValues(true)
+              .showTitle(false)
+              .tooltips(true)
+              .stacked(true)
+              .showControls(false)
+              .tooltipContent( function(key, x, y, e, graph) {
+                return '<p>Outcome: <b>' + key + '</b></p>' +
+                       '<p>Lead Source: <b>' +  x + '</b></p>' +
+                       '<p>Amount: <b>$' +  parseInt(y) + 'K</b></p>'
+                })
+            ;
+
+        chart.yAxis
+            .tickFormat(d3.format(',.2f'));
+
+        d3.select('#horiz1 svg')
+            .datum(opportunities_data)
+          .transition().duration(500)
+            .call(chart);
+
+        return chart;
+      });
+    },
+    callback: function(graph) {
+      $('#log').text('Chart is loaded');
+    }
+  });
+
+  // Multibar Horizontal Chart with Baseline
+  nv.addGraph({
+    generate: function() {
+      nv.addGraph(function() {
+        var chart = nv.models.multiBarHorizontalChart()
+              .x(function(d) { return d.label })
+              .y(function(d) { return d.value })
+              .margin({top: 10, right: 10, bottom: 20, left: 80})
+              .showValues(true)
+              .showTitle(false)
+              .tooltips(true)
+              .showControls(false)
+              .stacked(false)
+              .tooltipContent( function(key, x, y, e, graph) {
+                return '<p>Outcome: <b>' + key + '</b></p>' +
+                       '<p>Lead Source: <b>' +  x + '</b></p>' +
+                       '<p>Amount: <b>$' +  parseInt(y) + 'K</b></p>'
+              })
+            ;
+
+        chart.yAxis
+            .tickFormat(d3.format(',.2f'));
+
+        d3.select('#horiz2 svg')
+            .datum(horizbar_data_default)
+          .transition().duration(500)
+            .call(chart);
+
+        return chart;
+      });
+    },
+    callback: function(graph) {
+      $('#log').text('Chart is loaded');
+    }
+  });
+</script>

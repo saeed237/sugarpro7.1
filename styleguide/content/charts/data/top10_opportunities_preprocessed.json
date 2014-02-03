@@ -1,0 +1,215 @@
+{
+  "next_offset": 10,
+  "records": [
+    {
+      "id": "e424dc4d-17ec-729f-d37c-515586c512ef",
+      "name": "A.D. Importing Company Inc - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Max Jensen",
+      "account_name": "A.D. Importing Company Inc",
+      "account_id": "c328dca0-caff-b7d3-2bf7-51558660de94",
+      "amount": "489455",
+      "base_rate": "0.9",
+      "currency_id": "72f50a10-5a82-3d7d-2d27-51558653d8ca",
+      "date_closed": "2013-03-30",
+      "sales_stage": "Id. Decision Makers",
+      "probability": "40",
+      "commit_stage": "exclude",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "7918196d-1aff-103d-7e85-515586a9a701",
+      "name": "JAB Funds Ltd. - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Sally Bronsen",
+      "account_name": "JAB Funds Ltd.",
+      "account_id": "eaba49cb-48cd-a1fb-beae-5155869247b5",
+      "amount": "464387",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-29",
+      "sales_stage": "Needs Analysis",
+      "probability": "10",
+      "commit_stage": "exclude",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "e1f66689-eca4-5523-c41e-51558685d8e2",
+      "name": "NW Capital Corp - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Chris Olliver",
+      "account_name": "NW Capital Corp",
+      "account_id": "1be9fb31-6ca5-1e4a-8f33-515586004452",
+      "amount": "460707",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-09",
+      "sales_stage": "Closed Won",
+      "probability": "70",
+      "commit_stage": "include",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "93515706-373a-a117-d910-515586c122d0",
+      "name": "EEE Endowments LTD - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Sarah Smith",
+      "account_name": "EEE Endowments LTD",
+      "account_id": "8bd2a017-38c7-aed8-f937-515586926854",
+      "amount": "439633",
+      "base_rate": "0.9",
+      "currency_id": "72f50a10-5a82-3d7d-2d27-51558653d8ca",
+      "date_closed": "2013-03-30",
+      "sales_stage": "Id. Decision Makers",
+      "probability": "10",
+      "commit_stage": "exclude",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "63d2550e-3253-d1d0-a407-5155860fb790",
+      "name": "A.G. Parr PLC - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Sarah Smith",
+      "account_name": "A.G. Parr PLC",
+      "account_id": "73819cdc-23e1-0a8c-863f-5155863dcfad",
+      "amount": "423856",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-29",
+      "sales_stage": "Value Proposition",
+      "probability": "90",
+      "commit_stage": "include",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "78d90ade-c0d4-2483-a0b9-515586405985",
+      "name": "Overhead & Underfoot Ltd. - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Max Jensen",
+      "account_name": "Overhead & Underfoot Ltd.",
+      "account_id": "83535b6e-2fc1-8f7e-ff02-515586fde0b1",
+      "amount": "414137",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-30",
+      "sales_stage": "Prospecting",
+      "probability": "10",
+      "commit_stage": "exclude",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "c37831ef-6fa9-c085-14a1-5155866cfc77",
+      "name": "Green Tractor Group Limited - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Chris Olliver",
+      "account_name": "Green Tractor Group Limited",
+      "account_id": "cf5bff77-409d-f945-f11f-515586f0ed88",
+      "amount": "404513",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-30",
+      "sales_stage": "Value Proposition",
+      "probability": "90",
+      "commit_stage": "include",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "cfeeb365-a552-89b6-7b4d-515586e5a02b",
+      "name": "Waverly Trading House - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Jim Brennan",
+      "account_name": "Waverly Trading House",
+      "account_id": "41427037-aa48-4b7d-4170-515586aad5b9",
+      "amount": "397978",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-30",
+      "sales_stage": "Perception Analysis",
+      "probability": "10",
+      "commit_stage": "exclude",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "9f1af2a8-5543-f21d-2abe-515586f18ae8",
+      "name": "B.H. Edwards Inc - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Sarah Smith",
+      "account_name": "B.H. Edwards Inc",
+      "account_id": "ec2add37-6986-46ee-bbd0-515586f4540c",
+      "amount": "392750",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-30",
+      "sales_stage": "Perception Analysis",
+      "probability": "70",
+      "commit_stage": "include",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    },
+    {
+      "id": "3afd7d5c-d5f4-547a-81b6-5155869d9161",
+      "name": "Union Bank - 1000 units",
+      "date_modified": "2013-03-29T12:16:00+00:00",
+      "assigned_user_name": "Will Westin",
+      "account_name": "Union Bank",
+      "account_id": "59160c37-86f4-cc0c-141f-5155863d2e49",
+      "amount": "373486",
+      "base_rate": "1",
+      "currency_id": "-99",
+      "date_closed": "2013-03-01",
+      "sales_stage": "Closed Won",
+      "probability": "40",
+      "commit_stage": "exclude",
+      "my_favorite": false,
+      "_acl": {
+        "fields": {}
+      },
+      "following": false,
+      "_module": "Opportunities"
+    }
+  ]
+}

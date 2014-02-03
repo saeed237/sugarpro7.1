@@ -1,0 +1,61 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+<tfoot>
+<tr id="forecastsWorksheetTotalsOverallTotals">
+    {{#each this.leftColumns}}
+        <td>&nbsp;</td>
+    {{/each}}
+    <td colspan='{{before_colspan}}'>{{str "LBL_TOTAL" "Forecasts"}}</td>
+
+    {{#if this.totals.worst_case_display}}
+        <td class="tright">
+            {{#if this.totals.worst_case_access}}
+                {{formatCurrency this.totals.overall_worst}}
+            {{else}}
+                {{{this.noAccessDataErrorTemplate}}}
+            {{/if}}
+        </td>
+    {{/if}}
+
+    {{#if this.totals.likely_case_display}}
+        <td class="tright">
+            {{#if this.totals.likely_case_access}}
+                {{formatCurrency this.totals.overall_amount}}
+            {{else}}
+                {{{this.noAccessDataErrorTemplate}}}
+            {{/if}}
+        </td>
+    {{/if}}
+
+    {{#if this.totals.best_case_display}}
+        <td class="tright">
+            {{#if this.totals.best_case_access}}
+                {{formatCurrency this.totals.overall_best}}
+            {{else}}
+                {{{this.noAccessDataErrorTemplate}}}
+            {{/if}}
+        </td>
+    {{/if}}
+    {{#if this.after_colspan}}
+         <td colspan='{{after_colspan}}'>&nbsp;</td>
+    {{/if}}
+    {{#each this.rightColumns}}
+        <td>&nbsp;</td>
+    {{/each}}
+</tr>
+</tfoot>
+
+
