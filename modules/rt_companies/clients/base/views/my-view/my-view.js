@@ -3,7 +3,10 @@
     events: {
         'change .companies': 'handelChange'
     },
-
+	render: function() {
+		app.view.View.prototype.render.call(this);
+		$('.companies').tooltip();
+	},
     handelChange: function(e) {
 		var root_path = 'custom/themes/default/images/';
         if(e.currentTarget.value =='ibm'){
