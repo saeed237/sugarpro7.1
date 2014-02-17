@@ -1,16 +1,15 @@
 ({
     className: 'my-view tcenter',
-
-    cubeOptions: {
-        spin: false
-    },
-
     events: {
-        'click .sugar-cube': 'spinCube'
+        'change .companies': 'handelChange'
     },
 
-    spinCube: function() {
-        this.cubeOptions.spin = !this.cubeOptions.spin;
-        this.render();
+    handelChange: function(e) {
+		var root_path = 'custom/themes/default/images/';
+        if(e.currentTarget.value =='ibm'){
+			document.getElementById('img_show').setAttribute('src', root_path+'wheel.PNG');
+		}else{
+			document.getElementById('img_show').setAttribute('src', root_path+'ludo.PNG');
+		}
     }
 })
